@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
-import { loadBundle } from '../lib/contentLoader';
+import { loadAllBundles } from '../lib/contentLoader';
+import { useAppStore } from '../stores/appStore';
+import { BundleCard } from './BundleCard';
 import type { Bundle } from '../types/content';
 
 export function HomePage() {
-  const [bundle, setBundle] = useState<Bundle | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [bundles, setBundles] = useState<Bundle[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const completedTasks = useAppStore((state) => state.completedTasks);
 
   useEffect(() => {
-    loadBundle('/bundles/bundle-01-html-basics.json')
+    loadAllBundles(['/bundles/bundle-01-html-basics.json'])
       .then((data) => {
-        setBundle(data);
+        setBundles(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -20,42 +23,42 @@ export function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-8">
-      <div className="text-center max-w-xl">
-        <h1 className="text-4xl font-bold text-blue-600">WebTasks Platform</h1>
-        <p className="mt-4 text-gray-600">Startseite kommt in Phase 6</p>
+    <div className="min-h-screen bg-gray-50">
+      <header className="border-b border-gray-200 bg-white px-4 py-4 shadow-sm md:px-6">
+        <div className="mx-auto max-w-7xl">
+          <span className="text-xl font-bold text-blue-600">WebTasks</span>
+        </div>
+      </header>
 
-        <div className="mt-8 rounded-lg border border-gray-200 bg-white p-6 text-left shadow-sm">
-          <h2 className="text-lg font-semibold text-gray-800">Content-Loader Test</h2>
+      <main className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+        <section className="text-center">
+          <h1 className="text-3xl font-extrabold text-gray-900 md:text-5xl">
+            Willkommen bei WebTasks
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            Lerne HTML, CSS und JavaScript Schritt für Schritt. Baue deine eigenen Webseiten und
+            interaktiven Anwendungen – direkt im Browser, ohne Installationen.
+          </p>
+        </section>
 
-          {loading && <p className="mt-2 text-gray-500">Lade Canary-Bundle...</p>}
+        <section className="mt-12">
+          <h2 className="text-xl font-semibold text-gray-800">Deine Lernmodule</h2>
+
+          {loading && <p className="mt-4 text-gray-500">Lade Module...</p>}
 
           {error && (
-            <p className="mt-2 text-red-600">
+            <div className="mt-4 rounded border border-red-200 bg-red-50 p-4 text-red-700">
               <strong>Fehler:</strong> {error}
-            </p>
-          )}
-
-          {bundle && (
-            <div className="mt-2 space-y-2 text-gray-700">
-              <p>
-                <strong>Bundle:</strong> {bundle.title}
-              </p>
-              <p>
-                <strong>Tasks gefunden:</strong> {bundle.tasks.length}
-              </p>
-              <ul className="list-disc pl-5 text-sm text-gray-600">
-                {bundle.tasks.map((task) => (
-                  <li key={task.id}>
-                    {task.title} ({task.validationTests.length} Test
-                    {task.validationTests.length !== 1 ? 's' : ''})
-                  </li>
-                ))}
-              </ul>
             </div>
           )}
-        </div>
-      </div>
+
+          <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {bundles.map((bundle) => (
+              <BundleCard key={bundle.id} bundle={bundle} completedTaskIds={completedTasks} />
+            ))}
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
