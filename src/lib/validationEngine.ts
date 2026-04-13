@@ -17,7 +17,9 @@ function toKebabCase(str: string): string {
   return str.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 }
 
-export function validateDomTest(test: DomTest, iframe: HTMLIFrameElement): TestResult {
+export async function validateDomTest(test: DomTest, iframe: HTMLIFrameElement): Promise<TestResult> {
+  // Give the iframe a moment to render the updated DOM
+  await new Promise((resolve) => setTimeout(resolve, 100));
   const doc = iframe.contentDocument ?? iframe.contentWindow?.document;
 
   if (!doc) {
@@ -102,9 +104,6 @@ export async function validateConsoleTest(
 
   const iframe = createValidationIframe(srcDoc);
 
-  // Wait a short moment for the iframe to load and execute scripts
-  await new Promise((resolve) => setTimeout(resolve, 300));
-
   const logs: unknown[][] = [];
 
   // Collect all console messages from this iframe
@@ -122,7 +121,10 @@ export async function validateConsoleTest(
   }
 
   window.addEventListener('message', collectHandler);
-  await new Promise((resolve) => setTimeout(resolve, 200));
+
+  // Wait for the iframe to load, execute scripts, and emit console messages
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
   window.removeEventListener('message', collectHandler);
   removeValidationIframe(iframe);
 
@@ -247,7 +249,7 @@ export async function validateTask(
             feedback: 'Vorschau-Frame nicht verfügbar für DOM-Test.',
           };
         } else {
-          result = validateDomTest(test, iframe);
+          result = await validateDomTest(test, iframe);
         }
         break;
       case 'console':
