@@ -84,7 +84,8 @@
 - [x] Fix 04: DOM-Validierung nutzt eigenes Iframe statt Live-Preview (siehe `state/fixes/fix-04-dom-validation-iframe.md`)
 - [x] Fix 05: DOM-Validierung via postMessage wegen Cross-Origin Sandbox (siehe `state/fixes/fix-05-dom-validation-cross-origin.md`)
 - [x] Fix 06: Externe Placeholder-Bilder durch Base64-Data-URIs ersetzt (siehe `state/fixes/fix-06-placeholder-images.md`)
-- [ ] Live-URL nach Fix 06 erneut testen
+- [x] Fix 07: "Code zurücksetzen"-Button im EditorPanel hinzugefügt (siehe `state/fixes/fix-07-code-reset-button.md`)
+- [ ] Live-URL nach Fix 07 erneut testen
 
 **Blocker / Risiken:**
 
