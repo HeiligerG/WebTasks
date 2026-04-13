@@ -20,6 +20,7 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
   const codeSnippets = useAppStore((state) => state.codeSnippets);
   const setCode = useAppStore((state) => state.setCode);
   const resetCode = useAppStore((state) => state.resetCode);
+  const theme = useAppStore((state) => state.theme);
 
   useEffect(() => {
     // Ensure each enabled editor has a value in the store
@@ -82,6 +83,7 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
               value={codeSnippets[taskId]?.[editor] ?? initialCode[editor]}
               onChange={(value) => handleChange(editor, value)}
               language={editor}
+              theme={theme}
               className="h-full text-sm"
             />
           </div>

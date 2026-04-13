@@ -10,6 +10,7 @@ import { PreviewFrame } from '../features/sandbox/PreviewFrame';
 import { SimulatedConsole, type ConsoleLog } from './SimulatedConsole';
 import { InstructionPanel } from './InstructionPanel';
 import { useAppStore } from '../stores/appStore';
+import { ThemeToggle } from './ThemeToggle';
 import { useDebounce } from '../hooks/useDebounce';
 import type { Bundle, Task } from '../types/content';
 
@@ -164,26 +165,29 @@ export function TaskPage() {
   }, [bundle, task]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
-      <header className="border-b border-gray-200 bg-white px-4 py-3 shadow-sm md:px-6 print:hidden">
+    <div className="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-950">
+      <header className="border-b border-gray-200 bg-white px-4 py-3 shadow-sm dark:border-gray-700 dark:bg-gray-900 md:px-6 print:hidden">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link to="/" className="text-lg font-bold text-blue-600 hover:text-blue-700">
             WebTasks
           </Link>
-          {bundle && task && (
-            <nav className="hidden text-sm text-gray-600 md:block">
-              {bundle.title} <span className="mx-2 text-gray-400">/</span> {task.title}
-            </nav>
-          )}
+          <div className="flex items-center gap-3">
+            {bundle && task && (
+              <nav className="hidden text-sm text-gray-600 dark:text-gray-300 md:block">
+                {bundle.title} <span className="mx-2 text-gray-400 dark:text-gray-500">/</span> {task.title}
+              </nav>
+            )}
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
       <main className="flex-1 p-4 md:p-6">
         <div className="mx-auto max-w-7xl">
-          {loading && <p className="text-gray-600">Lade Aufgabe...</p>}
+          {loading && <p className="text-gray-600 dark:text-gray-300">Lade Aufgabe...</p>}
 
           {error && (
-            <div className="rounded border border-red-200 bg-red-50 p-4 text-red-700">
+            <div className="rounded border border-red-200 bg-red-50 p-4 text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-200">
               <strong>Fehler:</strong> {error}
             </div>
           )}
@@ -226,7 +230,7 @@ export function TaskPage() {
 
               {/* Middle: Editor */}
               <div className="flex flex-col lg:w-[40%]">
-                <div className="flex-1 rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
+                <div className="flex-1 rounded-lg border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-900">
                   <EditorPanel
                     taskId={task.id}
                     enabledEditors={task.enabledEditors}
@@ -237,12 +241,12 @@ export function TaskPage() {
 
               {/* Right: Preview + Console */}
               <div className="flex flex-col gap-4 lg:w-[30%]">
-                <div className="flex-[2] rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
+                <div className="flex-[2] rounded-lg border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-900">
                   <PreviewFrame
                     ref={previewRef}
                     srcDoc={srcDoc}
                     onMessage={handleFrameMessage}
-                    className="h-full w-full rounded border border-gray-300 bg-white"
+                    className="h-full w-full rounded border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-950"
                   />
                 </div>
                 <div className="min-h-[180px] flex-1">

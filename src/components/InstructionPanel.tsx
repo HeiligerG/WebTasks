@@ -28,13 +28,13 @@ export function InstructionPanel({
   }, [validationResult]);
 
   return (
-    <div className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-      <h1 className="text-xl font-bold text-gray-800 md:text-2xl">{title}</h1>
+    <div className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+      <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100 md:text-2xl">{title}</h1>
       <div className="mt-4 flex-1 overflow-y-auto">
         <MarkdownRenderer>{instruction}</MarkdownRenderer>
       </div>
 
-      <div className="mt-5 border-t border-gray-100 pt-4">
+      <div className="mt-5 border-t border-gray-100 pt-4 dark:border-gray-700">
         <button
           type="button"
           onClick={onValidate}
@@ -47,7 +47,7 @@ export function InstructionPanel({
         {validationResult && (
           <div className="mt-3 space-y-2">
             {validationResult.success ? (
-              <div className="rounded-lg border border-green-200 bg-green-50 p-3 text-green-800">
+              <div className="rounded-lg border border-green-200 bg-green-50 p-3 text-green-800 dark:border-green-900 dark:bg-green-950 dark:text-green-200">
                 <strong>Super!</strong> Alle Tests bestanden.
               </div>
             ) : (
@@ -56,7 +56,7 @@ export function InstructionPanel({
                 .map((r, idx) => (
                   <div
                     key={idx}
-                    className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"
+                    className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200"
                   >
                     <strong>Test {r.testIndex + 1} fehlgeschlagen:</strong> {r.feedback}
                   </div>
