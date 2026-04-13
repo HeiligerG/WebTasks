@@ -24,6 +24,7 @@
     "acorn": "^8.16.0",
     "acorn-walk": "^8.3.5",
     "astring": "^1.9.0",
+    "canvas-confetti": "^1.9.4",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-markdown": "^10.1.0",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/estree": "^1.0.8",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.14",

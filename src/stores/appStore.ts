@@ -13,6 +13,7 @@ type AppState = {
   codeSnippets: Record<string, CodeSnippet>;
   completedTasks: string[];
   taskResults: Record<string, boolean>;
+  unlockedBadges: string[];
 };
 
 type AppActions = {
@@ -20,6 +21,7 @@ type AppActions = {
   setCode: (taskId: string, language: keyof CodeSnippet, code: string) => void;
   markTaskCompleted: (taskId: string) => void;
   setTaskResult: (taskId: string, passed: boolean) => void;
+  unlockBadge: (badgeName: string) => void;
 };
 
 export const useAppStore = create<AppState & AppActions>()(
@@ -30,6 +32,7 @@ export const useAppStore = create<AppState & AppActions>()(
       codeSnippets: {},
       completedTasks: [],
       taskResults: {},
+      unlockedBadges: [],
 
       setActiveTask: (bundleId, taskId) =>
         set(() => ({
@@ -62,6 +65,13 @@ export const useAppStore = create<AppState & AppActions>()(
             [taskId]: passed,
           },
         })),
+
+      unlockBadge: (badgeName) =>
+        set((state) => ({
+          unlockedBadges: state.unlockedBadges.includes(badgeName)
+            ? state.unlockedBadges
+            : [...state.unlockedBadges, badgeName],
+        })),
     }),
     {
       name: 'webtasks-storage',
@@ -71,6 +81,7 @@ export const useAppStore = create<AppState & AppActions>()(
         taskResults: state.taskResults,
         activeBundleId: state.activeBundleId,
         activeTaskId: state.activeTaskId,
+        unlockedBadges: state.unlockedBadges,
       }),
     }
   )

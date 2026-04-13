@@ -4,6 +4,7 @@ import { loadBundle } from '../lib/contentLoader';
 import { assembleDocument } from '../lib/codeAssembler';
 import { protectLoops } from '../lib/loopProtect';
 import { validateTask, type ValidationResult } from '../lib/validationEngine';
+import { triggerBigConfetti } from '../lib/confetti';
 import { EditorPanel } from '../features/editor/EditorPanel';
 import { PreviewFrame } from '../features/sandbox/PreviewFrame';
 import { SimulatedConsole, type ConsoleLog } from './SimulatedConsole';
@@ -24,8 +25,10 @@ export function TaskPage() {
 
   const previewRef = useRef<HTMLIFrameElement>(null);
   const codeSnippets = useAppStore((state) => state.codeSnippets);
+  const completedTasks = useAppStore((state) => state.completedTasks);
   const markTaskCompleted = useAppStore((state) => state.markTaskCompleted);
   const setTaskResult = useAppStore((state) => state.setTaskResult);
+  const unlockBadge = useAppStore((state) => state.unlockBadge);
 
   useEffect(() => {
     setLoading(true);
@@ -124,10 +127,18 @@ export function TaskPage() {
 
     if (result.success) {
       markTaskCompleted(task.id);
+
+      if (bundle) {
+        const allCompleted = bundle.tasks.every((t) => [...completedTasks, task.id].includes(t.id));
+        if (allCompleted) {
+          unlockBadge(bundle.badgeName);
+          triggerBigConfetti();
+        }
+      }
     }
 
     setValidating(false);
-  }, [task, currentCode, markTaskCompleted, setTaskResult]);
+  }, [task, currentCode, markTaskCompleted, setTaskResult, bundle, completedTasks, unlockBadge]);
 
   const prevTask = useMemo(() => {
     if (!bundle || !task) return null;
@@ -143,7 +154,7 @@ export function TaskPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gray-50">
-      <header className="border-b border-gray-200 bg-white px-4 py-3 shadow-sm md:px-6">
+      <header className="border-b border-gray-200 bg-white px-4 py-3 shadow-sm md:px-6 print:hidden">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link to="/" className="text-lg font-bold text-blue-600 hover:text-blue-700">
             WebTasks
@@ -178,7 +189,7 @@ export function TaskPage() {
                   validationResult={validationResult}
                 />
 
-                <div className="mt-3 flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between print:hidden">
                   {prevTask ? (
                     <Link
                       to={`/task/${bundle.id}/${prevTask.id}`}
@@ -223,7 +234,7 @@ export function TaskPage() {
                     className="h-full w-full rounded border border-gray-300 bg-white"
                   />
                 </div>
-                <div className="flex-1 min-h-[180px]">
+                <div className="min-h-[180px] flex-1">
                   <SimulatedConsole logs={consoleLogs} onClear={clearConsole} />
                 </div>
               </div>

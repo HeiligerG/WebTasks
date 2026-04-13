@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react';
 import { MarkdownRenderer } from './MarkdownRenderer';
+import { triggerConfetti } from '../lib/confetti';
 import type { ValidationResult } from '../lib/validationEngine';
 
 type InstructionPanelProps = {
@@ -16,6 +18,15 @@ export function InstructionPanel({
   validating,
   validationResult,
 }: InstructionPanelProps) {
+  const prevSuccessRef = useRef(false);
+
+  useEffect(() => {
+    if (validationResult?.success && !prevSuccessRef.current) {
+      triggerConfetti();
+    }
+    prevSuccessRef.current = validationResult?.success ?? false;
+  }, [validationResult]);
+
   return (
     <div className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
       <h1 className="text-xl font-bold text-gray-800 md:text-2xl">{title}</h1>
