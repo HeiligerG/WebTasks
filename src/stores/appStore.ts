@@ -19,6 +19,7 @@ type AppState = {
 type AppActions = {
   setActiveTask: (bundleId: string | null, taskId: string | null) => void;
   setCode: (taskId: string, language: keyof CodeSnippet, code: string) => void;
+  resetCode: (taskId: string, initialCode: CodeSnippet) => void;
   markTaskCompleted: (taskId: string) => void;
   setTaskResult: (taskId: string, passed: boolean) => void;
   unlockBadge: (badgeName: string) => void;
@@ -48,6 +49,14 @@ export const useAppStore = create<AppState & AppActions>()(
               ...state.codeSnippets[taskId],
               [language]: code,
             },
+          },
+        })),
+
+      resetCode: (taskId, initialCode) =>
+        set((state) => ({
+          codeSnippets: {
+            ...state.codeSnippets,
+            [taskId]: { ...initialCode },
           },
         })),
 
