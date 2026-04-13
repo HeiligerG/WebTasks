@@ -7,7 +7,7 @@
     {
       "id": "interactive-01",
       "title": "Auf Klicks reagieren",
-      "instruction": "JavaScript kann auf Benutzeraktionen wie Mausklicks reagieren. Das nennt man Event-Handling.\n\n**Deine Aufgabe:**\n1. Erstelle im HTML einen `<button>` mit der ID `klick-mich`.\n2. Füge im JavaScript einen Event-Listener hinzu, der bei einem Klick `console.log('Button geklickt!');` ausgibt.\n\n**Tipp:** Verwende `document.getElementById('klick-mich')` und `addEventListener('click', ...)`.",
+      "instruction": "JavaScript kann auf Benutzeraktionen wie Mausklicks reagieren. Das nennt man Event-Handling.\n\n**Anforderungen:**\n1. Erstelle im HTML einen `<button>` mit der ID `klick-mich`.\n2. Füge im JavaScript einen Event-Listener hinzu, der bei einem Klick `console.log('Button geklickt!');` ausgibt.\n\n**Tipp:** Verwende `document.getElementById('klick-mich')` und `addEventListener('click', ...)`.",
       "initialCode": {
         "html": "<div>Hier kommt der Button hin</div>",
         "css": "",
@@ -28,7 +28,7 @@
     {
       "id": "interactive-02",
       "title": "Text dynamisch ändern",
-      "instruction": "Mit JavaScript kannst du nicht nur auf Klicks reagieren, sondern auch den Inhalt von HTML-Elementen verändern.\n\n**Deine Aufgabe:**\n1. Im HTML ist bereits ein Paragraph mit der ID `nachricht` und ein Button mit der ID `aendern` vorhanden.\n2. Füge im JavaScript einen Event-Listener zum Button hinzu.\n3. Beim Klick soll der Text des Paragraphs zu `Hallo JavaScript!` geändert werden.\n\n**Tipp:** Verwende `element.textContent = '...'`, um den Text zu ändern.",
+      "instruction": "Mit JavaScript kannst du nicht nur auf Klicks reagieren, sondern auch den Inhalt von HTML-Elementen verändern.\n\n**Anforderungen:**\n1. Im HTML ist bereits ein Paragraph mit der ID `nachricht` und ein Button mit der ID `aendern` vorhanden.\n2. Füge im JavaScript einen Event-Listener zum Button hinzu.\n3. Beim Klick soll der Text des Paragraphs zu `Hallo JavaScript!` geändert werden.\n\n**Tipp:** Verwende `element.textContent = '...'`, um den Text zu ändern.",
       "initialCode": {
         "html": "<p id=\"nachricht\">Hallo Welt!</p>\n<button id=\"aendern\">Text ändern</button>",
         "css": "",
@@ -54,7 +54,7 @@
     {
       "id": "interactive-03",
       "title": "Color Flipper",
-      "instruction": "In dieser Abschlussaufgabe baust du eine kleine, voll funktionsfähige App: Einen Color Flipper!\n\n**Deine Aufgabe:**\n1. Erstelle im HTML einen Button mit der ID `farbe-aendern`.\n2. Schreibe im JavaScript eine Funktion, die beim Klick auf den Button eine zufällige Hex-Farbe erzeugt und sie als Hintergrundfarbe des `<body>` setzt.\n\n**Tipp für die Zufallsfarbe:** Eine Hex-Farbe besteht aus einem `#` gefolgt von 6 Ziffern/Buchstaben. Du kannst sie mit `Math.random()` und `Math.floor()` zusammenbauen.",
+      "instruction": "In dieser Abschlussaufgabe baust du eine kleine, voll funktionsfähige App: Einen Color Flipper!\n\n**Anforderungen:**\n1. Erstelle im HTML einen Button mit der ID `farbe-aendern`.\n2. Schreibe im JavaScript eine Funktion, die beim Klick auf den Button eine zufällige Hex-Farbe erzeugt und sie als Hintergrundfarbe des `<body>` setzt.\n\n**Tipp für die Zufallsfarbe:** Eine Hex-Farbe besteht aus einem `#` gefolgt von 6 Ziffern/Buchstaben. Du kannst sie mit `Math.random()` und `Math.floor()` zusammenbauen.",
       "initialCode": {
         "html": "<button id=\"farbe-aendern\">Farbe wechseln</button>",
         "css": "body {\n  margin: 0;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-family: sans-serif;\n}",
@@ -76,7 +76,7 @@
     {
       "id": "interactive-04",
       "title": "Elemente ein-/ausblenden",
-      "instruction": "Mit JavaScript kannst du Elemente sichtbar und unsichtbar machen, ohne sie aus dem HTML zu entfernen.",
+      "instruction": "Mit JavaScript kannst du Elemente sichtbar und unsichtbar machen, ohne sie aus dem HTML zu entfernen.\n\n**Anforderungen:**\n1. Im HTML ist ein Paragraph mit der ID `text` und ein Button mit der ID `toggle`.\n2. Beim Klick auf den Button soll der Paragraph ein- und ausgeblendet werden (`classList.toggle('hidden')`).\n3. Im CSS-Tab ist bereits eine Klasse `.hidden { display: none; }` definiert.",
       "initialCode": {
         "html": "<p id=\"text\">Hallo Welt!</p>\n<button id=\"toggle\">Ein-/Ausblenden</button>",
         "css": ".hidden { display: none; }",
@@ -103,7 +103,7 @@
     {
       "id": "interactive-05",
       "title": "Dynamisch Elemente erstellen",
-      "instruction": "JavaScript kann nicht nur bestehende Elemente verändern, sondern auch komplett neue in die Seite einfügen.",
+      "instruction": "JavaScript kann nicht nur bestehende Elemente verändern, sondern auch komplett neue in die Seite einfügen.\n\n**Anforderungen:**\n1. Im HTML ist eine leere `<ul id=\"liste\">` und ein Button mit der ID `hinzufuegen`.\n2. Beim Klick auf den Button soll ein neues `<li>` mit dem Text `Neues Element` zur Liste hinzugefügt werden.\n\n**Tipp:** Verwende `document.createElement('li')` und `appendChild()`.",
       "initialCode": {
         "html": "<ul id=\"liste\"></ul>\n<button id=\"hinzufuegen\">Element hinzufügen</button>",
         "css": "",
@@ -129,7 +129,7 @@
     {
       "id": "interactive-06",
       "title": "Zähler-App",
-      "instruction": "Baue eine kleine App, die einen Zähler hoch- und runterzählt.",
+      "instruction": "Baue eine kleine App, die einen Zähler hoch- und runterzählt.\n\n**Anforderungen:**\n1. Im HTML ist ein `<span id=\"counter\">0</span>` und zwei Buttons mit den IDs `plus` und `minus`.\n2. Klick auf `plus` erhöht den Zähler um 1.\n3. Klick auf `minus` verringert den Zähler um 1.",
       "initialCode": {
         "html": "<span id=\"counter\">0</span>\n<button id=\"plus\">+</button>\n<button id=\"minus\">-</button>",
         "css": "",
@@ -160,7 +160,7 @@
     {
       "id": "interactive-07",
       "title": "To-Do Liste (Hinzufügen)",
-      "instruction": "To-Do-Listen sind der Klassiker unter den Übungsprojekten. In diesem Task lernst du, wie man Nutzereingaben in die Liste überführt.",
+      "instruction": "To-Do-Listen sind der Klassiker unter den Übungsprojekten. In diesem Task lernst du, wie man Nutzereingaben in die Liste überführt.\n\n**Anforderungen:**\n1. Im HTML gibt es ein `<input type=\"text\" id=\"todo-input\">`, einen Button `<button id=\"todo-add\">Hinzufügen</button>` und eine leere `<ul id=\"todo-list\">`.\n2. Beim Klick auf den Button soll der Text aus dem Input-Feld als neues `<li>` in die Liste eingefügt werden.",
       "initialCode": {
         "html": "<input type=\"text\" id=\"todo-input\" placeholder=\"Neue Aufgabe\">\n<button id=\"todo-add\">Hinzufügen</button>\n<ul id=\"todo-list\"></ul>",
         "css": "",
@@ -191,7 +191,7 @@
     {
       "id": "interactive-08",
       "title": "To-Do Liste (Löschen)",
-      "instruction": "Eine To-Do-Liste ist nur halb so nützlich, wenn man Einträge nicht wieder löschen kann.",
+      "instruction": "Eine To-Do-Liste ist nur halb so nützlich, wenn man Einträge nicht wieder löschen kann.\n\n**Anforderungen:**\n1. Im HTML ist bereits eine Liste mit zwei To-Dos. Jedes `<li>` enthält einen Löschen-Button mit der Klasse `delete-btn`.\n2. Füge Event-Listener zu allen Löschen-Buttons hinzu, sodass beim Klick das jeweilige `<li>` aus der Liste entfernt wird.\n\n**Tipp:** Du kannst `event.target` oder `this` verwenden, um den geklickten Button zu finden, und dann mit `.parentElement.remove()` das `<li>` löschen.",
       "initialCode": {
         "html": "<ul id=\"todo-list\">\n  <li>Einkaufen <button class=\"delete-btn\">Löschen</button></li>\n  <li>Sport <button class=\"delete-btn\">Löschen</button></li>\n</ul>",
         "css": "",
@@ -217,7 +217,7 @@
     {
       "id": "interactive-09",
       "title": "Eingabe validieren",
-      "instruction": "Nicht alle Nutzereingaben sind korrekt. Deshalb müssen wir sie prüfen, bevor wir sie verarbeiten.",
+      "instruction": "Nicht alle Nutzereingaben sind korrekt. Deshalb müssen wir sie prüfen, bevor wir sie verarbeiten.\n\n**Anforderungen:**\n1. Im HTML gibt es ein `<input type=\"text\" id=\"email\">` und einen Button mit der ID `pruefen`.\n2. Beim Klick soll geprüft werden, ob die Eingabe ein `@`-Zeichen enthält.\n3. Wenn ja, zeige in einem `<p id=\"nachricht\">` `Gültige E-Mail` an.\n4. Wenn nein, zeige `Ungültige E-Mail` an.",
       "initialCode": {
         "html": "<input type=\"text\" id=\"email\" placeholder=\"E-Mail\">\n<button id=\"pruefen\">Prüfen</button>\n<p id=\"nachricht\"></p>",
         "css": "",
@@ -248,7 +248,7 @@
     {
       "id": "interactive-10",
       "title": "Lokaler Speicher",
-      "instruction": "Mit `localStorage` kannst du Daten im Browser des Nutzers speichern – auch wenn er die Seite neu lädt.",
+      "instruction": "Mit `localStorage` kannst du Daten im Browser des Nutzers speichern – auch wenn er die Seite neu lädt.\n\n**Anforderungen:**\n1. Im HTML gibt es ein Input-Feld `username` und einen Button `speichern`.\n2. Beim Klick auf `speichern` soll der Wert aus dem Input-Feld in `localStorage` unter dem Schlüssel `webtasks-user` gespeichert werden.\n3. Beim Laden der Seite (direkt im JS-Code) soll der gespeicherte Wert ausgelesen und in das Input-Feld eingesetzt werden.\n\n**Wichtig:** Die Validation-Engine kann `localStorage` nicht direkt prüfen. Wir validieren das Vorhandensein der Elemente und das korrekte JavaScript.",
       "initialCode": {
         "html": "<input type=\"text\" id=\"username\" placeholder=\"Dein Name\">\n<button id=\"speichern\">Speichern</button>",
         "css": "",
@@ -274,7 +274,7 @@
     {
       "id": "interactive-11",
       "title": "Dark Mode Toggle",
-      "instruction": "Du hast bereits die Plattform gesehen – jetzt baust du deinen eigenen Dark Mode Toggle!",
+      "instruction": "Du hast bereits die Plattform gesehen – jetzt baust du deinen eigenen Dark Mode Toggle!\n\n**Anforderungen:**\n1. Im HTML ist ein `<body>` (implizit vorhanden) und ein Button mit der ID `theme-toggle`.\n2. Beim Klick auf den Button soll die Klasse `dark` auf dem `<body>` hinzugefügt oder entfernt werden (`classList.toggle`).\n3. Im CSS ist bereits `.dark { background-color: #111; color: #fff; }` definiert.",
       "initialCode": {
         "html": "<button id=\"theme-toggle\">Dark Mode umschalten</button>\n<p>Hallo Welt</p>",
         "css": ".dark {\n  background-color: #111;\n  color: #fff;\n}",
@@ -296,7 +296,7 @@
     {
       "id": "interactive-12",
       "title": "Modales Dialogfenster",
-      "instruction": "Modale Dialoge werden überall im Web verwendet – für Cookie-Hinweise, Bestätigungen oder Anmeldungen.",
+      "instruction": "Modale Dialoge werden überall im Web verwendet – für Cookie-Hinweise, Bestätigungen oder Anmeldungen.\n\n**Anforderungen:**\n1. Im HTML ist ein Button `open-modal`, ein Container `.modal` mit einem Text und einem Button `close-modal`.\n2. Beim Klick auf `open-modal` soll die Modal sichtbar werden (`display: block`).\n3. Beim Klick auf `close-modal` soll sie wieder verschwinden (`display: none`).\n4. Das Modal ist initial mit `style=\"display: none;\"` versteckt.",
       "initialCode": {
         "html": "<button id=\"open-modal\">Modal öffnen</button>\n<div class=\"modal\" style=\"display:none;\">\n  <p>Hallo aus dem Modal!</p>\n  <button id=\"close-modal\">Schließen</button>\n</div>",
         "css": ".modal {\n  border: 1px solid #000;\n  padding: 20px;\n  margin-top: 10px;\n}",
@@ -328,7 +328,7 @@
     {
       "id": "interactive-13",
       "title": "BMI-Rechner",
-      "instruction": "Baue eine kleine Gesundheits-App: einen BMI-Rechner.",
+      "instruction": "Baue eine kleine Gesundheits-App: einen BMI-Rechner.\n\n**Anforderungen:**\n1. Im HTML gibt es zwei Input-Felder (`gewicht` in kg, `groesse` in m) und einen Button `bmi-berechnen`.\n2. Beim Klick soll der BMI berechnet (`gewicht / (groesse * groesse)`) und in ein `<p id=\"bmi-ergebnis\">` geschrieben werden.",
       "initialCode": {
         "html": "<input type=\"number\" id=\"gewicht\" placeholder=\"Gewicht in kg\">\n<input type=\"number\" id=\"groesse\" placeholder=\"Größe in m (z.B. 1.75)\">\n<button id=\"bmi-berechnen\">BMI berechnen</button>\n<p id=\"bmi-ergebnis\"></p>",
         "css": "",
@@ -364,7 +364,7 @@
     {
       "id": "interactive-14",
       "title": "Passwort-Generator",
-      "instruction": "Baue einen Generator, der zufällige Passwörter erstellt.",
+      "instruction": "Baue einen Generator, der zufällige Passwörter erstellt.\n\n**Anforderungen:**\n1. Im HTML ist ein Button `generate-password` und ein `<p id=\"password\">`.\n2. Beim Klick soll ein zufälliges Passwort aus 8 Buchstaben/Zahlen generiert und im Paragraph angezeigt werden.",
       "initialCode": {
         "html": "<button id=\"generate-password\">Passwort generieren</button>\n<p id=\"password\"></p>",
         "css": "",
@@ -390,7 +390,7 @@
     {
       "id": "interactive-15",
       "title": "Fetch API Basics",
-      "instruction": "Moderne Web-Apps laden Daten von Servern. Das geht mit der `fetch`-API.",
+      "instruction": "Moderne Web-Apps laden Daten von Servern. Das geht mit der `fetch`-API.\n\n**Anforderungen:**\n1. Mache einen `fetch`-Aufruf zu `https://jsonplaceholder.typicode.com/todos/1`.\n2. Wandle die Antwort in JSON um.\n3. Gib den `title` des To-Dos mit `console.log()` aus.\n\n**Tipp:** `fetch(url).then(res => res.json()).then(data => console.log(data.title))`",
       "initialCode": {
         "html": "",
         "css": "",
@@ -410,7 +410,7 @@
     {
       "id": "interactive-16",
       "title": "JSON-Daten anzeigen",
-      "instruction": "Daten allein in der Konsole sind langweilig. Zeige sie auf der Webseite an!",
+      "instruction": "Daten allein in der Konsole sind langweilig. Zeige sie auf der Webseite an!\n\n**Anforderungen:**\n1. Im HTML sind zwei `<p>`-Elemente mit den IDs `user-name` und `user-email`.\n2. Im JavaScript ist ein Objekt `user = { name: \"Max Mustermann\", email: \"max@example.com\" }` vorgegeben.\n3. Zeige `name` und `email` aus dem Objekt in den jeweiligen Paragraphs an.",
       "initialCode": {
         "html": "<p id=\"user-name\"></p>\n<p id=\"user-email\"></p>",
         "css": "",
@@ -436,7 +436,7 @@
     {
       "id": "interactive-17",
       "title": "Wetter-App (Mock)",
-      "instruction": "Baue eine simple Wetter-App, die Daten von einer simulierten API lädt.",
+      "instruction": "Baue eine simple Wetter-App, die Daten von einer simulierten API lädt.\n\n**Anforderungen:**\n1. Im HTML ist ein Button `wetter-laden` und ein `<div id=\"wetter\">`.\n2. Beim Klick soll folgendes simuliertes Objekt angezeigt werden:\n   ```js\n   const wetterDaten = { stadt: \"Berlin\", temperatur: 22, einheit: \"°C\" };\n   ```\n3. Zeige im Div an: `Berlin: 22°C`\n\n**Tipp:** Da wir keinen echten API-Key haben, simulieren wir den Fetch mit einem Promise-Timeout oder verwenden direkt das Objekt.",
       "initialCode": {
         "html": "<button id=\"wetter-laden\">Wetter laden</button>\n<div id=\"wetter\"></div>",
         "css": "",
@@ -462,7 +462,7 @@
     {
       "id": "interactive-18",
       "title": "Countdown-Timer",
-      "instruction": "Ein Countdown-Timer ist eine großartige Übung für `setInterval` und DOM-Updates.",
+      "instruction": "Ein Countdown-Timer ist eine großartige Übung für `setInterval` und DOM-Updates.\n\n**Anforderungen:**\n1. Im HTML ist ein `<div id=\"timer\">10</div>` und ein Button `start-timer`.\n2. Beim Klick soll der Countdown von 10 Sekunden herunterzählen und im Div aktualisiert werden.\n3. Bei 0 soll `\"Fertig!\"` angezeigt werden und der Timer gestoppt werden.",
       "initialCode": {
         "html": "<div id=\"timer\">10</div>\n<button id=\"start-timer\">Start</button>",
         "css": "",
@@ -488,7 +488,7 @@
     {
       "id": "interactive-19",
       "title": "Quiz-App",
-      "instruction": "Baue ein interaktives Quiz mit einer Frage und mehreren Antwortmöglichkeiten.",
+      "instruction": "Baue ein interaktives Quiz mit einer Frage und mehreren Antwortmöglichkeiten.\n\n**Anforderungen:**\n1. Im HTML ist eine Frage `<p id=\"frage\">Was ist die Hauptstadt von Frankreich?</p>`, drei Buttons mit den IDs `antwort-a`, `antwort-b`, `antwort-c` und ein Ergebnis-Paragraph `ergebnis`.\n2. Die richtige Antwort ist Button `antwort-b` (Text: \"Paris\").\n3. Beim Klick auf eine Antwort soll geprüft werden, ob sie richtig ist, und im Ergebnis-Paragraph `Richtig!` oder `Falsch!` angezeigt werden.",
       "initialCode": {
         "html": "<p id=\"frage\">Was ist die Hauptstadt von Frankreich?</p>\n<button id=\"antwort-a\">Berlin</button>\n<button id=\"antwort-b\">Paris</button>\n<button id=\"antwort-c\">Madrid</button>\n<p id=\"ergebnis\"></p>",
         "css": "",
@@ -524,7 +524,7 @@
     {
       "id": "interactive-20",
       "title": "Portfolio-Seite",
-      "instruction": "Das Abschlussprojekt von Bundle 3! Du baust eine kleine Portfolio-Seite, die zeigt, was du alles gelernt hast.",
+      "instruction": "Das Abschlussprojekt von Bundle 3! Du baust eine kleine Portfolio-Seite, die zeigt, was du alles gelernt hast.\n\n**Anforderungen:**\n1. Erstelle einen `<header>` mit deinem Namen in einer `<h1>`.\n2. Erstelle einen Bereich `<section class=\"about\">` mit einem Paragraph über dich.\n3. Erstelle einen Bereich `<section class=\"projects\">` mit mindestens zwei Projekt-Karten (z. B. `<div class=\"project\">`).\n4. Erstelle ein `<footer>` mit einem Kontakt-Link (`<a href=\"mailto:...\">`).",
       "initialCode": {
         "html": "",
         "css": "",
