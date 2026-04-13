@@ -81,7 +81,8 @@
 - [x] Fix 01: React Router `basename` für GitHub Pages gesetzt (siehe `state/fixes/fix-01-router-basename.md`)
 - [x] Fix 02: Bundle-Loader Pfade mit `import.meta.env.BASE_URL` korrigiert (siehe `state/fixes/fix-02-bundle-loader-base-path.md`)
 - [x] Fix 03: Validierungs-Engine Timing korrigiert und Konsole bei Iframe-Reload geleert (siehe `state/fixes/fix-03-validation-console.md`)
-- [ ] Live-URL nach Fix 03 erneut testen
+- [x] Fix 04: DOM-Validierung nutzt eigenes Iframe statt Live-Preview (siehe `state/fixes/fix-04-dom-validation-iframe.md`)
+- [ ] Live-URL nach Fix 04 erneut testen
 
 **Blocker / Risiken:**
 
