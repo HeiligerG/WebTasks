@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { loadAllBundles } from '../lib/contentLoader';
 import { useAppStore } from '../stores/appStore';
 import { BundleCard } from './BundleCard';
+import { BadgeDisplay } from './BadgeDisplay';
 import type { Bundle } from '../types/content';
 
 export function HomePage() {
@@ -9,6 +11,7 @@ export function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const completedTasks = useAppStore((state) => state.completedTasks);
+  const unlockedBadges = useAppStore((state) => state.unlockedBadges);
 
   useEffect(() => {
     loadAllBundles(['/bundles/bundle-01-html-basics.json'])
@@ -41,8 +44,17 @@ export function HomePage() {
           </p>
         </section>
 
-        <section className="mt-12">
-          <h2 className="text-xl font-semibold text-gray-800">Deine Lernmodule</h2>
+        <section className="mt-10">
+          <BadgeDisplay badges={unlockedBadges} />
+        </section>
+
+        <section className="mt-8">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-gray-800">Deine Lernmodule</h2>
+            <Link to="/certificate" className="text-sm font-medium text-blue-600 hover:underline">
+              Zum Zertifikat →
+            </Link>
+          </div>
 
           {loading && <p className="mt-4 text-gray-500">Lade Module...</p>}
 
