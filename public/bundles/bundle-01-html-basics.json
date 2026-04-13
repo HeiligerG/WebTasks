@@ -13,7 +13,9 @@
         "css": "",
         "js": ""
       },
-      "enabledEditors": ["html"],
+      "enabledEditors": [
+        "html"
+      ],
       "validationTests": [
         {
           "type": "dom",
@@ -31,7 +33,9 @@
         "css": "",
         "js": ""
       },
-      "enabledEditors": ["html"],
+      "enabledEditors": [
+        "html"
+      ],
       "validationTests": [
         {
           "type": "dom",
@@ -49,7 +53,10 @@
         "css": "",
         "js": ""
       },
-      "enabledEditors": ["html", "css"],
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
       "validationTests": [
         {
           "type": "dom",
@@ -62,6 +69,471 @@
           "property": "borderRadius",
           "expectedValue": "50%",
           "feedbackFailure": "Das Bild in der Profilkarte hat noch keine runden Ecken. Füge im CSS `border-radius: 50%` für das Bild hinzu."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-04",
+      "title": "Links erstellen",
+      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.",
+      "initialCode": {
+        "html": "<p>Hier geht es weiter...</p>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "a[href=\"https://example.com\"]",
+          "feedbackFailure": "Wir können keinen Link zu 'https://example.com' finden. Hast du das href-Attribut korrekt gesetzt?"
+        },
+        {
+          "type": "dom",
+          "selector": "a",
+          "feedbackFailure": "Wir können kein <a>-Tag finden."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-05",
+      "title": "Listen strukturieren",
+      "instruction": "Listen sind überall im Web: Menüs, To-Do-Listen, Inhaltsverzeichnisse. HTML bietet `<ul>` für ungeordnete und `<ol>` für geordnete Listen.",
+      "initialCode": {
+        "html": "<p>Meine Hobbys:</p>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "ul",
+          "feedbackFailure": "Wir können keine <ul>-Liste finden. Hast du das <ul>-Tag verwendet?"
+        },
+        {
+          "type": "dom",
+          "selector": "ul li",
+          "feedbackFailure": "Deine Liste enthält keine <li>-Einträge. Füge mindestens drei Hobbys als <li> hinzu."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-06",
+      "title": "Eine Tabelle bauen",
+      "instruction": "Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder Preislisten.",
+      "initialCode": {
+        "html": "<div>Tabellenplatz</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "table",
+          "feedbackFailure": "Wir können keine <table> finden."
+        },
+        {
+          "type": "dom",
+          "selector": "th",
+          "feedbackFailure": "Wir können keine Tabellenkopfzellen (<th>) finden."
+        },
+        {
+          "type": "dom",
+          "selector": "td",
+          "feedbackFailure": "Wir können keine Tabellendatenzellen (<td>) finden."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-07",
+      "title": "Ein Formular erstellen",
+      "instruction": "Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es Nutzern, Daten einzugeben.",
+      "initialCode": {
+        "html": "<div>Anmeldeformular</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "form",
+          "feedbackFailure": "Wir können kein <form>-Element finden."
+        },
+        {
+          "type": "dom",
+          "selector": "input[type=\"text\"]",
+          "feedbackFailure": "Wir können kein Text-Eingabefeld (<input type=\"text\">) finden."
+        },
+        {
+          "type": "dom",
+          "selector": "button[type=\"submit\"]",
+          "feedbackFailure": "Wir können keinen Absende-Button (<button type=\"submit\">) finden."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-08",
+      "title": "Farben mit CSS ändern",
+      "instruction": "CSS macht das Web bunt. Mit der `color`-Eigenschaft änderst du die Textfarbe.",
+      "initialCode": {
+        "html": "<p>Ich bin bunt</p>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "p",
+          "property": "color",
+          "expectedValue": "red",
+          "feedbackFailure": "Der Paragraph ist noch nicht rot. Verwende im CSS `color: red;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-09",
+      "title": "Text ausrichten",
+      "instruction": "Mit CSS kannst du nicht nur Farben, sondern auch die Ausrichtung von Text steuern.",
+      "initialCode": {
+        "html": "<h2>Willkommen</h2>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "h2",
+          "property": "textAlign",
+          "expectedValue": "center",
+          "feedbackFailure": "Die Überschrift ist nicht zentriert. Verwende `text-align: center` im CSS."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-10",
+      "title": "Abstände verstehen",
+      "instruction": "Das CSS-Box-Modell ist eines der wichtigsten Konzepte im Webdesign. `padding` ist der Innenabstand, `margin` der Außenabstand.",
+      "initialCode": {
+        "html": "<div class=\"box\">Box</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".box",
+          "property": "paddingTop",
+          "expectedValue": "20px",
+          "feedbackFailure": "Das <div> hat keinen padding von 20px. Verwende `padding: 20px;`."
+        },
+        {
+          "type": "dom",
+          "selector": ".box",
+          "property": "marginTop",
+          "expectedValue": "10px",
+          "feedbackFailure": "Das <div> hat keinen margin von 10px. Verwende `margin: 10px;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-11",
+      "title": "Schriftarten ändern",
+      "instruction": "Die richtige Schriftart verleiht einer Webseite Charakter.",
+      "initialCode": {
+        "html": "<p>Design ist wichtig</p>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "p",
+          "property": "fontFamily",
+          "expectedValue": "Arial",
+          "feedbackFailure": "Die Schriftart wurde nicht auf Arial geändert. Verwende `font-family: Arial;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-12",
+      "title": "Hover-Effekte",
+      "instruction": "Interaktive Webseiten reagieren auf die Maus des Nutzers. Mit der `:hover`-Pseudoklasse änderst du das Aussehen eines Elements, wenn man mit der Maus darüber fährt.",
+      "initialCode": {
+        "html": "<button class=\"btn\">Klick mich</button>",
+        "css": ".btn {\n  padding: 10px 20px;\n  border: 1px solid #ccc;\n  background: #eee;\n}",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".btn",
+          "feedbackFailure": "Wir können den Button mit der Klasse 'btn' nicht finden."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-13",
+      "title": "Flexbox: Zentrieren",
+      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.",
+      "initialCode": {
+        "html": "<div class=\"container\">\n  <div class=\"kreis\"></div>\n</div>",
+        "css": ".container {\n  width: 200px;\n  height: 200px;\n  border: 2px dashed #ccc;\n}\n\n.kreis {\n  width: 50px;\n  height: 50px;\n  background: red;\n  border-radius: 50%;\n}",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".container",
+          "property": "display",
+          "expectedValue": "flex",
+          "feedbackFailure": "Der Container ist kein Flex-Container. Verwende `display: flex;`."
+        },
+        {
+          "type": "dom",
+          "selector": ".container",
+          "property": "justifyContent",
+          "expectedValue": "center",
+          "feedbackFailure": "Der Kreis ist nicht horizontal zentriert. Verwende `justify-content: center;`."
+        },
+        {
+          "type": "dom",
+          "selector": ".container",
+          "property": "alignItems",
+          "expectedValue": "center",
+          "feedbackFailure": "Der Kreis ist nicht vertikal zentriert. Verwende `align-items: center;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-14",
+      "title": "Flexbox: Navigation",
+      "instruction": "Navigationsleisten sind ein klassischer Anwendungsfall für Flexbox.",
+      "initialCode": {
+        "html": "<nav>\n  <a href=\"#\">Home</a>\n  <a href=\"#\">Über</a>\n  <a href=\"#\">Kontakt</a>\n</nav>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "nav",
+          "property": "display",
+          "expectedValue": "flex",
+          "feedbackFailure": "Die Navigation ist kein Flex-Container. Verwende `display: flex;`."
+        },
+        {
+          "type": "dom",
+          "selector": "nav",
+          "property": "gap",
+          "expectedValue": "20px",
+          "feedbackFailure": "Der Abstand zwischen den Links ist nicht 20px. Verwende `gap: 20px;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-15",
+      "title": "CSS Grid Basics",
+      "instruction": "Grid ist das mächtigste Layout-System in CSS. Es ermöglicht dir, Elemente in Zeilen und Spalten anzuordnen.",
+      "initialCode": {
+        "html": "<div class=\"grid\">\n  <div class=\"item\" style=\"background:red\">1</div>\n  <div class=\"item\" style=\"background:blue\">2</div>\n  <div class=\"item\" style=\"background:green\">3</div>\n  <div class=\"item\" style=\"background:orange\">4</div>\n</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".grid",
+          "property": "display",
+          "expectedValue": "grid",
+          "feedbackFailure": "Der Container ist kein Grid-Container. Verwende `display: grid;`."
+        },
+        {
+          "type": "dom",
+          "selector": ".grid",
+          "property": "gridTemplateColumns",
+          "expectedValue": "1fr 1fr",
+          "feedbackFailure": "Das Grid hat nicht zwei Spalten. Verwende `grid-template-columns: 1fr 1fr;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-16",
+      "title": "Grid: Galerie-Layout",
+      "instruction": "Ein echtes Bildergalerie-Layout mit CSS Grid.",
+      "initialCode": {
+        "html": "<div class=\"galerie\">\n  <div class=\"bild\">Bild 1</div>\n  <div class=\"bild\">Bild 2</div>\n  <div class=\"bild\">Bild 3</div>\n  <div class=\"bild\">Bild 4</div>\n  <div class=\"bild\">Bild 5</div>\n  <div class=\"bild\">Bild 6</div>\n</div>",
+        "css": ".bild {\n  background: #ddd;\n  height: 100px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".galerie",
+          "property": "display",
+          "expectedValue": "grid",
+          "feedbackFailure": "Die Galerie ist kein Grid-Container."
+        },
+        {
+          "type": "dom",
+          "selector": ".galerie",
+          "property": "gridTemplateColumns",
+          "expectedValue": "repeat(3, 1fr)",
+          "feedbackFailure": "Die Galerie hat nicht drei Spalten. Verwende `grid-template-columns: repeat(3, 1fr);`."
+        },
+        {
+          "type": "dom",
+          "selector": ".galerie",
+          "property": "gap",
+          "expectedValue": "10px",
+          "feedbackFailure": "Der Abstand zwischen den Bildern ist nicht 10px. Verwende `gap: 10px;`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-17",
+      "title": "Responsives Design",
+      "instruction": "Webseiten müssen auf allen Geräten gut aussehen – vom Handy bis zum Desktop. Mit Media Queries passt du das Layout an die Bildschirmbreite an.",
+      "initialCode": {
+        "html": "<div class=\"desktop-only\">Nur auf großen Bildschirmen sichtbar</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".desktop-only",
+          "feedbackFailure": "Wir können das Element mit der Klasse 'desktop-only' nicht finden."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-18",
+      "title": "Pseudo-Klassen",
+      "instruction": "Pseudo-Klassen erlauben es dir, bestimmte Elemente basierend auf ihrer Position zu stylen, ohne jede einzelne Element manuell anzusprechen.",
+      "initialCode": {
+        "html": "<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n  <li>Item 3</li>\n  <li>Item 4</li>\n  <li>Item 5</li>\n</ul>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "li:nth-child(even)",
+          "feedbackFailure": "Wir können keine geraden Listeneinträge finden. Hast du `:nth-child(even)` korrekt geschrieben?"
+        }
+      ]
+    },
+    {
+      "id": "html-basics-19",
+      "title": "CSS-Variablen",
+      "instruction": "CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst eine Farbe einmal und nutzt sie an vielen Stellen.",
+      "initialCode": {
+        "html": "<button class=\"primary-btn\">Primary</button>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".primary-btn",
+          "property": "backgroundColor",
+          "expectedValue": "blue",
+          "feedbackFailure": "Der Button hat nicht die Hintergrundfarbe blue. Verwende `background-color: var(--primary);` mit `:root { --primary: blue; }`."
+        }
+      ]
+    },
+    {
+      "id": "html-basics-20",
+      "title": "Landing-Page Projekt",
+      "instruction": "Herzlichen Glückwunsch! Du hast alle Grundlagen gemeistert. In diesem Abschlussprojekt baust du eine kleine Landing-Page, die alles Kombiniert, was du gelernt hast.",
+      "initialCode": {
+        "html": "",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": [
+        "html",
+        "css"
+      ],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "header h1",
+          "feedbackFailure": "Wir können keinen <header> mit einer <h1>-Überschrift finden."
+        },
+        {
+          "type": "dom",
+          "selector": ".hero p",
+          "feedbackFailure": "Wir können keinen Hero-Bereich mit einem Paragraph finden."
+        },
+        {
+          "type": "dom",
+          "selector": ".features .feature",
+          "feedbackFailure": "Wir können keine Feature-Boxen finden. Erstelle mindestens zwei <div class=\"feature\">."
+        },
+        {
+          "type": "dom",
+          "selector": "footer",
+          "feedbackFailure": "Wir können kein <footer>-Element finden."
         }
       ]
     }

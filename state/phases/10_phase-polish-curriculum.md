@@ -46,32 +46,22 @@ Diese Phase poliert die WebTasks-Plattform visuell und inhaltlich auf ein profes
 
 **Status:** ⏳ In Planung
 
-### Ziel
-Jedes der drei Bundles wird von seinem aktuellen Stand (Bundle 1: 3 Tasks, Bundle 2: 4 Tasks, Bundle 3: 3 Tasks) auf **20 Tasks** erweitert. Die neuen Tasks folgen einer klaren Schwierigkeitsprogression und schließen jeweils mit einem Abschlussprojekt ab.
+**Status:** ✅ Abgeschlossen
 
-### Detaillierte Planung
+**Implementierte Änderungen:**
+- `public/bundles/bundle-01-html-basics.json`: Erweitert auf 20 Tasks (Tasks 04–20 hinzugefügt)
+- `public/bundles/bundle-02-javascript-basics.json`: Erweitert auf 20 Tasks (Tasks 05–20 hinzugefügt)
+- `public/bundles/bundle-03-interactive-web.json`: Erweitert auf 20 Tasks (Tasks 04–20 hinzugefügt)
+- `src/components/CertificatePage.tsx`: Lädt jetzt alle 3 Bundles statt nur Bundle 1
+- Alle Tasks enthalten vollständige `instruction`, `initialCode`, `enabledEditors` und `validationTests`
+- `npm run build` und JSON-Validierung erfolgreich durchgeführt
 
-Die vollständige, task-level Planung für alle 51 neuen Tasks befindet sich in den folgenden drei Dokumenten:
+**Detaillierte Planung**
+
+Die vollständige, task-level Planung für alle 51 neuen Tasks befindet sich in:
 
 | Bundle | Datei | Umfang |
 |:---|:---|:---|
 | **Bundle 1: HTML & CSS Grundlagen** | `state/phases/10c_phase-curriculum-bundle1.md` | Tasks 04–20 (17 neue Tasks) |
 | **Bundle 2: JavaScript Grundlagen** | `state/phases/10c_phase-curriculum-bundle2.md` | Tasks 05–20 (16 neue Tasks) |
 | **Bundle 3: Interaktive Web-Apps** | `state/phases/10c_phase-curriculum-bundle3.md` | Tasks 04–20 (17 neue Tasks) |
-
-### Implementierungs-Workflow
-
-1. **Branch:** `feat/phase-10c-curriculum-scale`
-2. **Implementierung pro Bundle:**
-   - JSON-Datei des Bundles erweitern (bestehende Tasks beibehalten, neue anhängen)
-   - Jede Task mit `id`, `title`, `instruction`, `initialCode`, `enabledEditors`, `validationTests`
-   - `npm run build` nach jedem Bundle validieren
-3. **QA:** Alle Tasks nacheinander in der Live-Preview testen
-4. **Commit, Merge (`--no-ff`), Branch löschen**
-
-### Qualitätskriterien
-
-- Alle Tasks müssen durch die bestehende `ValidationEngine` validierbar sein
-- Keine neuen Abhängigkeiten
-- `npm run lint` und `npm run build` müssen fehlerfrei durchlaufen
-- Die JSON-Bundles dürfen keine Syntaxfehler enthalten

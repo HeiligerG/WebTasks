@@ -10,7 +10,11 @@ export function CertificatePage() {
   const unlockedBadges = useAppStore((state) => state.unlockedBadges);
 
   useEffect(() => {
-    loadAllBundles([getBundleUrl('bundle-01-html-basics')])
+    loadAllBundles([
+      getBundleUrl('bundle-01-html-basics'),
+      getBundleUrl('bundle-02-javascript-basics'),
+      getBundleUrl('bundle-03-interactive-web'),
+    ])
       .then((data) => setBundles(data))
       .catch(() => setBundles([]));
   }, []);
