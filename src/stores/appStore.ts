@@ -14,6 +14,7 @@ type AppState = {
   completedTasks: string[];
   taskResults: Record<string, boolean>;
   unlockedBadges: string[];
+  theme: 'light' | 'dark';
 };
 
 type AppActions = {
@@ -23,6 +24,8 @@ type AppActions = {
   markTaskCompleted: (taskId: string) => void;
   setTaskResult: (taskId: string, passed: boolean) => void;
   unlockBadge: (badgeName: string) => void;
+  setTheme: (theme: 'light' | 'dark') => void;
+  toggleTheme: () => void;
 };
 
 export const useAppStore = create<AppState & AppActions>()(
@@ -34,6 +37,10 @@ export const useAppStore = create<AppState & AppActions>()(
       completedTasks: [],
       taskResults: {},
       unlockedBadges: [],
+      theme:
+        typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light',
 
       setActiveTask: (bundleId, taskId) =>
         set(() => ({
@@ -81,6 +88,16 @@ export const useAppStore = create<AppState & AppActions>()(
             ? state.unlockedBadges
             : [...state.unlockedBadges, badgeName],
         })),
+
+      setTheme: (theme) =>
+        set(() => ({
+          theme,
+        })),
+
+      toggleTheme: () =>
+        set((state) => ({
+          theme: state.theme === 'light' ? 'dark' : 'light',
+        })),
     }),
     {
       name: 'webtasks-storage',
@@ -91,6 +108,7 @@ export const useAppStore = create<AppState & AppActions>()(
         activeBundleId: state.activeBundleId,
         activeTaskId: state.activeTaskId,
         unlockedBadges: state.unlockedBadges,
+        theme: state.theme,
       }),
     }
   )

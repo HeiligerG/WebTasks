@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App.tsx';
+import { ThemeProvider } from './components/ThemeProvider.tsx';
 
 // SPA routing restore for GitHub Pages Project Pages
 const redirect = sessionStorage.getItem('webtasks-redirect');
@@ -17,7 +18,9 @@ if (redirect) {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter basename="/WebTasks">
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>
 );
