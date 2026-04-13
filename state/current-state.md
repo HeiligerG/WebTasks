@@ -20,8 +20,8 @@
 
 ```
 [✅] Phase 0: Konzeption & Grobplanung
-[🔄] Phase 1: Projekt-Setup & Tooling-Infrastruktur  ← AKTIV
-[⏳] Phase 2: Content-Architektur & JSON-Datenmodell
+[✅] Phase 1: Projekt-Setup & Tooling-Infrastruktur
+[🔄] Phase 2: Content-Architektur & JSON-Datenmodell  ← AKTIV
 [⏳] Phase 3: Editor-Kern & Code-Eingabe
 [⏳] Phase 4: Sandbox, Live-Preview & Sicherheit
 [⏳] Phase 5: Validierungs-Engine & Feedback-System
@@ -44,31 +44,28 @@
 | :--- | :--- | :--- |
 | 2026-04-13 | Grobplanung finalisiert | `00_phase-planning.md` erstellt und in `master` gemerged. Alle 9 Phasen sowie deren Abhängigkeiten definiert. |
 | 2026-04-13 | Phase 1 Task-Planung abgeschlossen | `01_phase-init.md` erstellt. Alle Tasks für das Projekt-Setup sind spezifiziert und priorisiert. |
+| 2026-04-13 | Phase 1 Implementierung abgeschlossen | Vite + React + TS Projekt lauffähig. Tailwind, ESLint, Prettier, Zustand, React Router integriert. Ordnerstruktur und Dokumentation stehen. |
 
 ---
 
-## Aktive Phase: Phase 1 — Projekt-Setup & Tooling-Infrastruktur
+## Aktive Phase: Phase 2 — Content-Architektur & JSON-Datenmodell
 
-**Ziel dieser Phase:** Eine stabile, wartbare und skalierbare Entwicklungsumgebung etablieren.
+**Ziel dieser Phase:** Die "Headless"-Trennung von Applikationslogik und Lerninhalten technisch verankern.
 
-**Detaillierte Planung:** `state/phases/01_phase-init.md`
+**Detaillierte Planung:** *Noch zu erstellen: `state/phases/02_phase-content.md`*
 
-**Aktueller Stand in Phase 1:**
-- [ ] Task 1.1: Vite-Projekt initialisieren (React + TypeScript + SWC)
-- [ ] Task 1.2: TypeScript strikt konfigurieren
-- [ ] Task 1.3: ESLint + Prettier einrichten
-- [ ] Task 1.4: Tailwind CSS installieren und konfigurieren
-- [ ] Task 1.5: Ordnerstruktur anlegen
-- [ ] Task 1.6: Zustandsmanagement (Zustand) einrichten
-- [ ] Task 1.7: React Router installieren und basis-konfigurieren
-- [ ] Task 1.8: README.md und AGENTS.md erstellen
-- [ ] Task 1.9: Smoke-Test und Initial-Commit durchführen
+**Aktueller Stand in Phase 2:**
+- [ ] JSON-Schema für Bundles und Tasks definieren
+- [ ] TypeScript-Interfaces aus dem Schema ableiten
+- [ ] Validator (Ajv oder Zod) integrieren
+- [ ] Content-Ordnerstruktur in `public/bundles/` anlegen
+- [ ] Erstes Canary-Bundle als Referenz erstellen
 
 **Blocker / Risiken:**
 - Keine bekannten Blocker.
 
-**Nächster geplanter Schritt nach Phase 1:**
-- Übergang zu Phase 2: Definition des JSON-Schemas und der TypeScript-Typen für Bundles & Tasks.
+**Nächster geplanter Schritt nach Phase 2:**
+- Übergang zu Phase 3: Integration von CodeMirror 6 als Editor-Kern.
 
 ---
 
@@ -76,9 +73,10 @@
 
 | Thema | Status | Optionen / Hinweise |
 | :--- | :--- | :--- |
-| Styling-Library | ✅ Entschieden | Tailwind CSS (leichtgewichtig, schnell, konsistent mit modernem React-Ökosystem). |
+| Styling-Library | ✅ Entschieden | Tailwind CSS 3 (leichtgewichtig, schnell, konsistent mit modernem React-Ökosystem). |
 | State-Management | ✅ Entschieden | Zustand (minimaler Boilerplate, ausreichend für lokale SPA-State-Persistenz). |
 | Editor | ✅ Entschieden | CodeMirror 6 (Phase 3). |
+| JSON-Validator | ⏳ Offen | Ajv vs. Zod — wird zu Beginn von Phase 2 evaluiert. |
 | Hosting-Plattform | ⏳ Offen | Wird in Phase 9 evaluiert (Vercel, Netlify, GitHub Pages o. Ä.). |
 
 ---
@@ -91,3 +89,7 @@
 | `state/phases/00_phase-planning.md` | Grobplanung aller 9 Phasen |
 | `state/phases/01_phase-init.md` | Detaillierte Task-Planung für Phase 1 |
 | `state/current-state.md` | Dieses Dokument |
+| `src/stores/appStore.ts` | Globaler Zustand (Zustand) |
+| `src/components/HomePage.tsx` | Platzhalter-Startseite |
+| `src/components/TaskPage.tsx` | Platzhalter-Editor-Ansicht |
+| `public/bundles/` | Zukünftiger Speicherort für JSON-Lerninhalte |
