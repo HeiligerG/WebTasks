@@ -24,16 +24,16 @@ Für den Schutz vor Endlosschleifen muss der JavaScript-Code des Schülers vor d
 
 ## Task-Übersicht
 
-| ID | Task-Name | Priorität | Geschätzter Aufwand |
-| :--- | :--- | :--- | :--- |
-| 4.1 | `PreviewFrame`-Komponente mit `srcdoc` und `sandbox` erstellen | Kritisch | Mittel |
-| 4.2 | Code-Assembler/Compiler implementieren | Kritisch | Mittel |
-| 4.3 | Debounce-Hook für Live-Preview erstellen | Hoch | Klein |
-| 4.4 | `postMessage`-Interceptor und `SimulatedConsole` implementieren | Kritisch | Mittel |
-| 4.5 | AST-basierte Loop-Protection implementieren | Kritisch | Mittel |
-| 4.6 | Sandbox in `TaskPage` integrieren | Hoch | Klein |
-| 4.7 | Sicherheits- und Funktions-Smoke-Tests durchführen | Kritisch | Klein |
-| 4.8 | Dokumentation aktualisieren (`current-state.md`) | Mittel | Klein |
+| ID  | Task-Name                                                       | Priorität | Geschätzter Aufwand |
+| :-- | :-------------------------------------------------------------- | :-------- | :------------------ |
+| 4.1 | `PreviewFrame`-Komponente mit `srcdoc` und `sandbox` erstellen  | Kritisch  | Mittel              |
+| 4.2 | Code-Assembler/Compiler implementieren                          | Kritisch  | Mittel              |
+| 4.3 | Debounce-Hook für Live-Preview erstellen                        | Hoch      | Klein               |
+| 4.4 | `postMessage`-Interceptor und `SimulatedConsole` implementieren | Kritisch  | Mittel              |
+| 4.5 | AST-basierte Loop-Protection implementieren                     | Kritisch  | Mittel              |
+| 4.6 | Sandbox in `TaskPage` integrieren                               | Hoch      | Klein               |
+| 4.7 | Sicherheits- und Funktions-Smoke-Tests durchführen              | Kritisch  | Klein               |
+| 4.8 | Dokumentation aktualisieren (`current-state.md`)                | Mittel    | Klein               |
 
 ---
 
@@ -43,6 +43,7 @@ Für den Schutz vor Endlosschleifen muss der JavaScript-Code des Schülers vor d
 Die zentrale Ausführungsumgebung für den Schüler-Code ist ein strikt isoliertes `<iframe>`. Diese Task realisiert die Komponente und ihre Sicherheitsattribute.
 
 **Aktionen:**
+
 1. Datei `src/features/sandbox/PreviewFrame.tsx` anlegen.
 2. Eine Komponente `PreviewFrame` definieren mit folgenden Props:
    - `srcDoc: string` — Der vollständige, assemblierte HTML-String.
@@ -57,6 +58,7 @@ Die zentrale Ausführungsumgebung für den Schüler-Code ist ein strikt isoliert
 6. Optional: Herkunftsprüfung (`event.source === iframeRef.current?.contentWindow`) um `onMessage` zu filtern.
 
 **Akzeptanzkriterien:**
+
 - [ ] `PreviewFrame.tsx` existiert und exportiert die Komponente.
 - [ ] Das gerenderte `<iframe>` enthält `sandbox="allow-scripts"` und `srcDoc`.
 - [ ] Ein `postMessage` aus dem Iframe wird vom Host-Window empfangen und an `onMessage` weitergegeben.
@@ -70,6 +72,7 @@ Die zentrale Ausführungsumgebung für den Schüler-Code ist ein strikt isoliert
 Die drei Code-Fragmente (HTML, CSS, JS) müssen zu einem validen, vollständigen HTML-Dokument zusammengefügt werden.
 
 **Aktionen:**
+
 1. Datei `src/lib/codeAssembler.ts` anlegen.
 2. Eine Funktion `assembleDocument(params: { html: string; css: string; js: string }): string` implementieren.
 3. Die Funktion baut folgende Dokumentenstruktur:
@@ -77,7 +80,7 @@ Die drei Code-Fragmente (HTML, CSS, JS) müssen zu einem validen, vollständigen
    <!DOCTYPE html>
    <html>
      <head>
-       <meta charset="UTF-8">
+       <meta charset="UTF-8" />
        <style>
          /* CSS-Code hier */
        </style>
@@ -95,6 +98,7 @@ Die drei Code-Fragmente (HTML, CSS, JS) müssen zu einem validen, vollständigen
 5. Einen kleinen Unit-Test-artigen Check im Code: Wenn `assembleDocument` mit `html: '<h1>Test</h1>'`, `css: 'h1 { color: red; }'`, `js: 'console.log(1)'` aufgerufen wird, muss der Output diese drei Strings an den korrekten Stellen enthalten.
 
 **Akzeptanzkriterien:**
+
 - [ ] `assembleDocument` existiert und ist vollständig typisiert.
 - [ ] Der Output ist syntaktisch korrektes HTML5.
 - [ ] CSS liegt im `<head>` innerhalb von `<style>`.
@@ -110,11 +114,13 @@ Die drei Code-Fragmente (HTML, CSS, JS) müssen zu einem validen, vollständigen
 Ein Live-Preview soll nicht bei jedem Tastenanschlag neu rendern, sondern erst nach einer kurzen Pause (~500 ms), um die Performance zu schonen.
 
 **Aktionen:**
+
 1. Datei `src/hooks/useDebounce.ts` anlegen (falls noch nicht vorhanden).
 2. Einen generischen Hook `useDebounce<T>(value: T, delay: number): T` implementieren.
 3. In `TaskPage.tsx` (oder später in einem Sandbox-Container) diesen Hook nutzen, um die Code-Snippets zu debouncen, bevor sie an `assembleDocument` übergeben werden.
 
 **Akzeptanzkriterien:**
+
 - [ ] `useDebounce` existiert und ist generisch typisiert.
 - [ ] Änderungen im Editor triggern nicht sofort einen Re-Render der Sandbox, sondern erst nach der konfigurierten Verzögerung.
 - [ ] Während des Tippens wird ein vorheriger Timer zurückgesetzt (keine stapelnden Updates).
@@ -127,6 +133,7 @@ Ein Live-Preview soll nicht bei jedem Tastenanschlag neu rendern, sondern erst n
 Die Browser-DevTools sind für Schüler nicht sichtbar. Daher muss die Plattform eine eigene Konsole simulieren, die `console.log`, `console.warn`, `console.error` und Laufzeitfehler aus dem Iframe anzeigt.
 
 **Aktionen:**
+
 1. **Interceptor-Skript definieren:**
    - Eine Funktion `getConsoleInterceptorScript(): string` in `src/lib/codeAssembler.ts` (oder einer neuen Datei `src/lib/interceptor.ts`) anlegen.
    - Diese Funktion gibt einen JavaScript-String zurück, der im Iframe vor dem Schüler-Code ausgeführt wird.
@@ -145,6 +152,7 @@ Die Browser-DevTools sind für Schüler nicht sichtbar. Daher muss die Plattform
    - Nachrichten mit `type === 'ERROR'` werden ebenfalls angehängt, aber mit `level: 'error'`.
 
 **Akzeptanzkriterien:**
+
 - [ ] `getConsoleInterceptorScript` existiert und überschreibt `console.*` sowie `window.onerror`.
 - [ ] `SimulatedConsole.tsx` rendert Logs unterschiedlich je nach Level.
 - [ ] Ein `console.log('Hallo')` im Schüler-Code erscheint in der simulierten Konsole.
@@ -159,6 +167,7 @@ Die Browser-DevTools sind für Schüler nicht sichtbar. Daher muss die Plattform
 Ein versehentlich eingetippter `while(true)`-Loop darf den Browser-Tab nicht einfrieren. Der Code muss vor der Ausführung instrumentiert werden.
 
 **Aktionen:**
+
 1. `npm install acorn acorn-walk astring` ausführen.
 2. Datei `src/lib/loopProtect.ts` anlegen.
 3. Eine Funktion `protectLoops(jsCode: string): string` implementieren:
@@ -176,6 +185,7 @@ Ein versehentlich eingetippter `while(true)`-Loop darf den Browser-Tab nicht ein
 4. Fehlerbehandlung: Wenn `acorn.parse` fehlschlägt (z. B. wegen Syntaxfehlern im Schüler-Code), wird der ursprüngliche Code unverändert zurückgegeben. Der Syntaxfehler wird dann natürlich vom Browser im Iframe gemeldet (und über den Interceptor in der Konsole angezeigt).
 
 **Akzeptanzkriterien:**
+
 - [ ] `acorn`, `acorn-walk` und `astring` sind installiert.
 - [ ] `protectLoops` transformiert einen `while(true) {}` so, dass er nach ~500 ms abbricht.
 - [ ] Ein `for(;;) { console.log('x'); }` bricht ebenfalls ab.
@@ -191,6 +201,7 @@ Ein versehentlich eingetippter `while(true)`-Loop darf den Browser-Tab nicht ein
 Alle bisherigen Einzelkomponenten (Editor, Assembler, PreviewFrame, SimulatedConsole, Loop-Protection) müssen in der `TaskPage` zusammengesetzt werden.
 
 **Aktionen:**
+
 1. `TaskPage.tsx` erweitern:
    - Zustand für `consoleLogs` hinzufügen.
    - Die drei Code-Snippets (HTML, CSS, JS) aus dem Store abrufen.
@@ -207,6 +218,7 @@ Alle bisherigen Einzelkomponenten (Editor, Assembler, PreviewFrame, SimulatedCon
    - Unten: SimulatedConsole
 
 **Akzeptanzkriterien:**
+
 - [ ] Tippen im Editor aktualisiert das Iframe nach ca. 500 ms Pause.
 - [ ] Das Iframe zeigt das visuelle Resultat des HTML/CSS/JS-Codes korrekt an.
 - [ ] `console.log` aus dem Iframe erscheint in der `SimulatedConsole` unterhalb.
@@ -220,6 +232,7 @@ Alle bisherigen Einzelkomponenten (Editor, Assembler, PreviewFrame, SimulatedCon
 Die kritischste Phase des Projekts erfordert gezielte manuelle Tests, um Sicherheit und Stabilität zu verifizieren.
 
 **Aktionen:**
+
 1. `npm run lint` und `npm run build` ausführen.
 2. Dev-Server starten und folgende Szenarien testen:
    - **Szenario A (Normalfall):** Task `html-basics-03` öffnen, im CSS-Tab `body { background: blue; }` eingeben. Das Iframe soll blau werden.
@@ -230,6 +243,7 @@ Die kritischste Phase des Projekts erfordert gezielte manuelle Tests, um Sicherh
 3. Alle Ergebnisse mental (oder kurz notiert) verifizieren.
 
 **Akzeptanzkriterien:**
+
 - [ ] `npm run lint` und `npm run build` sind fehlerfrei.
 - [ ] Szenario A bis E verhalten sich wie erwartet.
 - [ ] Keine unbehandelten Laufzeitfehler in der Browser-Konsole des Host-Tabs.
@@ -242,6 +256,7 @@ Die kritischste Phase des Projekts erfordert gezielte manuelle Tests, um Sicherh
 `state/current-state.md` muss den Abschluss von Phase 4 dokumentieren und den Übergang zu Phase 5 vorbereiten.
 
 **Aktionen:**
+
 1. In `state/current-state.md`:
    - Phase 4 auf ✅ setzen.
    - Phase 5 auf 🔄 setzen.
@@ -250,6 +265,7 @@ Die kritischste Phase des Projekts erfordert gezielte manuelle Tests, um Sicherh
 2. Optional: In `AGENTS.md` einen kurzen Hinweis zur Sandbox-Sicherheit ergänzen.
 
 **Akzeptanzkriterien:**
+
 - [ ] `state/current-state.md` reflektiert korrekt, dass Phase 4 abgeschlossen ist.
 - [ ] Phase 5 ist als neue aktive Phase markiert.
 
