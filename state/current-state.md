@@ -87,7 +87,9 @@
 - [x] Fix 07: "Code zurücksetzen"-Button im EditorPanel hinzugefügt (siehe `state/fixes/fix-07-code-reset-button.md`)
 - [x] Fix 08: Task 2 initialCode wieder auf Platzhalter zurückgesetzt (siehe `state/fixes/fix-08-task-02-initialcode.md`)
 - [x] Fix 09: Bundle 1 Content Cleanup mit placeholder.svg und konsistenten initialCodes (siehe `state/fixes/fix-09-bundle-content-cleanup.md`)
-- [ ] Live-URL nach Fix 09 erneut testen
+- [x] Fix 10: `placeholder.svg` Asset commited (siehe Fix 09)
+- [x] Fix 11: Finale HTML-Task-Bereinigung (reiner Text in Task 1, `width="150"` in Task 2 & 3)
+- [ ] Live-URL nach Fix 11 erneut testen
 
 **Blocker / Risiken:**
 
