@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 type CodeSnippet = {
   html: string;
@@ -21,42 +22,56 @@ type AppActions = {
   setTaskResult: (taskId: string, passed: boolean) => void;
 };
 
-export const useAppStore = create<AppState & AppActions>((set) => ({
-  activeBundleId: null,
-  activeTaskId: null,
-  codeSnippets: {},
-  completedTasks: [],
-  taskResults: {},
+export const useAppStore = create<AppState & AppActions>()(
+  persist(
+    (set) => ({
+      activeBundleId: null,
+      activeTaskId: null,
+      codeSnippets: {},
+      completedTasks: [],
+      taskResults: {},
 
-  setActiveTask: (bundleId, taskId) =>
-    set(() => ({
-      activeBundleId: bundleId,
-      activeTaskId: taskId,
-    })),
+      setActiveTask: (bundleId, taskId) =>
+        set(() => ({
+          activeBundleId: bundleId,
+          activeTaskId: taskId,
+        })),
 
-  setCode: (taskId, language, code) =>
-    set((state) => ({
-      codeSnippets: {
-        ...state.codeSnippets,
-        [taskId]: {
-          ...state.codeSnippets[taskId],
-          [language]: code,
-        },
-      },
-    })),
+      setCode: (taskId, language, code) =>
+        set((state) => ({
+          codeSnippets: {
+            ...state.codeSnippets,
+            [taskId]: {
+              ...state.codeSnippets[taskId],
+              [language]: code,
+            },
+          },
+        })),
 
-  markTaskCompleted: (taskId) =>
-    set((state) => ({
-      completedTasks: state.completedTasks.includes(taskId)
-        ? state.completedTasks
-        : [...state.completedTasks, taskId],
-    })),
+      markTaskCompleted: (taskId) =>
+        set((state) => ({
+          completedTasks: state.completedTasks.includes(taskId)
+            ? state.completedTasks
+            : [...state.completedTasks, taskId],
+        })),
 
-  setTaskResult: (taskId, passed) =>
-    set((state) => ({
-      taskResults: {
-        ...state.taskResults,
-        [taskId]: passed,
-      },
-    })),
-}));
+      setTaskResult: (taskId, passed) =>
+        set((state) => ({
+          taskResults: {
+            ...state.taskResults,
+            [taskId]: passed,
+          },
+        })),
+    }),
+    {
+      name: 'webtasks-storage',
+      partialize: (state) => ({
+        codeSnippets: state.codeSnippets,
+        completedTasks: state.completedTasks,
+        taskResults: state.taskResults,
+        activeBundleId: state.activeBundleId,
+        activeTaskId: state.activeTaskId,
+      }),
+    }
+  )
+);
