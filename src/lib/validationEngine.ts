@@ -17,12 +17,36 @@ function toKebabCase(str: string): string {
   return str.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 }
 
-export async function validateDomTest(test: DomTest, iframe: HTMLIFrameElement): Promise<TestResult> {
-  // Give the iframe a moment to render the updated DOM
-  await new Promise((resolve) => setTimeout(resolve, 100));
+export async function validateDomTest(
+  test: DomTest,
+  code: { html: string; css: string; js: string }
+): Promise<TestResult> {
+  const srcDoc = assembleDocument({
+    html: code.html,
+    css: code.css,
+    js: protectLoops(code.js),
+  });
+
+  const iframe = createValidationIframe(srcDoc);
+
+  // Wait for the iframe to load so the DOM is fully rendered
+  await new Promise<void>((resolve) => {
+    const onLoad = () => {
+      iframe.removeEventListener('load', onLoad);
+      resolve();
+    };
+    iframe.addEventListener('load', onLoad);
+    // Fallback if load already fired or does not fire
+    setTimeout(() => {
+      iframe.removeEventListener('load', onLoad);
+      resolve();
+    }, 300);
+  });
+
   const doc = iframe.contentDocument ?? iframe.contentWindow?.document;
 
   if (!doc) {
+    removeValidationIframe(iframe);
     return {
       testIndex: -1,
       passed: false,
@@ -33,6 +57,7 @@ export async function validateDomTest(test: DomTest, iframe: HTMLIFrameElement):
   const el = doc.querySelector(test.selector);
 
   if (!el) {
+    removeValidationIframe(iframe);
     return {
       testIndex: -1,
       passed: false,
@@ -46,6 +71,7 @@ export async function validateDomTest(test: DomTest, iframe: HTMLIFrameElement):
     const actual = computed?.getPropertyValue(propertyName) ?? '';
 
     if (actual !== test.expectedValue) {
+      removeValidationIframe(iframe);
       return {
         testIndex: -1,
         passed: false,
@@ -54,6 +80,7 @@ export async function validateDomTest(test: DomTest, iframe: HTMLIFrameElement):
     }
   }
 
+  removeValidationIframe(iframe);
   return {
     testIndex: -1,
     passed: true,
@@ -231,7 +258,6 @@ export async function validateFunctionTest(
 
 export async function validateTask(
   task: Task,
-  iframe: HTMLIFrameElement | null,
   code: { html: string; css: string; js: string }
 ): Promise<ValidationResult> {
   const results: TestResult[] = [];
@@ -242,15 +268,7 @@ export async function validateTask(
 
     switch (test.type) {
       case 'dom':
-        if (!iframe) {
-          result = {
-            testIndex: i,
-            passed: false,
-            feedback: 'Vorschau-Frame nicht verfügbar für DOM-Test.',
-          };
-        } else {
-          result = await validateDomTest(test, iframe);
-        }
+        result = await validateDomTest(test, code);
         break;
       case 'console':
         result = await validateConsoleTest(test, code);

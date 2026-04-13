@@ -132,7 +132,7 @@ export function TaskPage() {
     setValidating(true);
     setValidationResult(null);
 
-    const result = await validateTask(task, previewRef.current, currentCode);
+    const result = await validateTask(task, currentCode);
     setValidationResult(result);
     setTaskResult(task.id, result.success);
 
