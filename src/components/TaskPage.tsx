@@ -1,8 +1,9 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { loadBundle } from '../lib/contentLoader';
 import { assembleDocument } from '../lib/codeAssembler';
 import { protectLoops } from '../lib/loopProtect';
+import { validateTask, type ValidationResult } from '../lib/validationEngine';
 import { EditorPanel } from '../features/editor/EditorPanel';
 import { PreviewFrame } from '../features/sandbox/PreviewFrame';
 import { SimulatedConsole, type ConsoleLog } from './SimulatedConsole';
@@ -17,8 +18,13 @@ export function TaskPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [consoleLogs, setConsoleLogs] = useState<ConsoleLog[]>([]);
+  const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
+  const [validating, setValidating] = useState(false);
 
+  const previewRef = useRef<HTMLIFrameElement>(null);
   const codeSnippets = useAppStore((state) => state.codeSnippets);
+  const markTaskCompleted = useAppStore((state) => state.markTaskCompleted);
+  const setTaskResult = useAppStore((state) => state.setTaskResult);
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +32,7 @@ export function TaskPage() {
     setBundle(null);
     setTask(null);
     setConsoleLogs([]);
+    setValidationResult(null);
 
     loadBundle('/bundles/bundle-01-html-basics.json')
       .then((data) => {
@@ -44,13 +51,17 @@ export function TaskPage() {
       });
   }, [bundleId, taskId]);
 
-  const currentCode = task
-    ? {
-        html: codeSnippets[task.id]?.html ?? task.initialCode.html,
-        css: codeSnippets[task.id]?.css ?? task.initialCode.css,
-        js: codeSnippets[task.id]?.js ?? task.initialCode.js,
-      }
-    : { html: '', css: '', js: '' };
+  const currentCode = useMemo(
+    () =>
+      task
+        ? {
+            html: codeSnippets[task.id]?.html ?? task.initialCode.html,
+            css: codeSnippets[task.id]?.css ?? task.initialCode.css,
+            js: codeSnippets[task.id]?.js ?? task.initialCode.js,
+          }
+        : { html: '', css: '', js: '' },
+    [task, codeSnippets]
+  );
 
   const debouncedCode = useDebounce(currentCode, 500);
 
@@ -101,6 +112,22 @@ export function TaskPage() {
     setConsoleLogs([]);
   }, []);
 
+  const handleValidate = useCallback(async () => {
+    if (!task) return;
+    setValidating(true);
+    setValidationResult(null);
+
+    const result = await validateTask(task, previewRef.current, currentCode);
+    setValidationResult(result);
+    setTaskResult(task.id, result.success);
+
+    if (result.success) {
+      markTaskCompleted(task.id);
+    }
+
+    setValidating(false);
+  }, [task, currentCode, markTaskCompleted, setTaskResult]);
+
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-6">
       <div className="mx-auto max-w-7xl space-y-4">
@@ -115,11 +142,44 @@ export function TaskPage() {
         {task && bundle && (
           <>
             <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:p-6">
-              <h1 className="text-xl font-bold text-gray-800 md:text-2xl">{task.title}</h1>
-              <p className="mt-1 text-sm text-gray-500">
-                Bundle: {bundle.title} | Task-ID: {task.id}
-              </p>
+              <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+                <div>
+                  <h1 className="text-xl font-bold text-gray-800 md:text-2xl">{task.title}</h1>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Bundle: {bundle.title} | Task-ID: {task.id}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleValidate}
+                  disabled={validating}
+                  className="rounded bg-green-600 px-5 py-2 font-medium text-white transition-colors hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-green-400"
+                >
+                  {validating ? 'Prüfe...' : 'Code prüfen'}
+                </button>
+              </div>
             </div>
+
+            {validationResult && (
+              <div className="space-y-2">
+                {validationResult.success ? (
+                  <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-green-800">
+                    <strong>Super!</strong> Alle Tests bestanden.
+                  </div>
+                ) : (
+                  validationResult.results
+                    .filter((r) => !r.passed)
+                    .map((r, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-800"
+                      >
+                        <strong>Test {r.testIndex + 1} fehlgeschlagen:</strong> {r.feedback}
+                      </div>
+                    ))
+                )}
+              </div>
+            )}
 
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
               <div className="h-[400px] rounded-lg border border-gray-200 bg-white p-3 shadow-sm md:h-[500px]">
@@ -132,6 +192,7 @@ export function TaskPage() {
 
               <div className="h-[400px] rounded-lg border border-gray-200 bg-white p-3 shadow-sm md:h-[500px]">
                 <PreviewFrame
+                  ref={previewRef}
                   srcDoc={srcDoc}
                   onMessage={handleFrameMessage}
                   className="h-full w-full rounded border border-gray-300 bg-white"
