@@ -21,70 +21,76 @@ export async function validateDomTest(
   test: DomTest,
   code: { html: string; css: string; js: string }
 ): Promise<TestResult> {
+  const propertyCheck =
+    test.property !== undefined && test.expectedValue !== undefined
+      ? `
+        var computed = window.getComputedStyle(el);
+        var actual = computed.getPropertyValue(${JSON.stringify(toKebabCase(test.property))}) || '';
+        if (actual !== ${JSON.stringify(test.expectedValue)}) {
+          window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+          return;
+        }
+      `
+      : '';
+
+  const validationScript = `
+    (function() {
+      try {
+        var el = document.querySelector(${JSON.stringify(test.selector)});
+        if (!el) {
+          window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+          return;
+        }
+        ${propertyCheck}
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: true, feedback: ${JSON.stringify(test.feedbackSuccess ?? 'Test bestanden.')} }, '*');
+      } catch (e) {
+        window.parent.postMessage({ type: 'VALIDATION_ERROR', error: e.message }, '*');
+      }
+    })();
+  `;
+
   const srcDoc = assembleDocument({
     html: code.html,
     css: code.css,
-    js: protectLoops(code.js),
+    js: protectLoops(code.js) + '\n' + validationScript,
   });
 
   const iframe = createValidationIframe(srcDoc);
+  const response = await waitForValidationMessage(iframe, 1000);
+  removeValidationIframe(iframe);
 
-  // Wait for the iframe to load so the DOM is fully rendered
-  await new Promise<void>((resolve) => {
-    const onLoad = () => {
-      iframe.removeEventListener('load', onLoad);
-      resolve();
-    };
-    iframe.addEventListener('load', onLoad);
-    // Fallback if load already fired or does not fire
-    setTimeout(() => {
-      iframe.removeEventListener('load', onLoad);
-      resolve();
-    }, 300);
-  });
+  if (typeof response === 'object' && response !== null && 'type' in response) {
+    const msg = response as { type: string; passed?: boolean; feedback?: string; error?: string };
 
-  const doc = iframe.contentDocument ?? iframe.contentWindow?.document;
+    if (msg.type === 'VALIDATION_RESULT') {
+      return {
+        testIndex: -1,
+        passed: msg.passed ?? false,
+        feedback: msg.feedback ?? (test.feedbackSuccess ?? 'Test bestanden.'),
+      };
+    }
 
-  if (!doc) {
-    removeValidationIframe(iframe);
-    return {
-      testIndex: -1,
-      passed: false,
-      feedback: 'Konnte nicht auf das Vorschau-Dokument zugreifen.',
-    };
-  }
-
-  const el = doc.querySelector(test.selector);
-
-  if (!el) {
-    removeValidationIframe(iframe);
-    return {
-      testIndex: -1,
-      passed: false,
-      feedback: test.feedbackFailure,
-    };
-  }
-
-  if (test.property !== undefined && test.expectedValue !== undefined) {
-    const computed = doc.defaultView?.getComputedStyle(el);
-    const propertyName = toKebabCase(test.property);
-    const actual = computed?.getPropertyValue(propertyName) ?? '';
-
-    if (actual !== test.expectedValue) {
-      removeValidationIframe(iframe);
+    if (msg.type === 'VALIDATION_ERROR') {
       return {
         testIndex: -1,
         passed: false,
-        feedback: test.feedbackFailure,
+        feedback: msg.error ?? test.feedbackFailure,
+      };
+    }
+
+    if (msg.type === 'TIMEOUT') {
+      return {
+        testIndex: -1,
+        passed: false,
+        feedback: 'Zeitüberschreitung bei der DOM-Prüfung.',
       };
     }
   }
 
-  removeValidationIframe(iframe);
   return {
     testIndex: -1,
-    passed: true,
-    feedback: test.feedbackSuccess ?? 'Test bestanden.',
+    passed: false,
+    feedback: test.feedbackFailure,
   };
 }
 

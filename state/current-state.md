@@ -82,7 +82,8 @@
 - [x] Fix 02: Bundle-Loader Pfade mit `import.meta.env.BASE_URL` korrigiert (siehe `state/fixes/fix-02-bundle-loader-base-path.md`)
 - [x] Fix 03: Validierungs-Engine Timing korrigiert und Konsole bei Iframe-Reload geleert (siehe `state/fixes/fix-03-validation-console.md`)
 - [x] Fix 04: DOM-Validierung nutzt eigenes Iframe statt Live-Preview (siehe `state/fixes/fix-04-dom-validation-iframe.md`)
-- [ ] Live-URL nach Fix 04 erneut testen
+- [x] Fix 05: DOM-Validierung via postMessage wegen Cross-Origin Sandbox (siehe `state/fixes/fix-05-dom-validation-cross-origin.md`)
+- [ ] Live-URL nach Fix 05 erneut testen
 
 **Blocker / Risiken:**
 
