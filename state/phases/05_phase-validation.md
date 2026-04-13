@@ -19,16 +19,16 @@ Für JS-Tests (Console und Function) wird ein temporärer, unsichtbarer Validati
 
 ## Task-Übersicht
 
-| ID | Task-Name | Priorität | Geschätzter Aufwand |
-| :--- | :--- | :--- | :--- |
-| 5.1 | Validierungs-Engine-Interface und Ergebnistypen definieren | Kritisch | Klein |
-| 5.2 | DOM-Test-Validator implementieren | Kritisch | Mittel |
-| 5.3 | Console-Test-Validator implementieren | Hoch | Mittel |
-| 5.4 | Function-Test-Validator implementieren | Hoch | Mittel |
-| 5.5 | "Code prüfen"-Button und Feedback-UI in `TaskPage` integrieren | Kritisch | Mittel |
-| 5.6 | Zustand erweitern: Validierungsergebnis und Aufgabenabschluss | Hoch | Klein |
-| 5.7 | Integrationstest mit Canary-Bundle | Kritisch | Klein |
-| 5.8 | Dokumentation aktualisieren (`current-state.md`) | Mittel | Klein |
+| ID  | Task-Name                                                      | Priorität | Geschätzter Aufwand |
+| :-- | :------------------------------------------------------------- | :-------- | :------------------ |
+| 5.1 | Validierungs-Engine-Interface und Ergebnistypen definieren     | Kritisch  | Klein               |
+| 5.2 | DOM-Test-Validator implementieren                              | Kritisch  | Mittel              |
+| 5.3 | Console-Test-Validator implementieren                          | Hoch      | Mittel              |
+| 5.4 | Function-Test-Validator implementieren                         | Hoch      | Mittel              |
+| 5.5 | "Code prüfen"-Button und Feedback-UI in `TaskPage` integrieren | Kritisch  | Mittel              |
+| 5.6 | Zustand erweitern: Validierungsergebnis und Aufgabenabschluss  | Hoch      | Klein               |
+| 5.7 | Integrationstest mit Canary-Bundle                             | Kritisch  | Klein               |
+| 5.8 | Dokumentation aktualisieren (`current-state.md`)               | Mittel    | Klein               |
 
 ---
 
@@ -38,6 +38,7 @@ Für JS-Tests (Console und Function) wird ein temporärer, unsichtbarer Validati
 Bevor konkrete Test-Logiken geschrieben werden, muss die Architektur der Validierungs-Engine feststehen.
 
 **Aktionen:**
+
 1. Datei `src/lib/validationEngine.ts` anlegen.
 2. Folgende Typen/Interfaces definieren:
    - `type TestResult = { testIndex: number; passed: boolean; feedback: string }`
@@ -47,6 +48,7 @@ Bevor konkrete Test-Logiken geschrieben werden, muss die Architektur der Validie
 5. Einen Dispatch-Mechanismus vorsehen: Je nach `validationTest.type` wird `validateDomTest`, `validateConsoleTest` oder `validateFunctionTest` aufgerufen.
 
 **Akzeptanzkriterien:**
+
 - [ ] `src/lib/validationEngine.ts` existiert und exportiert `ValidationResult`, `TestResult` und `validateTask`.
 - [ ] `validateTask` akzeptiert ein `Task`-Objekt und eine `HTMLIFrameElement`-Referenz.
 - [ ] Der Rumpf der Funktion ist als `async` deklariert und gibt ein `Promise<ValidationResult>` zurück.
@@ -59,6 +61,7 @@ Bevor konkrete Test-Logiken geschrieben werden, muss die Architektur der Validie
 HTML/CSS-Aufgaben werden durch Inspektion des gerenderten DOMs im Live-Preview-Iframe validiert.
 
 **Aktionen:**
+
 1. In `src/lib/validationEngine.ts` eine Funktion `validateDomTest(test: DomTest, iframe: HTMLIFrameElement): TestResult` implementieren.
 2. Logik:
    - Zugriff auf das Dokument: `const doc = iframe.contentDocument ?? iframe.contentWindow?.document;`
@@ -75,6 +78,7 @@ HTML/CSS-Aufgaben werden durch Inspektion des gerenderten DOMs im Live-Preview-I
 3. Optional: `feedbackSuccess` aus dem Test verwenden, falls vorhanden, andernfalls eine Standard-Erfolgsmeldung.
 
 **Akzeptanzkriterien:**
+
 - [ ] `validateDomTest` existiert und ist vollständig typisiert.
 - [ ] Ein fehlendes Element führt zu `passed: false` mit dem korrekten `feedbackFailure`.
 - [ ] Ein vorhandenes Element mit passendem `computedStyle`-Wert führt zu `passed: true`.
@@ -88,6 +92,7 @@ HTML/CSS-Aufgaben werden durch Inspektion des gerenderten DOMs im Live-Preview-I
 Einfache JavaScript-Aufgaben (z. B. `console.log('Hallo')`) werden validiert, indem die Konsolenausgabe mit dem erwarteten Output verglichen wird.
 
 **Aktionen:**
+
 1. In `src/lib/validationEngine.ts` eine Funktion `validateConsoleTest(test: ConsoleTest, code: { html: string; css: string; js: string }): Promise<TestResult>` implementieren.
 2. Da die Live-Preview-Konsole bereits läuft und möglicherweise Logs aus früheren Eingaben enthält, darf diese nicht für die Validation verwendet werden.
 3. Stattdessen wird ein temporärer, unsichtbarer Iframe erstellt:
@@ -102,6 +107,7 @@ Einfache JavaScript-Aufgaben (z. B. `console.log('Hallo')`) werden validiert, in
 7. Das temporäre Iframe wird aus dem DOM entfernt.
 
 **Akzeptanzkriterien:**
+
 - [ ] `validateConsoleTest` ist asynchron und gibt ein `Promise<TestResult>` zurück.
 - [ ] Ein `console.log('Hallo')` im Schüler-Code führt bei `expectedOutput: 'Hallo'` zu `passed: true`.
 - [ ] Ein `console.log('Welt')` bei `expectedOutput: 'Hallo'` führt zu `passed: false` mit `test.feedbackFailure`.
@@ -115,6 +121,7 @@ Einfache JavaScript-Aufgaben (z. B. `console.log('Hallo')`) werden validiert, in
 Komplexere JS-Aufgaben (z. B. "Schreibe eine Funktion `addiere(a, b)`") werden durch direkte Funktionsaufrufe mit vordefinierten Argumenten validiert.
 
 **Aktionen:**
+
 1. In `src/lib/validationEngine.ts` eine Funktion `validateFunctionTest(test: FunctionTest, code: { html: string; css: string; js: string }): Promise<TestResult>` implementieren.
 2. Ähnlich wie Console-Test wird ein temporäres Validation-Iframe verwendet.
 3. Der `srcDoc` enthält:
@@ -136,6 +143,7 @@ Komplexere JS-Aufgaben (z. B. "Schreibe eine Funktion `addiere(a, b)`") werden d
 7. Das temporäre Iframe wird entfernt.
 
 **Akzeptanzkriterien:**
+
 - [ ] `validateFunctionTest` ist asynchron und gibt ein `Promise<TestResult>` zurück.
 - [ ] Eine korrekte Schüler-Funktion `function addiere(a,b){return a+b;}` führt bei `args: [2,3]` und `expectedResult: 5` zu `passed: true`.
 - [ ] Eine falsche Rückgabe oder ein Laufzeitfehler führt zu `passed: false` mit dem korrekten `feedbackFailure`.
@@ -149,6 +157,7 @@ Komplexere JS-Aufgaben (z. B. "Schreibe eine Funktion `addiere(a, b)`") werden d
 Die Validierung muss für den Schüler auslösbar und das Ergebnis visuell verständlich sein.
 
 **Aktionen:**
+
 1. In `TaskPage.tsx` einen Button "Code prüfen" oberhalb oder unterhalb des Editors platzieren.
 2. Einen lokalen State `validationResult: ValidationResult | null` hinzufügen.
 3. Einen `handleValidate`-Callback implementieren:
@@ -161,6 +170,7 @@ Die Validierung muss für den Schüler auslösbar und das Ergebnis visuell verst
 5. Loading-State während der Validierung (da Console/Function async sind).
 
 **Akzeptanzkriterien:**
+
 - [ ] Der Button "Code prüfen" ist in `TaskPage` sichtbar und klickbar.
 - [ ] Ein Klick startet die Validierung und zeigt anschließend das Ergebnis an.
 - [ ] Bei vollem Erfolg wird die Aufgabe via `markTaskCompleted` als abgeschlossen markiert.
@@ -175,6 +185,7 @@ Die Validierung muss für den Schüler auslösbar und das Ergebnis visuell verst
 Der globale Store muss wissen, welche Aufgaben bereits gelöst wurden. Dies ist die Grundlage für Fortschrittsbalken und Badges in späteren Phasen.
 
 **Aktionen:**
+
 1. `src/stores/appStore.ts` überprüfen. `markTaskCompleted` existiert bereits.
 2. Optional (empfohlen): Einen `taskResults`-State hinzufügen:
    - `taskResults: Record<string, boolean>` — Speichert pro `taskId`, ob die Aufgabe bestanden wurde.
@@ -183,6 +194,7 @@ Der globale Store muss wissen, welche Aufgaben bereits gelöst wurden. Dies ist 
 4. Sicherstellen, dass `completedTasks` keine Duplikate enthält (ist bereits implementiert).
 
 **Akzeptanzkriterien:**
+
 - [ ] `markTaskCompleted` funktioniert wie bisher und fügt `taskId` zu `completedTasks` hinzu.
 - [ ] (Optional) `taskResults` ist im Store verfügbar und persistiert Bestehen/Fehlschlagen pro Aufgabe.
 - [ ] `npm run build` bleibt nach Store-Änderungen fehlerfrei.
@@ -195,6 +207,7 @@ Der globale Store muss wissen, welche Aufgaben bereits gelöst wurden. Dies ist 
 Die gesamte Validierungs-Pipeline wird anhand des Canary-Bundles End-to-End getestet.
 
 **Aktionen:**
+
 1. Dev-Server starten.
 2. **Test A (DOM-Test erfolgreich):**
    - Öffne `/task/bundle-01-html-basics/html-basics-01`.
@@ -213,6 +226,7 @@ Die gesamte Validierungs-Pipeline wird anhand des Canary-Bundles End-to-End gete
 5. Alle Tests manuell verifizieren.
 
 **Akzeptanzkriterien:**
+
 - [ ] Test A, B und C verhalten sich wie erwartet.
 - [ ] Bei Erfolg wird die Aufgabe in `completedTasks` des Stores aufgenommen.
 - [ ] Keine Laufzeitfehler während der Tests in der Browser-Konsole.
@@ -225,12 +239,14 @@ Die gesamte Validierungs-Pipeline wird anhand des Canary-Bundles End-to-End gete
 `state/current-state.md` muss den Abschluss von Phase 5 dokumentieren und den Übergang zu Phase 6 vorbereiten.
 
 **Aktionen:**
+
 1. In `state/current-state.md`:
    - Phase 5 auf ✅ setzen.
    - Phase 6 auf 🔄 setzen.
    - Abgeschlossene Meilensteine um "Phase 5 Implementierung" ergänzen.
 
 **Akzeptanzkriterien:**
+
 - [ ] `state/current-state.md` reflektiert korrekt, dass Phase 5 abgeschlossen ist.
 - [ ] Phase 6 ist als neue aktive Phase markiert.
 

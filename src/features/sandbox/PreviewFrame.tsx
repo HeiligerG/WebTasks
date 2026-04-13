@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 
 type PreviewFrameProps = {
   srcDoc: string;
@@ -6,12 +6,16 @@ type PreviewFrameProps = {
   className?: string;
 };
 
-export function PreviewFrame({ srcDoc, onMessage, className }: PreviewFrameProps) {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+export const PreviewFrame = forwardRef<HTMLIFrameElement, PreviewFrameProps>(function PreviewFrame(
+  { srcDoc, onMessage, className },
+  ref
+) {
+  const innerRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     function handleMessage(event: MessageEvent) {
-      if (iframeRef.current && event.source === iframeRef.current.contentWindow) {
+      const iframe = innerRef.current;
+      if (iframe && event.source === iframe.contentWindow) {
         onMessage(event.data);
       }
     }
@@ -24,11 +28,18 @@ export function PreviewFrame({ srcDoc, onMessage, className }: PreviewFrameProps
 
   return (
     <iframe
-      ref={iframeRef}
+      ref={(node) => {
+        innerRef.current = node;
+        if (typeof ref === 'function') {
+          ref(node);
+        } else if (ref) {
+          ref.current = node;
+        }
+      }}
       title="Live Preview"
       sandbox="allow-scripts"
       srcDoc={srcDoc}
       className={className}
     />
   );
-}
+});
