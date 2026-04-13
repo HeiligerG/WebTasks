@@ -7,7 +7,7 @@
     {
       "id": "js-basics-01",
       "title": "Variablen erstellen",
-      "instruction": "Willkommen in der Welt von JavaScript! Hier lernst du, wie du Daten in Variablen speicherst.\n\n**Deine Aufgabe:**\n1. Erstelle eine Variable `meinName` mit dem Wert `'Max'`.\n2. Gib die Variable mit `console.log(meinName);` in der Konsole aus.\n\n**Tipp:** Verwende `let` oder `const`, um eine Variable zu erstellen.",
+      "instruction": "Willkommen in der Welt von JavaScript! Hier lernst du, wie du Daten in Variablen speicherst.\n\n**Anforderungen:**\n1. Erstelle eine Variable `meinName` mit dem Wert `'Max'`.\n2. Gib die Variable mit `console.log(meinName);` in der Konsole aus.\n\n**Tipp:**\nVerwende `let` oder `const`, um eine Variable zu erstellen.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -27,7 +27,7 @@
     {
       "id": "js-basics-02",
       "title": "Mit Zahlen rechnen",
-      "instruction": "Computer sind hervorragende Rechner. In dieser Aufgabe nutzt du mathematische Operatoren.\n\n**Deine Aufgabe:**\nBerechne `12 * 8` und gib das Ergebnis mit `console.log()` aus.",
+      "instruction": "Computer sind hervorragende Rechner. In dieser Aufgabe nutzt du mathematische Operatoren.\n\n**Anforderungen:**\nBerechne `12 * 8` und gib das Ergebnis mit `console.log()` aus.\n\n**Tipp:**\nDu kannst das Ergebnis direkt in `console.log()` schreiben, z. B. `console.log(12 * 8);`.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -47,7 +47,7 @@
     {
       "id": "js-basics-03",
       "title": "Bedingungen prüfen",
-      "instruction": "Mit `if` und `else` kannst du Entscheidungen im Code treffen.\n\n**Deine Aufgabe:**\nSchreibe eine Funktion `istVolljaehrig(alter)`, die:\n- `'volljährig'` zurückgibt, wenn das Alter 18 oder größer ist.\n- `'minderjährig'` zurückgibt, wenn das Alter unter 18 ist.",
+      "instruction": "Mit `if` und `else` kannst du Entscheidungen im Code treffen.\n\n**Anforderungen:**\nSchreibe eine Funktion `istVolljaehrig(alter)`, die:\n- `'volljährig'` zurückgibt, wenn das Alter 18 oder größer ist.\n- `'minderjährig'` zurückgibt, wenn das Alter unter 18 ist.\n\n**Tipp:**\nVergiss nicht, den Wert mit `return` zurückzugeben.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -80,7 +80,7 @@
     {
       "id": "js-basics-04",
       "title": "Arrays durchlaufen",
-      "instruction": "Arrays sind Listen von Daten. Mit Schleifen kannst du effizient durch sie hindurchgehen.\n\n**Deine Aufgabe:**\nSchreibe eine Funktion `findeGerade(zahlen)`, die ein Array von Zahlen erhält und ein neues Array mit nur den geraden Zahlen zurückgibt.\n\n**Beispiel:** `findeGerade([1, 2, 3, 4, 5, 6])` soll `[2, 4, 6]` zurückgeben.\n\n**Tipp:** Eine Zahl ist gerade, wenn `zahl % 2 === 0` ist.",
+      "instruction": "Arrays sind Listen von Daten. Mit Schleifen kannst du effizient durch sie hindurchgehen.\n\n**Anforderungen:**\nSchreibe eine Funktion `findeGerade(zahlen)`, die ein Array von Zahlen erhält und ein neues Array mit nur den geraden Zahlen zurückgibt.\n\n**Beispiel:** `findeGerade([1, 2, 3, 4, 5, 6])` soll `[2, 4, 6]` zurückgeben.\n\n**Tipp:**\nEine Zahl ist gerade, wenn `zahl % 2 === 0` ist.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -115,7 +115,7 @@
     {
       "id": "js-basics-05",
       "title": "Vergleichsoperatoren",
-      "instruction": "Programme müssen oft Werte miteinander vergleichen. In JavaScript gibt es dafür Operatoren wie `>`, `<`, `===` und `!==`.",
+      "instruction": "Programme müssen oft Werte miteinander vergleichen. In JavaScript gibt es dafür Operatoren wie `>`, `<`, `===` und `!==`.\n\n**Anforderungen:**\n1. Gib das Ergebnis von `10 > 5` mit `console.log()` aus.\n2. Gib das Ergebnis von `7 === \"7\"` mit `console.log()` aus.\n\n**Tipp:**\n`===` prüft auf Gleichheit UND denselben Typ. `\"7\"` ist ein String, `7` ist eine Zahl.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -140,7 +140,7 @@
     {
       "id": "js-basics-06",
       "title": "Logische Operatoren",
-      "instruction": "Manchmal müssen mehrere Bedingungen gleichzeitig erfüllt sein. Dafür nutzen wir `&&` (UND) und `||` (ODER).",
+      "instruction": "Manchmal müssen mehrere Bedingungen gleichzeitig erfüllt sein. Dafür nutzen wir `&&` (UND) und `||` (ODER).\n\n**Anforderungen:**\nSchreibe eine Funktion `hatZugang(alt, eingeloggt)`, die `true` zurückgibt, wenn `alt >= 18` **UND** `eingeloggt === true` ist. Ansonsten soll sie `false` zurückgeben.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -185,7 +185,7 @@
     {
       "id": "js-basics-07",
       "title": "switch-Statement",
-      "instruction": "Wenn du viele Bedingungen für denselben Wert prüfen musst, ist `switch` übersichtlicher als viele `if-else`.",
+      "instruction": "Wenn du viele Bedingungen für denselben Wert prüfen musst, ist `switch` übersichtlicher als viele `if-else`.\n\n**Anforderungen:**\nSchreibe eine Funktion `wochentag(num)`, die für:\n- `1` → `\"Montag\"`\n- `2` → `\"Dienstag\"`\n- `3` → `\"Mittwoch\"`\n- `7` → `\"Sonntag\"`\nzurückgibt. Für unbekannte Zahlen gib `\"Unbekannt\"` zurück.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -227,7 +227,7 @@
     {
       "id": "js-basics-08",
       "title": "for-Schleife",
-      "instruction": "Schleifen wiederholen Code so lange, wie eine Bedingung erfüllt ist. `for` ist die häufigste Schleife, wenn du eine bestimmte Anzahl Durchläufe kennst.",
+      "instruction": "Schleifen wiederholen Code so lange, wie eine Bedingung erfüllt ist. `for` ist die häufigste Schleife, wenn du eine bestimmte Anzahl Durchläufe kennst.\n\n**Anforderungen:**\nGib die Zahlen von 1 bis 5 (jede in einer neuen Zeile) mit einer `for`-Schleife und `console.log()` aus.\n\n**Tipp:**\n`for (let i = 1; i <= 5; i++) { ... }`",
       "initialCode": {
         "html": "",
         "css": "",
@@ -252,7 +252,7 @@
     {
       "id": "js-basics-09",
       "title": "while-Schleife",
-      "instruction": "Eine `while`-Schleife läuft so lange, wie eine Bedingung wahr ist.",
+      "instruction": "Eine `while`-Schleife läuft so lange, wie eine Bedingung wahr ist.\n\n**Anforderungen:**\nSchreibe eine `while`-Schleife, die von 3 bis 1 herunterzählt und folgendes in der Konsole ausgibt:",
       "initialCode": {
         "html": "",
         "css": "",
@@ -277,7 +277,7 @@
     {
       "id": "js-basics-10",
       "title": "Arrays: Element finden",
-      "instruction": "Arrays sind Listen von Werten. Mit einer Schleife kannst du durch ein Array gehen und bestimmte Elemente finden.",
+      "instruction": "Arrays sind Listen von Werten. Mit einer Schleife kannst du durch ein Array gehen und bestimmte Elemente finden.\n\n**Anforderungen:**\nSchreibe eine Funktion `findeGroesste(zahlen)`, die ein Array von Zahlen erhält und die größte Zahl zurückgibt.\n\n**Beispiel:** `findeGroesste([3, 8, 2, 10, 5])` soll `10` zurückgeben.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -320,7 +320,7 @@
     {
       "id": "js-basics-11",
       "title": "Array-Methoden (map)",
-      "instruction": "Moderne JavaScript-Entwickler nutzen Array-Methoden wie `map`, `filter` und `find`, statt manuell Schleifen zu schreiben.",
+      "instruction": "Moderne JavaScript-Entwickler nutzen Array-Methoden wie `map`, `filter` und `find`, statt manuell Schleifen zu schreiben.\n\n**Anforderungen:**\nSchreibe eine Funktion `verdopple(zahlen)`, die jedes Element eines Zahlen-Arrays verdoppelt und das neue Array zurückgibt. Verwende dafür `.map()`.\n\n**Beispiel:** `verdopple([1, 2, 3])` → `[2, 4, 6]`",
       "initialCode": {
         "html": "",
         "css": "",
@@ -352,7 +352,7 @@
     {
       "id": "js-basics-12",
       "title": "Objekte erstellen",
-      "instruction": "Objekte speichern zusammengehörige Daten in Schlüssel-Wert-Paaren.",
+      "instruction": "Objekte speichern zusammengehörige Daten in Schlüssel-Wert-Paaren.\n\n**Anforderungen:**\n1. Erstelle ein Objekt `buch` mit den Eigenschaften `titel` (Wert: `\"Harry Potter\"`) und `autor` (Wert: `\"J.K. Rowling\"`).\n2. Gib den Titel mit `console.log(buch.titel)` aus.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -372,7 +372,7 @@
     {
       "id": "js-basics-13",
       "title": "Objekteigenschaften lesen",
-      "instruction": "Funktionen können Objekte als Parameter erhalten und deren Eigenschaften auslesen.",
+      "instruction": "Funktionen können Objekte als Parameter erhalten und deren Eigenschaften auslesen.\n\n**Anforderungen:**\nSchreibe eine Funktion `gibAutor(buch)`, die ein Objekt mit der Eigenschaft `autor` erhält und diesen Autor als String zurückgibt.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -399,7 +399,7 @@
     {
       "id": "js-basics-14",
       "title": "Eigene Funktionen",
-      "instruction": "Funktionen sind die Bausteine eines Programms. Sie kapseln Code, den man mehrfach verwenden kann.",
+      "instruction": "Funktionen sind die Bausteine eines Programms. Sie kapseln Code, den man mehrfach verwenden kann.\n\n**Anforderungen:**\nSchreibe eine Funktion `begruesse(name)`, die einen Namen erhält und `\"Hallo [Name]!\"` zurückgibt.\n\n**Beispiel:** `begruesse(\"Max\")` → `\"Hallo Max!\"`",
       "initialCode": {
         "html": "",
         "css": "",
@@ -423,7 +423,7 @@
     {
       "id": "js-basics-15",
       "title": "Parameter und Rückgabe",
-      "instruction": "Funktionen können mehrere Parameter entgegennehmen und mit `return` ein Ergebnis liefern.",
+      "instruction": "Funktionen können mehrere Parameter entgegennehmen und mit `return` ein Ergebnis liefern.\n\n**Anforderungen:**\nSchreibe eine Funktion `berechneFlaeche(breite, hoehe)`, die die Fläche eines Rechtecks berechnet und zurückgibt.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -458,7 +458,7 @@
     {
       "id": "js-basics-16",
       "title": "DOM-Element finden",
-      "instruction": "JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man DOM-Manipulation.",
+      "instruction": "JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man DOM-Manipulation.\n\n**Anforderungen:**\n1. Im HTML ist ein `<div>` mit der ID `box` vorhanden.\n2. Wähle dieses Element im JavaScript mit `document.getElementById('box')` aus.\n3. Ändere die Hintergrundfarbe des Elements auf `red`.",
       "initialCode": {
         "html": "<div id=\"box\" style=\"width:100px;height:100px;background:#eee\">Box</div>",
         "css": "",
@@ -481,7 +481,7 @@
     {
       "id": "js-basics-17",
       "title": "Auf Klicks reagieren",
-      "instruction": "Event-Listener machen Webseiten interaktiv. Sie \"hören\" auf Aktionen des Nutzers.",
+      "instruction": "Event-Listener machen Webseiten interaktiv. Sie \"hören\" auf Aktionen des Nutzers.\n\n**Anforderungen:**\n1. Im HTML ist ein `<button>` mit der ID `mein-button`.\n2. Füge im JavaScript einen `click`-Event-Listener zu diesem Button hinzu.\n3. Beim Klick soll ein `<p>`-Element mit der ID `ausgabe` den Text `Geklickt!` erhalten.",
       "initialCode": {
         "html": "<button id=\"mein-button\">Klick mich</button>\n<p id=\"ausgabe\">Noch nicht geklickt</p>",
         "css": "",
@@ -507,7 +507,7 @@
     {
       "id": "js-basics-18",
       "title": "Eingabewerte lesen",
-      "instruction": "Formulare sind nutzlos, wenn wir ihre Werte nicht auslesen können.",
+      "instruction": "Formulare sind nutzlos, wenn wir ihre Werte nicht auslesen können.\n\n**Anforderungen:**\n1. Im HTML gibt es ein `<input type=\"text\" id=\"name\">` und ein `<p id=\"gruss\">`.\n2. Füge einen Button mit der ID `gruessen` hinzu.\n3. Beim Klick auf den Button soll der Wert aus dem Input-Feld gelesen und in das Paragraph-Element geschrieben werden: `Hallo [Name]!`",
       "initialCode": {
         "html": "<input type=\"text\" id=\"name\" placeholder=\"Dein Name\">\n<button id=\"gruessen\">Grüßen</button>\n<p id=\"gruss\"></p>",
         "css": "",
@@ -538,7 +538,7 @@
     {
       "id": "js-basics-19",
       "title": "Zufallszahlen",
-      "instruction": "Zufallszahlen sind spannend für Spiele und Simulationen.",
+      "instruction": "Zufallszahlen sind spannend für Spiele und Simulationen.\n\n**Anforderungen:**\nSchreibe eine Funktion `wuerfle()`, die eine ganze Zahl zwischen 1 und 6 (inklusive) zurückgibt.\n\n**Tipp:**\n`Math.random()` gibt eine Zahl zwischen 0 und 1 zurück. `Math.floor()` rundet ab.",
       "initialCode": {
         "html": "",
         "css": "",
@@ -560,7 +560,7 @@
     {
       "id": "js-basics-20",
       "title": "Taschenrechner-Projekt",
-      "instruction": "Das Finale von Bundle 2! Du baust eine Funktion, die wie ein simpler Taschenrechner funktioniert.",
+      "instruction": "Das Finale von Bundle 2! Du baust eine Funktion, die wie ein simpler Taschenrechner funktioniert.\n\n**Anforderungen:**\nSchreibe eine Funktion `rechne(a, b, operator)`, die zwei Zahlen und einen Operator (`+`, `-`, `*`, `/`) erhält und das Ergebnis zurückgibt.\n\n**Beispiele:**\n- `rechne(5, 3, \"+\")` → `8`\n- `rechne(10, 2, \"/\")` → `5`",
       "initialCode": {
         "html": "",
         "css": "",
