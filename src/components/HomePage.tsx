@@ -39,7 +39,7 @@ export function HomePage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+      <main className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-8">
         <section className="text-center">
           <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100 md:text-5xl">
             Willkommen bei WebTasks
