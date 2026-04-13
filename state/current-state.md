@@ -77,7 +77,9 @@
 - [x] SPA-Routing für GitHub Pages implementiert (`404.html` + `main.tsx` restore)
 - [x] GitHub Actions Deployment-Workflow eingerichtet
 - [x] Finale Dokumentation aktualisiert (`README.md`, `AGENTS.md`, Meta-Tags)
-- [ ] Deployment-Pipeline auf `master` ausführen und Live-URL testen
+- [x] Deployment-Pipeline auf `master` ausgeführt
+- [x] Fix 01: React Router `basename` für GitHub Pages gesetzt (siehe `state/fixes/fix-01-router-basename.md`)
+- [ ] Live-URL nach Fix 01 erneut testen
 
 **Blocker / Risiken:**
 
