@@ -3,6 +3,7 @@ import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
 import { javascript } from '@codemirror/lang-javascript';
 import { oneDark } from '@codemirror/theme-one-dark';
+import { githubLight } from '@uiw/codemirror-theme-github';
 import { lineNumbers, highlightActiveLineGutter, highlightActiveLine } from '@codemirror/view';
 import { closeBrackets } from '@codemirror/autocomplete';
 import { indentUnit } from '@codemirror/language';
@@ -13,6 +14,7 @@ type CodeEditorProps = {
   onChange: (value: string) => void;
   language: 'html' | 'css' | 'js';
   className?: string;
+  theme?: 'light' | 'dark';
 };
 
 function getLanguageExtension(language: CodeEditorProps['language']) {
@@ -39,12 +41,12 @@ function getBaseExtensions() {
   ];
 }
 
-export function CodeEditor({ value, onChange, language, className }: CodeEditorProps) {
+export function CodeEditor({ value, onChange, language, className, theme = 'dark' }: CodeEditorProps) {
   return (
     <CodeMirror
       value={value}
       onChange={onChange}
-      theme={oneDark}
+      theme={theme === 'dark' ? oneDark : githubLight}
       extensions={[...getBaseExtensions(), getLanguageExtension(language)]}
       className={className}
       basicSetup={false}

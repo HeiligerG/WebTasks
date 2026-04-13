@@ -20,6 +20,7 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
   const codeSnippets = useAppStore((state) => state.codeSnippets);
   const setCode = useAppStore((state) => state.setCode);
   const resetCode = useAppStore((state) => state.resetCode);
+  const theme = useAppStore((state) => state.theme);
 
   useEffect(() => {
     // Ensure each enabled editor has a value in the store
@@ -46,8 +47,8 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
   const showTabs = enabledEditors.length > 1;
 
   return (
-    <div className="flex h-full flex-col rounded-lg border border-gray-700 bg-gray-900 shadow">
-      <div className={`flex items-center border-b border-gray-700 ${showTabs ? 'justify-between' : 'justify-end'}`}>
+    <div className="flex h-full flex-col rounded-lg border border-gray-300 bg-white shadow dark:border-gray-700 dark:bg-gray-900">
+      <div className={`flex items-center border-b border-gray-300 dark:border-gray-700 ${showTabs ? 'justify-between' : 'justify-end'}`}>
         {showTabs && (
           <div className="flex">
             {enabledEditors.map((editor) => (
@@ -57,8 +58,8 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
                 onClick={() => setActiveTab(editor)}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   activeTab === editor
-                    ? 'bg-gray-800 text-blue-400'
-                    : 'text-gray-400 hover:bg-gray-800 hover:text-gray-200'
+                    ? 'bg-gray-100 text-blue-600 dark:bg-gray-800 dark:text-blue-400'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200'
                 }`}
               >
                 {TAB_LABELS[editor] ?? editor}
@@ -69,7 +70,7 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
         <button
           type="button"
           onClick={handleReset}
-          className="px-3 py-2 text-xs text-gray-500 hover:text-gray-300"
+          className="px-3 py-2 text-xs text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
           title="Code auf den Ausgangszustand zurücksetzen"
         >
           ↺ Zurücksetzen
@@ -82,6 +83,7 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
               value={codeSnippets[taskId]?.[editor] ?? initialCode[editor]}
               onChange={(value) => handleChange(editor, value)}
               language={editor}
+              theme={theme}
               className="h-full text-sm"
             />
           </div>

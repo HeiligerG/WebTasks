@@ -4,11 +4,11 @@ type BadgeDisplayProps = {
 
 export function BadgeDisplay({ badges }: BadgeDisplayProps) {
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-800">Deine Abzeichen</h3>
+    <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+      <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Deine Abzeichen</h3>
 
       {badges.length === 0 ? (
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
           Schließe dein erstes Bundle ab, um Abzeichen zu sammeln!
         </p>
       ) : (
@@ -16,7 +16,7 @@ export function BadgeDisplay({ badges }: BadgeDisplayProps) {
           {badges.map((badge) => (
             <div
               key={badge}
-              className="flex items-center gap-2 rounded-full border border-yellow-300 bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-800 shadow-sm"
+              className="flex items-center gap-2 rounded-full border border-yellow-300 bg-yellow-100 px-4 py-2 text-sm font-medium text-yellow-800 shadow-sm dark:border-yellow-700 dark:bg-yellow-900 dark:text-yellow-200"
             >
               <span role="img" aria-label="Medaille">
                 🏅
