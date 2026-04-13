@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadAllBundles } from '../lib/contentLoader';
+import { loadAllBundles, getBundleUrl } from '../lib/contentLoader';
 import { useAppStore } from '../stores/appStore';
 import { BundleCard } from './BundleCard';
 import { BadgeDisplay } from './BadgeDisplay';
@@ -15,9 +15,9 @@ export function HomePage() {
 
   useEffect(() => {
     loadAllBundles([
-      '/bundles/bundle-01-html-basics.json',
-      '/bundles/bundle-02-javascript-basics.json',
-      '/bundles/bundle-03-interactive-web.json',
+      getBundleUrl('bundle-01-html-basics'),
+      getBundleUrl('bundle-02-javascript-basics'),
+      getBundleUrl('bundle-03-interactive-web'),
     ])
       .then((data) => {
         setBundles(data);

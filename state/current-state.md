@@ -79,7 +79,8 @@
 - [x] Finale Dokumentation aktualisiert (`README.md`, `AGENTS.md`, Meta-Tags)
 - [x] Deployment-Pipeline auf `master` ausgeführt
 - [x] Fix 01: React Router `basename` für GitHub Pages gesetzt (siehe `state/fixes/fix-01-router-basename.md`)
-- [ ] Live-URL nach Fix 01 erneut testen
+- [x] Fix 02: Bundle-Loader Pfade mit `import.meta.env.BASE_URL` korrigiert (siehe `state/fixes/fix-02-bundle-loader-base-path.md`)
+- [ ] Live-URL nach Fix 02 erneut testen
 
 **Blocker / Risiken:**
 
