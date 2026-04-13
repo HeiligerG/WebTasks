@@ -1,0 +1,69 @@
+{
+  "id": "bundle-01-html-basics",
+  "title": "HTML & CSS Grundlagen",
+  "description": "Lerne, wie du Webseiten strukturierst und gestaltest. Das ist der perfekte Einstieg in die Welt der Programmierung!",
+  "badgeName": "UI-Designer Level 1",
+  "tasks": [
+    {
+      "id": "html-basics-01",
+      "title": "Dein erstes HTML-Element",
+      "instruction": "Willkommen bei deiner ersten Aufgabe! HTML ist die Sprache, mit der wir Webseiten strukturieren.\n\nÄndere den Text unten so, dass er in einer **Überschrift** steht. Verwende dafür das `<h1>`-Tag.\n\n**Tipp:** Ein HTML-Tag besteht aus einer öffnenden Klammer `<`, dem Tag-Namen und einer schließenden Klammer `>`. Vergiss nicht, den Tag am Ende wieder zu schließen mit `</h1>`.",
+      "initialCode": {
+        "html": "<p>Hallo Welt</p>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": ["html"],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "h1",
+          "feedbackFailure": "Wir können keine <h1>-Überschrift finden. Hast du das Tag korrekt geschrieben und geschlossen?"
+        }
+      ]
+    },
+    {
+      "id": "html-basics-02",
+      "title": "Bilder einbinden",
+      "instruction": "Bilder machen eine Webseite lebendig. In dieser Aufgabe lernst du, wie du ein Bild mit dem `<img>`-Tag einbindest.\n\nErsetze den Platzhalter-Text durch ein Bild. Verwende dafür folgende URL als `src`:\n\n`https://via.placeholder.com/150`\n\n**Tipp:** Das `<img>`-Tag hat kein schließendes Tag. Es sieht so aus: `<img src=\"...\" alt=\"Beschreibung\">`",
+      "initialCode": {
+        "html": "<div>Bild kommt hier hin</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": ["html"],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "img",
+          "feedbackFailure": "Wir können kein <img>-Tag finden. Hast du das Tag mit dem richtigen src-Attribut eingefügt?"
+        }
+      ]
+    },
+    {
+      "id": "html-basics-03",
+      "title": "Deine Profilkarte",
+      "instruction": "In dieser Abschlussaufgabe kombinierst du HTML und CSS, um deine eigene digitale Visitenkarte zu erstellen.\n\n**Anforderungen:**\n1. Erstelle einen Container mit der Klasse `profile-card`.\n2. Füge ein Bild ein.\n3. Gib dem Bild im CSS einen runden Rahmen mit `border-radius: 50%`.\n\n**Tipp:** Du kannst im CSS-Tab auf der rechten Seite die Klasse `.profile-card` stylen und mit `img` das Bild ansprechen.",
+      "initialCode": {
+        "html": "<div class=\"profile-card\">\n  <img src=\"https://via.placeholder.com/100\" alt=\"Profilbild\" />\n  <h2>Dein Name</h2>\n  <p>Hobby: Programmieren</p>\n</div>",
+        "css": "",
+        "js": ""
+      },
+      "enabledEditors": ["html", "css"],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": ".profile-card",
+          "feedbackFailure": "Wir können keine Karte mit der Klasse 'profile-card' finden. Hast du den Klassennamen korrekt geschrieben?"
+        },
+        {
+          "type": "dom",
+          "selector": ".profile-card img",
+          "property": "borderRadius",
+          "expectedValue": "50%",
+          "feedbackFailure": "Das Bild in der Profilkarte hat noch keine runden Ecken. Füge im CSS `border-radius: 50%` für das Bild hinzu."
+        }
+      ]
+    }
+  ]
+}
