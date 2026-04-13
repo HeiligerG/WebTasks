@@ -7,14 +7,14 @@
 
 ## Task-Übersicht
 
-| ID | Task-Name | Priorität | Geschätzter Aufwand |
-| :--- | :--- | :--- | :--- |
-| 8.1 | Bundle 2: "JavaScript Grundlagen" als JSON erstellen | Kritisch | Mittel |
-| 8.2 | Bundle 3: "Interaktive Web-Applikationen" als JSON erstellen | Kritisch | Mittel |
-| 8.3 | `HomePage` anpassen: Alle drei Bundles laden | Kritisch | Klein |
-| 8.4 | Content-Loader und Routing für multiple Bundles validieren | Hoch | Klein |
-| 8.5 | End-to-End-Walkthrough durchführen und korrigieren | Kritisch | Mittel |
-| 8.6 | Dokumentation aktualisieren (`current-state.md`) | Mittel | Klein |
+| ID  | Task-Name                                                    | Priorität | Geschätzter Aufwand |
+| :-- | :----------------------------------------------------------- | :-------- | :------------------ |
+| 8.1 | Bundle 2: "JavaScript Grundlagen" als JSON erstellen         | Kritisch  | Mittel              |
+| 8.2 | Bundle 3: "Interaktive Web-Applikationen" als JSON erstellen | Kritisch  | Mittel              |
+| 8.3 | `HomePage` anpassen: Alle drei Bundles laden                 | Kritisch  | Klein               |
+| 8.4 | Content-Loader und Routing für multiple Bundles validieren   | Hoch      | Klein               |
+| 8.5 | End-to-End-Walkthrough durchführen und korrigieren           | Kritisch  | Mittel              |
+| 8.6 | Dokumentation aktualisieren (`current-state.md`)             | Mittel    | Klein               |
 
 ---
 
@@ -24,6 +24,7 @@
 Das zweite Bundle fokussiert sich ausschließlich auf JavaScript-Logik. HTML- und CSS-Editoren werden hier weitgehend ausgeblendet; der Fokus liegt auf der simulierten Konsole und Funktions-Tests.
 
 **Aktionen:**
+
 1. Datei `public/bundles/bundle-02-javascript-basics.json` anlegen.
 2. Bundle-Metadaten:
    - `id`: `"bundle-02-javascript-basics"`
@@ -57,6 +58,7 @@ Das zweite Bundle fokussiert sich ausschließlich auf JavaScript-Logik. HTML- un
    - `validationTests`: Function-Test mit `args: [[1, 2, 3, 4, 5, 6]]`, `expectedResult: [2, 4, 6]`.
 
 **Akzeptanzkriterien:**
+
 - [ ] `bundle-02-javascript-basics.json` existiert und ist syntaktisch valides JSON.
 - [ ] Das Bundle enthält genau 4 Tasks.
 - [ ] Jede Task hat mindestens einen `validationTest`.
@@ -70,6 +72,7 @@ Das zweite Bundle fokussiert sich ausschließlich auf JavaScript-Logik. HTML- un
 Das dritte Bundle kombiniert alle drei Technologien und führt in DOM-Manipulation und Event-Handling ein.
 
 **Aktionen:**
+
 1. Datei `public/bundles/bundle-03-interactive-web.json` anlegen.
 2. Bundle-Metadaten:
    - `id`: `"bundle-03-interactive-web"`
@@ -115,6 +118,7 @@ Das dritte Bundle kombiniert alle drei Technologien und führt in DOM-Manipulati
      - **Einfachste Lösung:** Nur DOM-Test auf Button-Existenz. Das reicht für den Schnuppertag, da das visuelle Feedback in der Live-Preview der eigentliche Test ist.
 
 **Akzeptanzkriterien:**
+
 - [ ] `bundle-03-interactive-web.json` existiert und ist syntaktisch valides JSON.
 - [ ] Das Bundle enthält 3 Tasks (2 + 1 Master-Task).
 - [ ] Jede Task hat mindestens einen `validationTest`.
@@ -128,12 +132,14 @@ Das dritte Bundle kombiniert alle drei Technologien und führt in DOM-Manipulati
 Die Startseite muss nicht nur das Canary-Bundle, sondern alle drei verfügbaren Bundles laden und anzeigen.
 
 **Aktionen:**
+
 1. In `src/components/HomePage.tsx` das `loadAllBundles`-Array erweitern:
    - `['/bundles/bundle-01-html-basics.json', '/bundles/bundle-02-javascript-basics.json', '/bundles/bundle-03-interactive-web.json']`
 2. Sicherstellen, dass `loadAllBundles` mit fehlenden Dateien robust umgeht (es wirft bereits einen aggregierten Fehler, was korrekt ist).
 3. Optional: Eine `manifest.json` in `public/bundles/` anlegen, die die Liste der Bundles enthält, und `HomePage` so anpassen, dass sie das Manifest lädt. Dies ist für Phase 8 optional, aber zukunftssicherer. Für die aktuelle Scope-Erfüllung reicht das hartcodierte Array.
 
 **Akzeptanzkriterien:**
+
 - [ ] Die Startseite zeigt alle drei Bundles als Kacheln an.
 - [ ] Die Kacheln sind in einer sinnvollen Reihenfolge (Bundle 1, 2, 3).
 - [ ] Ein Klick auf Bundle 2 oder 3 navigiert korrekt zur ersten Task des jeweiligen Bundles.
@@ -146,6 +152,7 @@ Die Startseite muss nicht nur das Canary-Bundle, sondern alle drei verfügbaren 
 Die `TaskPage` muss in der Lage sein, nicht nur Bundle 1, sondern auch Bundle 2 und 3 korrekt zu laden.
 
 **Aktionen:**
+
 1. `TaskPage.tsx` prüfen. Aktuell ist `loadBundle('/bundles/bundle-01-html-basics.json')` hartcodiert.
 2. Eine einfache Mapping-Logik einführen:
    - `const bundleUrl = '/bundles/' + bundleId + '.json';`
@@ -154,6 +161,7 @@ Die `TaskPage` muss in der Lage sein, nicht nur Bundle 1, sondern auch Bundle 2 
 4. Einen Error-State vorsehen, falls die Bundle-Datei nicht gefunden wird (404).
 
 **Akzeptanzkriterien:**
+
 - [ ] Öffnen von `/task/bundle-02-javascript-basics/js-basics-01` lädt Bundle 2 und zeigt Task 1 an.
 - [ ] Öffnen von `/task/bundle-03-interactive-web/interactive-01` lädt Bundle 3 und zeigt Task 1 an.
 - [ ] Ein ungültiger `bundleId` zeigt eine freundliche Fehlermeldung an.
@@ -166,6 +174,7 @@ Die `TaskPage` muss in der Lage sein, nicht nur Bundle 1, sondern auch Bundle 2 
 Die didaktische Substanz wird durch einen kompletten Durchlauf aller Aufgaben validiert.
 
 **Aktionen:**
+
 1. Dev-Server starten.
 2. **Bundle 1 Walkthrough:**
    - Alle 3 Tasks nacheinander öffnen.
@@ -187,6 +196,7 @@ Die didaktische Substanz wird durch einen kompletten Durchlauf aller Aufgaben va
 6. Während des Walkthroughs entdeckte Probleme (Tippfehler in JSON, unklare Instruktionen, falsche `expectedValue`s) sofort beheben.
 
 **Akzeptanzkriterien:**
+
 - [ ] Alle 10 Tasks (3 + 4 + 3) können erfolgreich gelöst und validiert werden.
 - [ ] Alle 3 Badges werden bei vollständigem Bundle-Abschluss vergeben.
 - [ ] Die Zertifikatsseite zeigt am Ende alle Erfolge korrekt an.
@@ -200,12 +210,14 @@ Die didaktische Substanz wird durch einen kompletten Durchlauf aller Aufgaben va
 `state/current-state.md` muss den Abschluss von Phase 8 dokumentieren und den Übergang zu Phase 9 vorbereiten.
 
 **Aktionen:**
+
 1. In `state/current-state.md`:
    - Phase 8 auf ✅ setzen.
    - Phase 9 auf 🔄 setzen.
    - Abgeschlossene Meilensteine um "Phase 8 Implementierung" ergänzen.
 
 **Akzeptanzkriterien:**
+
 - [ ] `state/current-state.md` reflektiert korrekt, dass Phase 8 abgeschlossen ist.
 - [ ] Phase 9 ist als neue aktive Phase markiert.
 

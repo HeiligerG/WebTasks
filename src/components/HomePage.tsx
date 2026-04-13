@@ -14,7 +14,11 @@ export function HomePage() {
   const unlockedBadges = useAppStore((state) => state.unlockedBadges);
 
   useEffect(() => {
-    loadAllBundles(['/bundles/bundle-01-html-basics.json'])
+    loadAllBundles([
+      '/bundles/bundle-01-html-basics.json',
+      '/bundles/bundle-02-javascript-basics.json',
+      '/bundles/bundle-03-interactive-web.json',
+    ])
       .then((data) => {
         setBundles(data);
         setLoading(false);
