@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import type { Bundle } from '../types/content';
 
 type BundleCardProps = {
@@ -51,8 +52,9 @@ export function BundleCard({ bundle, completedTaskIds }: BundleCardProps) {
         </div>
       </div>
 
-      <div className="mt-4 text-sm font-medium text-blue-600 dark:text-blue-400">
-        {isCompleted ? 'Wiederholen →' : 'Weiterlernen →'}
+      <div className="mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-blue-400">
+        {isCompleted ? 'Wiederholen' : 'Weiterlernen'}
+        <ArrowRight className="h-4 w-4" />
       </div>
     </Link>
   );

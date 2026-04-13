@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { RotateCcw } from 'lucide-react';
 import { CodeEditor } from '../../components/CodeEditor';
 import { useAppStore } from '../../stores/appStore';
 import type { Task } from '../../types/content';
@@ -70,10 +71,11 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
         <button
           type="button"
           onClick={handleReset}
-          className="px-3 py-2 text-xs text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
+          className="flex items-center gap-1 px-3 py-2 text-xs text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300"
           title="Code auf den Ausgangszustand zurücksetzen"
         >
-          ↺ Zurücksetzen
+          <RotateCcw className="h-3.5 w-3.5" />
+          Zurücksetzen
         </button>
       </div>
       <div className="flex-1 overflow-hidden">
