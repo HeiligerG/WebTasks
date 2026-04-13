@@ -29,6 +29,7 @@
 [✅] Phase 7: Gamification & Motivationsdesign
 [✅] Phase 8: Curriculum-Content & End-to-End-Integration
 [✅] Phase 9: QA, Optimierung & Deployment
+[🔄] Phase 10: UI-Polish, Dark Mode & Curriculum Scale  ← AKTIV
 ```
 
 **Legende:**
@@ -64,38 +65,24 @@
 
 ---
 
-## Aktive Phase: Phase 9 — QA, Optimierung & Deployment
+## Aktive Phase: Phase 10 — UI-Polish, Dark Mode & Curriculum Scale
 
-**Ziel dieser Phase:** Die Plattform produktionsreif machen und öffentlich zugänglich deployen.
+**Ziel dieser Phase:** Die Plattform visuell professionalisieren (Dark Mode, aufgeräumtes UI) und das Curriculum auf 60 Tasks (20 pro Bundle) erweitern.
 
-**Detaillierte Planung:** _Noch zu erstellen: `state/phases/09_phase-deployment.md`_
+**Detaillierte Planung:** `state/phases/10_phase-polish-curriculum.md`
 
-**Aktueller Stand in Phase 9:**
+**Aktueller Stand in Phase 10:**
 
-- [x] Hosting-Plattform evaluiert und festgelegt (GitHub Pages)
-- [x] Build-Optimierung (Chunk-Warnung >500kB adressiert via `manualChunks`)
-- [x] SPA-Routing für GitHub Pages implementiert (`404.html` + `main.tsx` restore)
-- [x] GitHub Actions Deployment-Workflow eingerichtet
-- [x] Finale Dokumentation aktualisiert (`README.md`, `AGENTS.md`, Meta-Tags)
-- [x] Deployment-Pipeline auf `master` ausgeführt
-- [x] Fix 01: React Router `basename` für GitHub Pages gesetzt (siehe `state/fixes/fix-01-router-basename.md`)
-- [x] Fix 02: Bundle-Loader Pfade mit `import.meta.env.BASE_URL` korrigiert (siehe `state/fixes/fix-02-bundle-loader-base-path.md`)
-- [x] Fix 03: Validierungs-Engine Timing korrigiert und Konsole bei Iframe-Reload geleert (siehe `state/fixes/fix-03-validation-console.md`)
-- [x] Fix 04: DOM-Validierung nutzt eigenes Iframe statt Live-Preview (siehe `state/fixes/fix-04-dom-validation-iframe.md`)
-- [x] Fix 05: DOM-Validierung via postMessage wegen Cross-Origin Sandbox (siehe `state/fixes/fix-05-dom-validation-cross-origin.md`)
-- [x] Fix 06: Externe Placeholder-Bilder durch Base64-Data-URIs ersetzt (siehe `state/fixes/fix-06-placeholder-images.md`)
-- [x] Fix 07: "Code zurücksetzen"-Button im EditorPanel hinzugefügt (siehe `state/fixes/fix-07-code-reset-button.md`)
-- [x] Fix 08: Task 2 initialCode wieder auf Platzhalter zurückgesetzt (siehe `state/fixes/fix-08-task-02-initialcode.md`)
-- [x] Fix 09: Bundle 1 Content Cleanup mit placeholder.svg und konsistenten initialCodes (siehe `state/fixes/fix-09-bundle-content-cleanup.md`)
-- [x] Fix 10: `placeholder.svg` Asset commited (siehe Fix 09)
-- [x] Fix 11: Finale HTML-Task-Bereinigung (reiner Text in Task 1, `width="150"` in Task 2 & 3)
-- [ ] Live-URL nach Fix 11 erneut testen
+- [ ] Sub-Phase A: Dark Mode mit systemweitem Toggle
+- [ ] Sub-Phase B: UI/UX Polish (Callouts, Icons, Layout-Vereinfachung)
+- [ ] Sub-Phase C: Curriculum Scale auf 60 Tasks (20 pro Bundle)
+- [ ] Finale Dokumentation aktualisieren
 
 **Blocker / Risiken:**
 
 - Keine bekannten Blocker.
 
-**Nächster geplanter Schritt nach Phase 9:**
+**Nächster geplanter Schritt nach Phase 10:**
 
 - Projektabschluss und Übergabe.
 
