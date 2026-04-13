@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { loadBundle } from '../lib/contentLoader';
+import { loadBundle, getBundleUrl } from '../lib/contentLoader';
 import { assembleDocument } from '../lib/codeAssembler';
 import { protectLoops } from '../lib/loopProtect';
 import { validateTask, type ValidationResult } from '../lib/validationEngine';
@@ -38,7 +38,12 @@ export function TaskPage() {
     setConsoleLogs([]);
     setValidationResult(null);
 
-    const bundleUrl = `/bundles/${bundleId}.json`;
+    if (!bundleId) {
+      setError('Bundle ID fehlt.');
+      setLoading(false);
+      return;
+    }
+    const bundleUrl = getBundleUrl(bundleId);
     loadBundle(bundleUrl)
       .then((data) => {
         setBundle(data);

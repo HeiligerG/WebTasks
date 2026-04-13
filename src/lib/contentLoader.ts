@@ -1,5 +1,9 @@
 import { BundleSchema, type Bundle } from '../types/content';
 
+export function getBundleUrl(bundleId: string): string {
+  return `${import.meta.env.BASE_URL}bundles/${bundleId}.json`;
+}
+
 export async function loadBundle(url: string): Promise<Bundle> {
   const response = await fetch(url);
 

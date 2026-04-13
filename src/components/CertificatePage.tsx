@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadAllBundles } from '../lib/contentLoader';
+import { loadAllBundles, getBundleUrl } from '../lib/contentLoader';
 import { useAppStore } from '../stores/appStore';
 import type { Bundle } from '../types/content';
 
@@ -10,7 +10,7 @@ export function CertificatePage() {
   const unlockedBadges = useAppStore((state) => state.unlockedBadges);
 
   useEffect(() => {
-    loadAllBundles(['/bundles/bundle-01-html-basics.json'])
+    loadAllBundles([getBundleUrl('bundle-01-html-basics')])
       .then((data) => setBundles(data))
       .catch(() => setBundles([]));
   }, []);
