@@ -85,7 +85,8 @@
 - [x] Fix 05: DOM-Validierung via postMessage wegen Cross-Origin Sandbox (siehe `state/fixes/fix-05-dom-validation-cross-origin.md`)
 - [x] Fix 06: Externe Placeholder-Bilder durch Base64-Data-URIs ersetzt (siehe `state/fixes/fix-06-placeholder-images.md`)
 - [x] Fix 07: "Code zurücksetzen"-Button im EditorPanel hinzugefügt (siehe `state/fixes/fix-07-code-reset-button.md`)
-- [ ] Live-URL nach Fix 07 erneut testen
+- [x] Fix 08: Task 2 initialCode wieder auf Platzhalter zurückgesetzt (siehe `state/fixes/fix-08-task-02-initialcode.md`)
+- [ ] Live-URL nach Fix 08 erneut testen
 
 **Blocker / Risiken:**
 

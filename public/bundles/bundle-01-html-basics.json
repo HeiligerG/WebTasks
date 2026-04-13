@@ -27,7 +27,7 @@
       "title": "Bilder einbinden",
       "instruction": "Bilder machen eine Webseite lebendig. In dieser Aufgabe lernst du, wie du ein Bild mit dem `<img>`-Tag einbindest.\n\nErsetze den Platzhalter-Text durch ein Bild. Verwende dafür folgenden Platzhalter als `src`:\n\n`data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMTUwIDE1MCI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNjY2NjY2MiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzMzMzMiPjE1MHgxNTA8L3RleHQ+PC9zdmc+Cg==`\n\n**Tipp:** Das `<img>`-Tag hat kein schließendes Tag. Es sieht so aus: `<img src=\"...\" alt=\"Beschreibung\">`",
       "initialCode": {
-        "html": "<img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMTUwIDE1MCI+PHJlY3Qgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiNjY2NjY2MiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzMzMzMiPjE1MHgxNTA8L3RleHQ+PC9zdmc+Cg==\" alt=\"Beispielbild\" />",
+        "html": "<div>Bild kommt hier hin</div>",
         "css": "",
         "js": ""
       },
