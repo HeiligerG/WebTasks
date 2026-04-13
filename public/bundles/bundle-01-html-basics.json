@@ -7,7 +7,7 @@
     {
       "id": "html-basics-01",
       "title": "Dein erstes HTML-Element",
-      "instruction": "Willkommen bei deiner ersten Aufgabe! HTML ist die Sprache, mit der wir Webseiten strukturieren.\n\nÄndere den Text unten so, dass er in einer **Überschrift** steht. Verwende dafür das `<h1>`-Tag.\n\n**Tipp:** Ein HTML-Tag besteht aus einer öffnenden Klammer `<`, dem Tag-Namen und einer schließenden Klammer `>`. Vergiss nicht, den Tag am Ende wieder zu schließen mit `</h1>`.",
+      "instruction": "Willkommen bei deiner ersten Aufgabe! HTML ist die Sprache, mit der wir Webseiten strukturieren.\n\n**Anforderungen:**\n1. Ändere den Text unten so, dass er in einer **Überschrift** steht.\n2. Verwende dafür das `<h1>`-Tag.\n\n**Tipp:**\nEin HTML-Tag besteht aus einer öffnenden Klammer `<`, dem Tag-Namen und einer schließenden Klammer `>`. Vergiss nicht, den Tag am Ende wieder zu schließen mit `</h1>`.",
       "initialCode": {
         "html": "Willkommen bei WebTasks",
         "css": "",
@@ -27,7 +27,7 @@
     {
       "id": "html-basics-02",
       "title": "Bilder einbinden",
-      "instruction": "Bilder machen eine Webseite lebendig. In dieser Aufgabe lernst du, wie du ein Bild mit dem `<img>`-Tag einbindest.\n\nErsetze den Platzhalter-Text durch ein Bild. Verwende dafür folgende Bild-URL als `src`:\n\n`https://heiligerg.github.io/WebTasks/placeholder.svg`\n\n**Tipp:** Das `<img>`-Tag hat kein schließendes Tag. Es sieht so aus: `<img src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\" width=\"150\" alt=\"Beispielbild\">`",
+      "instruction": "Bilder machen eine Webseite lebendig. In dieser Aufgabe lernst du, wie du ein Bild mit dem `<img>`-Tag einbindest.\n\n**Anforderungen:**\n1. Ersetze den Platzhalter-Text durch ein Bild.\n2. Verwende dafür folgende Bild-URL als `src`: `https://heiligerg.github.io/WebTasks/placeholder.svg`\n\n**Tipp:**\nDas `<img>`-Tag hat kein schließendes Tag. Es sieht so aus: `<img src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\" width=\"150\" alt=\"Beispielbild\">`",
       "initialCode": {
         "html": "<div>Bild kommt hier hin</div>",
         "css": "",
@@ -47,7 +47,7 @@
     {
       "id": "html-basics-03",
       "title": "Deine Profilkarte",
-      "instruction": "In dieser Abschlussaufgabe kombinierst du HTML und CSS, um deine eigene digitale Visitenkarte zu erstellen.\n\n**Anforderungen:**\n1. Erstelle einen Container mit der Klasse `profile-card`.\n2. Füge ein Bild ein.\n3. Gib dem Bild im CSS einen runden Rahmen mit `border-radius: 50%`.\n\n**Tipp:** Du kannst im CSS-Tab auf der rechten Seite die Klasse `.profile-card` stylen und mit `img` das Bild ansprechen.",
+      "instruction": "In dieser Abschlussaufgabe kombinierst du HTML und CSS, um deine eigene digitale Visitenkarte zu erstellen.\n\n**Anforderungen:**\n1. Erstelle einen Container mit der Klasse `profile-card`.\n2. Füge ein Bild ein.\n3. Gib dem Bild im CSS einen runden Rahmen mit `border-radius: 50%`.\n\n**Tipp:**\nDu kannst im CSS-Tab auf der rechten Seite die Klasse `.profile-card` stylen und mit `img` das Bild ansprechen.",
       "initialCode": {
         "html": "<div class=\"profile-card\">\n  <img src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\" width=\"150\" alt=\"Profilbild\" />\n  <h2>Dein Name</h2>\n  <p>Hobby: Programmieren</p>\n</div>",
         "css": "",
@@ -75,7 +75,7 @@
     {
       "id": "html-basics-04",
       "title": "Links erstellen",
-      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.",
+      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.\n\n**Anforderungen:**\n1. Erstelle einen Link, der zu `https://example.com` führt.\n2. Der angezeigte Text des Links soll `Mehr erfahren` sein.\n\n**Tipp:**\nEin Link sieht so aus: `<a href=\"https://example.com\">Linktext</a>`",
       "initialCode": {
         "html": "<p>Hier geht es weiter...</p>",
         "css": "",
@@ -100,7 +100,7 @@
     {
       "id": "html-basics-05",
       "title": "Listen strukturieren",
-      "instruction": "Listen sind überall im Web: Menüs, To-Do-Listen, Inhaltsverzeichnisse. HTML bietet `<ul>` für ungeordnete und `<ol>` für geordnete Listen.",
+      "instruction": "Listen sind überall im Web: Menüs, To-Do-Listen, Inhaltsverzeichnisse. HTML bietet `<ul>` für ungeordnete und `<ol>` für geordnete Listen.\n\n**Anforderungen:**\n1. Erstelle eine **ungeordnete Liste** (`<ul>`).\n2. Füge mindestens **drei** Listeneinträge (`<li>`) mit deinen Hobbys hinzu.\n\n**Tipp:**\nVergiss nicht, jeden Eintrag in ein `<li>`-Tag zu packen.",
       "initialCode": {
         "html": "<p>Meine Hobbys:</p>",
         "css": "",
@@ -125,7 +125,7 @@
     {
       "id": "html-basics-06",
       "title": "Eine Tabelle bauen",
-      "instruction": "Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder Preislisten.",
+      "instruction": "Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder Preislisten.\n\n**Anforderungen:**\n1. Erstelle eine Tabelle mit einer Kopfzeile (`<thead>`) und einem Körper (`<tbody>`).\n2. Die Kopfzeile soll die Spalten `Name` und `Alter` enthalten (verwende `<th>`).\n3. Der Körper soll mindestens **zwei Datenzeilen** enthalten (verwende `<td>`).\n\n**Tipp:**\nEine Tabelle beginnt immer mit `<table>`.",
       "initialCode": {
         "html": "<div>Tabellenplatz</div>",
         "css": "",
@@ -155,7 +155,7 @@
     {
       "id": "html-basics-07",
       "title": "Ein Formular erstellen",
-      "instruction": "Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es Nutzern, Daten einzugeben.",
+      "instruction": "Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es Nutzern, Daten einzugeben.\n\n**Anforderungen:**\n1. Erstelle ein `<form>`-Element.\n2. Füge ein Text-Eingabefeld (`<input type=\"text\">`) mit dem Namen `username` hinzu.\n3. Füge einen Absende-Button (`<button type=\"submit\">`) mit dem Text `Absenden` hinzu.\n\n**Tipp:**\nDas `type=\"text\"`-Attribut sorgt dafür, dass das Feld als Textfeld gerendert wird.",
       "initialCode": {
         "html": "<div>Anmeldeformular</div>",
         "css": "",
@@ -185,7 +185,7 @@
     {
       "id": "html-basics-08",
       "title": "Farben mit CSS ändern",
-      "instruction": "CSS macht das Web bunt. Mit der `color`-Eigenschaft änderst du die Textfarbe.",
+      "instruction": "CSS macht das Web bunt. Mit der `color`-Eigenschaft änderst du die Textfarbe.\n\n**Anforderungen:**\n1. Im HTML befindet sich bereits ein Paragraph mit dem Text `Ich bin bunt`.\n2. Ändere im CSS-Tab die Textfarbe dieses Paragraphs zu `red`.\n\n**Tipp:**\nEin Paragraph-Selektor sieht so aus: `p { color: red; }`",
       "initialCode": {
         "html": "<p>Ich bin bunt</p>",
         "css": "",
@@ -208,7 +208,7 @@
     {
       "id": "html-basics-09",
       "title": "Text ausrichten",
-      "instruction": "Mit CSS kannst du nicht nur Farben, sondern auch die Ausrichtung von Text steuern.",
+      "instruction": "Mit CSS kannst du nicht nur Farben, sondern auch die Ausrichtung von Text steuern.\n\n**Anforderungen:**\n1. Im HTML ist bereits eine `<h2>`-Überschrift mit dem Text `Willkommen`.\n2. Zentriere diese Überschrift mit `text-align: center`.",
       "initialCode": {
         "html": "<h2>Willkommen</h2>",
         "css": "",
@@ -231,7 +231,7 @@
     {
       "id": "html-basics-10",
       "title": "Abstände verstehen",
-      "instruction": "Das CSS-Box-Modell ist eines der wichtigsten Konzepte im Webdesign. `padding` ist der Innenabstand, `margin` der Außenabstand.",
+      "instruction": "Das CSS-Box-Modell ist eines der wichtigsten Konzepte im Webdesign. `padding` ist der Innenabstand, `margin` der Außenabstand.\n\n**Anforderungen:**\n1. Im HTML ist bereits ein `<div>` mit der Klasse `box`.\n2. Gib dem `.box` im CSS einen Innenabstand (`padding`) von `20px`.\n3. Gib dem `.box` im CSS einen Außenabstand (`margin`) von `10px`.",
       "initialCode": {
         "html": "<div class=\"box\">Box</div>",
         "css": "",
@@ -261,7 +261,7 @@
     {
       "id": "html-basics-11",
       "title": "Schriftarten ändern",
-      "instruction": "Die richtige Schriftart verleiht einer Webseite Charakter.",
+      "instruction": "Die richtige Schriftart verleiht einer Webseite Charakter.\n\n**Anforderungen:**\n1. Ändere die Schriftart des `<p>`-Elements im CSS zu `Arial`.",
       "initialCode": {
         "html": "<p>Design ist wichtig</p>",
         "css": "",
@@ -284,7 +284,7 @@
     {
       "id": "html-basics-12",
       "title": "Hover-Effekte",
-      "instruction": "Interaktive Webseiten reagieren auf die Maus des Nutzers. Mit der `:hover`-Pseudoklasse änderst du das Aussehen eines Elements, wenn man mit der Maus darüber fährt.",
+      "instruction": "Interaktive Webseiten reagieren auf die Maus des Nutzers. Mit der `:hover`-Pseudoklasse änderst du das Aussehen eines Elements, wenn man mit der Maus darüber fährt.\n\n**Anforderungen:**\n1. Im HTML ist bereits ein `<button>` mit der Klasse `btn` vorhanden.\n2. Schreibe im CSS eine Regel für `.btn:hover`, die die Hintergrundfarbe (`background-color`) auf `blue` ändert.\n\n**Tipp:**\nEin Hover-Selektor sieht so aus: `.btn:hover { ... }`",
       "initialCode": {
         "html": "<button class=\"btn\">Klick mich</button>",
         "css": ".btn {\n  padding: 10px 20px;\n  border: 1px solid #ccc;\n  background: #eee;\n}",
@@ -305,7 +305,7 @@
     {
       "id": "html-basics-13",
       "title": "Flexbox: Zentrieren",
-      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.",
+      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `container` und darin ein roter Kreis mit der Klasse `kreis`.\n2. Mache den Container zu einem Flex-Container (`display: flex`).\n3. Zentriere den Kreis **horizontal** (`justify-content: center`) und **vertikal** (`align-items: center`).",
       "initialCode": {
         "html": "<div class=\"container\">\n  <div class=\"kreis\"></div>\n</div>",
         "css": ".container {\n  width: 200px;\n  height: 200px;\n  border: 2px dashed #ccc;\n}\n\n.kreis {\n  width: 50px;\n  height: 50px;\n  background: red;\n  border-radius: 50%;\n}",
@@ -342,7 +342,7 @@
     {
       "id": "html-basics-14",
       "title": "Flexbox: Navigation",
-      "instruction": "Navigationsleisten sind ein klassischer Anwendungsfall für Flexbox.",
+      "instruction": "Navigationsleisten sind ein klassischer Anwendungsfall für Flexbox.\n\n**Anforderungen:**\n1. Im HTML ist ein `<nav>`-Element mit drei `<a>`-Links.\n2. Mache das `<nav>` zu einem Flex-Container.\n3. Setze den Abstand (`gap`) zwischen den Links auf `20px`.",
       "initialCode": {
         "html": "<nav>\n  <a href=\"#\">Home</a>\n  <a href=\"#\">Über</a>\n  <a href=\"#\">Kontakt</a>\n</nav>",
         "css": "",
@@ -372,7 +372,7 @@
     {
       "id": "html-basics-15",
       "title": "CSS Grid Basics",
-      "instruction": "Grid ist das mächtigste Layout-System in CSS. Es ermöglicht dir, Elemente in Zeilen und Spalten anzuordnen.",
+      "instruction": "Grid ist das mächtigste Layout-System in CSS. Es ermöglicht dir, Elemente in Zeilen und Spalten anzuordnen.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `grid` und vier farbige Kästchen mit der Klasse `item`.\n2. Mache den Container zu einem Grid-Container (`display: grid`).\n3. Definiere zwei Spalten (`grid-template-columns: 1fr 1fr`) und zwei Zeilen (`grid-template-rows: 100px 100px`).",
       "initialCode": {
         "html": "<div class=\"grid\">\n  <div class=\"item\" style=\"background:red\">1</div>\n  <div class=\"item\" style=\"background:blue\">2</div>\n  <div class=\"item\" style=\"background:green\">3</div>\n  <div class=\"item\" style=\"background:orange\">4</div>\n</div>",
         "css": "",
@@ -402,7 +402,7 @@
     {
       "id": "html-basics-16",
       "title": "Grid: Galerie-Layout",
-      "instruction": "Ein echtes Bildergalerie-Layout mit CSS Grid.",
+      "instruction": "Ein echtes Bildergalerie-Layout mit CSS Grid.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `galerie` und sechs Bild-Platzhaltern.\n2. Mache die Galerie zu einem Grid mit drei gleich großen Spalten (`grid-template-columns: repeat(3, 1fr)`).\n3. Setze den Lückenabstand (`gap`) auf `10px`.",
       "initialCode": {
         "html": "<div class=\"galerie\">\n  <div class=\"bild\">Bild 1</div>\n  <div class=\"bild\">Bild 2</div>\n  <div class=\"bild\">Bild 3</div>\n  <div class=\"bild\">Bild 4</div>\n  <div class=\"bild\">Bild 5</div>\n  <div class=\"bild\">Bild 6</div>\n</div>",
         "css": ".bild {\n  background: #ddd;\n  height: 100px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}",
@@ -439,7 +439,7 @@
     {
       "id": "html-basics-17",
       "title": "Responsives Design",
-      "instruction": "Webseiten müssen auf allen Geräten gut aussehen – vom Handy bis zum Desktop. Mit Media Queries passt du das Layout an die Bildschirmbreite an.",
+      "instruction": "Webseiten müssen auf allen Geräten gut aussehen – vom Handy bis zum Desktop. Mit Media Queries passt du das Layout an die Bildschirmbreite an.\n\n**Anforderungen:**\n1. Im HTML ist ein `<div>` mit der Klasse `desktop-only`.\n2. Verstecke dieses Element auf Bildschirmen, die schmaler als `600px` sind. Verwende dafür `@media (max-width: 600px) { ... }` und setze `display: none`.",
       "initialCode": {
         "html": "<div class=\"desktop-only\">Nur auf großen Bildschirmen sichtbar</div>",
         "css": "",
@@ -460,7 +460,7 @@
     {
       "id": "html-basics-18",
       "title": "Pseudo-Klassen",
-      "instruction": "Pseudo-Klassen erlauben es dir, bestimmte Elemente basierend auf ihrer Position zu stylen, ohne jede einzelne Element manuell anzusprechen.",
+      "instruction": "Pseudo-Klassen erlauben es dir, bestimmte Elemente basierend auf ihrer Position zu stylen, ohne jede einzelne Element manuell anzusprechen.\n\n**Anforderungen:**\n1. Im HTML ist eine ungeordnete Liste (`<ul>`) mit fünf Einträgen.\n2. Färbe jedes **zweite** Listenelement (`<li>`) mit `:nth-child(even)` grau (`background-color: lightgray`).",
       "initialCode": {
         "html": "<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n  <li>Item 3</li>\n  <li>Item 4</li>\n  <li>Item 5</li>\n</ul>",
         "css": "",
@@ -481,7 +481,7 @@
     {
       "id": "html-basics-19",
       "title": "CSS-Variablen",
-      "instruction": "CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst eine Farbe einmal und nutzt sie an vielen Stellen.",
+      "instruction": "CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst eine Farbe einmal und nutzt sie an vielen Stellen.\n\n**Anforderungen:**\n1. Definiere auf der `:root`-Ebene eine CSS-Variable `--primary` mit dem Wert `blue`.\n2. Im HTML ist ein `<button>` mit der Klasse `primary-btn`.\n3. Wende die Variable als Hintergrundfarbe (`background-color: var(--primary)`) auf den Button an.\n\n**Tipp:**\n`:root { --primary: blue; }`",
       "initialCode": {
         "html": "<button class=\"primary-btn\">Primary</button>",
         "css": "",
@@ -504,7 +504,7 @@
     {
       "id": "html-basics-20",
       "title": "Landing-Page Projekt",
-      "instruction": "Herzlichen Glückwunsch! Du hast alle Grundlagen gemeistert. In diesem Abschlussprojekt baust du eine kleine Landing-Page, die alles Kombiniert, was du gelernt hast.",
+      "instruction": "Herzlichen Glückwunsch! Du hast alle Grundlagen gemeistert. In diesem Abschlussprojekt baust du eine kleine Landing-Page, die alles Kombiniert, was du gelernt hast.\n\n**Anforderungen:**\n1. Erstelle einen `<header>` mit einer Überschrift `<h1>`.\n2. Erstelle einen Bereich mit der Klasse `hero` und darin einem Paragraph `<p>`.\n3. Erstelle einen Bereich mit der Klasse `features` und mindestens zwei Feature-Boxen (z. B. `<div class=\"feature\">`).\n4. Erstelle einen `<footer>` mit einem Copyright-Text.\n\n**Tipp:**\nVerwende semantische HTML-Tags wie `<header>` und `<footer>`.",
       "initialCode": {
         "html": "",
         "css": "",
