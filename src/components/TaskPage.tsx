@@ -252,7 +252,7 @@ export function TaskPage() {
                     ref={previewRef}
                     srcDoc={srcDoc}
                     onMessage={handleFrameMessage}
-                    className="h-full w-full rounded border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-950"
+                    className="h-full w-full rounded border border-gray-300 bg-white dark:border-gray-700"
                   />
                 </div>
                 <div className="min-h-[180px] flex-1">

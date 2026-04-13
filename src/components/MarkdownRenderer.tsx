@@ -57,7 +57,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
     );
   }
 
-  return <p className="leading-relaxed">{children}</p>;
+  return <p className="leading-relaxed text-gray-700 dark:text-gray-300">{children}</p>;
 }
 
 export function MarkdownRenderer({ children, className }: MarkdownRendererProps) {
