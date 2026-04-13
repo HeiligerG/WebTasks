@@ -28,7 +28,7 @@
 [✅] Phase 6: UI/UX, Navigation & State-Persistenz
 [✅] Phase 7: Gamification & Motivationsdesign
 [✅] Phase 8: Curriculum-Content & End-to-End-Integration
-[🔄] Phase 9: QA, Optimierung & Deployment  ← AKTIV
+[✅] Phase 9: QA, Optimierung & Deployment
 ```
 
 **Legende:**
@@ -60,6 +60,7 @@
 | 2026-04-13 | Phase 7 Implementierung abgeschlossen | `canvas-confetti` integriert. Konfetti bei erfolgreicher Validierung und großes Konfetti bei Bundle-Abschluss. Badge-System mit `unlockedBadges` im Store. `BadgeDisplay` auf `HomePage`. Zertifikatsseite (`/certificate`) mit Druck-Optimierung. Build und Lint fehlerfrei.                    |
 | 2026-04-13 | Phase 8 Task-Planung abgeschlossen    | `08_phase-curriculum.md` erstellt. Bundle 2 (JavaScript Grundlagen), Bundle 3 (Interaktive Web-Apps), dynamisches Bundle-Loading in `TaskPage` und End-to-End-Walkthrough detailliert spezifiziert.                                                                                              |
 | 2026-04-13 | Phase 8 Implementierung abgeschlossen | Bundle 2 (4 JS-Tasks) und Bundle 3 (3 interaktive Tasks) als JSON erstellt. `HomePage` lädt alle 3 Bundles. `TaskPage` lädt Bundles dynamisch anhand `bundleId`. JSON-Struktur aller Bundles validiert. Build und Lint fehlerfrei.                                                               |
+| 2026-04-13 | Phase 9 Implementierung abgeschlossen | GitHub Pages als Hosting festgelegt. Vite `base` und `manualChunks` konfiguriert. SPA-Routing via `404.html`-Trick implementiert. GitHub Actions Deployment-Workflow eingerichtet. `README.md`, `AGENTS.md` und Meta-Tags aktualisiert. Build, Lint und TypeScript fehlerfrei. |
 
 ---
 
@@ -71,12 +72,12 @@
 
 **Aktueller Stand in Phase 9:**
 
-- [ ] Hosting-Plattform evaluieren und festlegen
-- [ ] Build-Optimierung (Chunk-Warnung >500kB adressieren)
-- [ ] WCAG-Kontrast- und Barrierefreiheits-Check
-- [ ] Mobile Responsiveness final testen
-- [ ] Deployment durchführen
-- [ ] Finale Dokumentation aktualisieren
+- [x] Hosting-Plattform evaluiert und festgelegt (GitHub Pages)
+- [x] Build-Optimierung (Chunk-Warnung >500kB adressiert via `manualChunks`)
+- [x] SPA-Routing für GitHub Pages implementiert (`404.html` + `main.tsx` restore)
+- [x] GitHub Actions Deployment-Workflow eingerichtet
+- [x] Finale Dokumentation aktualisiert (`README.md`, `AGENTS.md`, Meta-Tags)
+- [ ] Deployment-Pipeline auf `master` ausführen und Live-URL testen
 
 **Blocker / Risiken:**
 

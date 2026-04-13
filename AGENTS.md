@@ -36,6 +36,8 @@ Wir verwenden **Conventional Commits**:
 - `refactor:` — Code-Refactoring ohne Funktionsänderung
 - `chore:` — Wartung, Tooling-Updates
 - `style:` — Reine Formatierungsänderungen
+- `ci:` — CI/CD-Änderungen
+- `build:` — Build-System-Änderungen
 
 ---
 
@@ -45,6 +47,21 @@ Wir verwenden **Conventional Commits**:
 - **ESLint:** Vor jedem Commit `npm run lint` ausführen. Keine Warnungen im produktiven Code.
 - **Prettier:** Vor jedem Commit `npm run format` ausführen.
 - **Build:** `npm run build` muss nach jeder signifikanten Änderung fehlerfrei durchlaufen.
+
+---
+
+## Deployment & Hosting
+
+Die Anwendung wird auf **GitHub Pages** als Project Page gehostet (`https://<user>.github.io/<repo>/`).
+
+### Wichtige technische Details
+
+- **`base` URL:** In `vite.config.ts` ist `base: '/WebTasks/'` konfiguriert. Bei einem Rename des Repositories muss dieser Wert angepasst werden.
+- **SPA-Routing:** Da GitHub Pages kein serverseitiges Routing für SPAs unterstützt, wird ein `404.html`-Redirect-Trick verwendet:
+  1. `public/404.html` speichert den angefragten Pfad in `sessionStorage` und leitet auf `index.html` um.
+  2. `src/main.tsx` liest den gespeicherten Pfad aus und stellt die ursprüngliche URL via `history.replaceState` wieder her.
+- **Automatisches Deployment:** Bei jedem Push auf `master` wird `.github/workflows/deploy.yml` ausgeführt und die App neu deployed.
+- **Build-Artefakte:** Vite erzeugt den Build im `dist/`-Ordner. Der Workflow lädt diesen Ordner als GitHub Pages Artifact hoch.
 
 ---
 
