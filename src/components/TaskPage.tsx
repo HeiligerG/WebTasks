@@ -81,6 +81,11 @@ export function TaskPage() {
     js: protectLoops(debouncedCode.js),
   });
 
+  // Clear console whenever the preview iframe reloads with new code
+  useEffect(() => {
+    setConsoleLogs([]);
+  }, [debouncedCode]);
+
   const handleFrameMessage = useCallback((message: unknown) => {
     if (typeof message !== 'object' || message === null) return;
     const msg = message as { type?: string; level?: string; payload?: unknown };
