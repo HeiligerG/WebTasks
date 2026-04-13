@@ -15,7 +15,7 @@
 | **Phase 10C Bundle 1**    | `state/phases/10c_phase-curriculum-bundle1.md`                |
 | **Phase 10C Bundle 2**    | `state/phases/10c_phase-curriculum-bundle2.md`                |
 | **Phase 10C Bundle 3**    | `state/phases/10c_phase-curriculum-bundle3.md`                |
-| **Gesamtphasen**          | 9                                                             |
+| **Gesamtphasen**          | 10                                                            |
 | **Letzte Aktualisierung** | 2026-04-13                                                    |
 
 ---
@@ -65,6 +65,7 @@
 | 2026-04-13 | Phase 7 Implementierung abgeschlossen | `canvas-confetti` integriert. Konfetti bei erfolgreicher Validierung und großes Konfetti bei Bundle-Abschluss. Badge-System mit `unlockedBadges` im Store. `BadgeDisplay` auf `HomePage`. Zertifikatsseite (`/certificate`) mit Druck-Optimierung. Build und Lint fehlerfrei.                    |
 | 2026-04-13 | Phase 8 Task-Planung abgeschlossen    | `08_phase-curriculum.md` erstellt. Bundle 2 (JavaScript Grundlagen), Bundle 3 (Interaktive Web-Apps), dynamisches Bundle-Loading in `TaskPage` und End-to-End-Walkthrough detailliert spezifiziert.                                                                                              |
 | 2026-04-13 | Phase 8 Implementierung abgeschlossen | Bundle 2 (4 JS-Tasks) und Bundle 3 (3 interaktive Tasks) als JSON erstellt. `HomePage` lädt alle 3 Bundles. `TaskPage` lädt Bundles dynamisch anhand `bundleId`. JSON-Struktur aller Bundles validiert. Build und Lint fehlerfrei.                                                               |
+| 2026-04-13 | Phase 10C Implementierung abgeschlossen | Alle 3 Bundles auf 20 Tasks erweitert (60 Tasks total). `CertificatePage` lädt jetzt alle Bundles korrekt. Build und Lint fehlerfrei. |
 | 2026-04-13 | Phase 9 Implementierung abgeschlossen | GitHub Pages als Hosting festgelegt. Vite `base` und `manualChunks` konfiguriert. SPA-Routing via `404.html`-Trick implementiert. GitHub Actions Deployment-Workflow eingerichtet. `README.md`, `AGENTS.md` und Meta-Tags aktualisiert. Build, Lint und TypeScript fehlerfrei. |
 
 ---
@@ -79,8 +80,8 @@
 
 - [x] Sub-Phase A: Dark Mode mit systemweitem Toggle (abgeschlossen, Merge: `20ab1ab`)
 - [x] Sub-Phase B: UI/UX Polish (Callouts, Icons, Layout-Vereinfachung) (abgeschlossen, Merge: `467fbf9`)
-- [ ] Sub-Phase C: Curriculum Scale auf 60 Tasks (20 pro Bundle) – detaillierte Planung erstellt
-- [ ] Finale Dokumentation aktualisieren
+- [x] Sub-Phase C: Curriculum Scale auf 60 Tasks (20 pro Bundle) (abgeschlossen)
+- [x] Finale Dokumentation aktualisiert
 
 **Blocker / Risiken:**
 
@@ -125,6 +126,6 @@
 | `state/current-state.md`                          | Dieses Dokument                                  |
 | `src/components/HomePage.tsx`                     | Startseite mit Hero, Bundle-Kacheln und Badges   |
 | `src/components/TaskPage.tsx`                     | Aufgabenansicht mit dynamischem Bundle-Loading   |
-| `public/bundles/bundle-01-html-basics.json`       | Bundle 1: HTML/CSS Grundlagen (3 Tasks)          |
-| `public/bundles/bundle-02-javascript-basics.json` | Bundle 2: JavaScript Grundlagen (4 Tasks)        |
-| `public/bundles/bundle-03-interactive-web.json`   | Bundle 3: Interaktive Web-Apps (3 Tasks)         |
+| `public/bundles/bundle-01-html-basics.json`       | Bundle 1: HTML/CSS Grundlagen (20 Tasks)         |
+| `public/bundles/bundle-02-javascript-basics.json` | Bundle 2: JavaScript Grundlagen (20 Tasks)       |
+| `public/bundles/bundle-03-interactive-web.json`   | Bundle 3: Interaktive Web-Apps (20 Tasks)        |
