@@ -33,7 +33,8 @@
 [✅] Phase 7: Gamification & Motivationsdesign
 [✅] Phase 8: Curriculum-Content & End-to-End-Integration
 [✅] Phase 9: QA, Optimierung & Deployment
-[🔄] Phase 10: UI-Polish, Dark Mode & Curriculum Scale  ← AKTIV
+[✅] Phase 10: UI-Polish, Dark Mode & Curriculum Scale
+[🔄] Phase 11: Instruction Quality Improvement  ← AKTIV
 ```
 
 **Legende:**
@@ -66,11 +67,39 @@
 | 2026-04-13 | Phase 8 Task-Planung abgeschlossen    | `08_phase-curriculum.md` erstellt. Bundle 2 (JavaScript Grundlagen), Bundle 3 (Interaktive Web-Apps), dynamisches Bundle-Loading in `TaskPage` und End-to-End-Walkthrough detailliert spezifiziert.                                                                                              |
 | 2026-04-13 | Phase 8 Implementierung abgeschlossen | Bundle 2 (4 JS-Tasks) und Bundle 3 (3 interaktive Tasks) als JSON erstellt. `HomePage` lädt alle 3 Bundles. `TaskPage` lädt Bundles dynamisch anhand `bundleId`. JSON-Struktur aller Bundles validiert. Build und Lint fehlerfrei.                                                               |
 | 2026-04-13 | Phase 10C Implementierung abgeschlossen | Alle 3 Bundles auf 20 Tasks erweitert (60 Tasks total). `CertificatePage` lädt jetzt alle Bundles korrekt. Build und Lint fehlerfrei. |
+| 2026-04-13 | Fix 12 abgeschlossen | Dark Mode Paragraphs im InstructionPanel und Live-Preview iframe-Hintergrund korrigiert. |
 | 2026-04-13 | Phase 9 Implementierung abgeschlossen | GitHub Pages als Hosting festgelegt. Vite `base` und `manualChunks` konfiguriert. SPA-Routing via `404.html`-Trick implementiert. GitHub Actions Deployment-Workflow eingerichtet. `README.md`, `AGENTS.md` und Meta-Tags aktualisiert. Build, Lint und TypeScript fehlerfrei. |
 
 ---
 
-## Aktive Phase: Phase 10 — UI-Polish, Dark Mode & Curriculum Scale
+## Aktive Phase: Phase 11 — Instruction Quality Improvement
+
+**Ziel dieser Phase:** Alle 60 Tasks erhalten vollständige Instruktionen mit Einleitung, nummerierten Anforderungen und konkreten Tipps.
+
+**Detaillierte Planung:**
+- `state/phases/11_phase-instruction-quality.md`
+- `state/phases/11a_phase-bundle1-instructions.md`
+- `state/phases/11b_phase-bundle2-instructions.md`
+- `state/phases/11c_phase-bundle3-instructions.md`
+
+**Aktueller Stand in Phase 11:**
+
+- [ ] Sub-Phase A: Bundle 1 Instructions überarbeiten
+- [ ] Sub-Phase B: Bundle 2 Instructions überarbeiten
+- [ ] Sub-Phase C: Bundle 3 Instructions überarbeiten
+- [ ] Finale QA: JSON-Syntax, Live-Preview Smoke-Tests
+
+**Blocker / Risiken:**
+
+- Keine bekannten Blocker.
+
+**Nächster geplanter Schritt nach Phase 11:**
+
+- Projektabschluss und Übergabe.
+
+---
+
+## Abgeschlossene Phase: Phase 10 — UI-Polish, Dark Mode & Curriculum Scale
 
 **Ziel dieser Phase:** Die Plattform visuell professionalisieren (Dark Mode, aufgeräumtes UI) und das Curriculum auf 60 Tasks (20 pro Bundle) erweitern.
 
