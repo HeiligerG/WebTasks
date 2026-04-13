@@ -1,0 +1,91 @@
+{
+  "id": "bundle-02-javascript-basics",
+  "title": "JavaScript Grundlagen",
+  "description": "Lerne die Grundlagen der Programmierlogik mit Variablen, Operatoren und Bedingungen.",
+  "badgeName": "JS-Logiker Level 1",
+  "tasks": [
+    {
+      "id": "js-basics-01",
+      "title": "Variablen erstellen",
+      "instruction": "Willkommen in der Welt von JavaScript! Hier lernst du, wie du Daten in Variablen speicherst.\n\n**Deine Aufgabe:**\n1. Erstelle eine Variable `meinName` mit dem Wert `'Max'`.\n2. Gib die Variable mit `console.log(meinName);` in der Konsole aus.\n\n**Tipp:** Verwende `let` oder `const`, um eine Variable zu erstellen.",
+      "initialCode": {
+        "html": "",
+        "css": "",
+        "js": "// Schreibe deinen Code hier\n"
+      },
+      "enabledEditors": ["js"],
+      "validationTests": [
+        {
+          "type": "console",
+          "expectedOutput": "Max",
+          "feedbackFailure": "Die Konsole zeigt nicht 'Max' an. Hast du die Variable meinName erstellt und mit console.log ausgegeben?"
+        }
+      ]
+    },
+    {
+      "id": "js-basics-02",
+      "title": "Mit Zahlen rechnen",
+      "instruction": "Computer sind hervorragende Rechner. In dieser Aufgabe nutzt du mathematische Operatoren.\n\n**Deine Aufgabe:**\nBerechne `12 * 8` und gib das Ergebnis mit `console.log()` aus.",
+      "initialCode": {
+        "html": "",
+        "css": "",
+        "js": "// Berechne hier 12 * 8\n"
+      },
+      "enabledEditors": ["js"],
+      "validationTests": [
+        {
+          "type": "console",
+          "expectedOutput": "96",
+          "feedbackFailure": "Das Ergebnis sollte 96 sein. Hast du 12 * 8 berechnet und mit console.log ausgegeben?"
+        }
+      ]
+    },
+    {
+      "id": "js-basics-03",
+      "title": "Bedingungen prüfen",
+      "instruction": "Mit `if` und `else` kannst du Entscheidungen im Code treffen.\n\n**Deine Aufgabe:**\nSchreibe eine Funktion `istVolljaehrig(alter)`, die:\n- `'volljährig'` zurückgibt, wenn das Alter 18 oder größer ist.\n- `'minderjährig'` zurückgibt, wenn das Alter unter 18 ist.",
+      "initialCode": {
+        "html": "",
+        "css": "",
+        "js": "function istVolljaehrig(alter) {\n  // Schreibe deine Bedingung hier\n}\n"
+      },
+      "enabledEditors": ["js"],
+      "validationTests": [
+        {
+          "type": "function",
+          "functionName": "istVolljaehrig",
+          "args": [20],
+          "expectedResult": "volljährig",
+          "feedbackFailure": "Für das Alter 20 sollte die Funktion 'volljährig' zurückgeben. Prüfe deine if-Bedingung."
+        },
+        {
+          "type": "function",
+          "functionName": "istVolljaehrig",
+          "args": [15],
+          "expectedResult": "minderjährig",
+          "feedbackFailure": "Für das Alter 15 sollte die Funktion 'minderjährig' zurückgeben. Prüfe deine else-Zweig."
+        }
+      ]
+    },
+    {
+      "id": "js-basics-04",
+      "title": "Arrays durchlaufen",
+      "instruction": "Arrays sind Listen von Daten. Mit Schleifen kannst du effizient durch sie hindurchgehen.\n\n**Deine Aufgabe:**\nSchreibe eine Funktion `findeGerade(zahlen)`, die ein Array von Zahlen erhält und ein neues Array mit nur den geraden Zahlen zurückgibt.\n\n**Beispiel:** `findeGerade([1, 2, 3, 4, 5, 6])` soll `[2, 4, 6]` zurückgeben.\n\n**Tipp:** Eine Zahl ist gerade, wenn `zahl % 2 === 0` ist.",
+      "initialCode": {
+        "html": "",
+        "css": "",
+        "js": "function findeGerade(zahlen) {\n  // Schreibe deine Schleife hier\n}\n"
+      },
+      "enabledEditors": ["js"],
+      "validationTests": [
+        {
+          "type": "function",
+          "functionName": "findeGerade",
+          "args": [[1, 2, 3, 4, 5, 6]],
+          "expectedResult": [2, 4, 6],
+          "feedbackFailure": "Die Funktion sollte [2, 4, 6] zurückgeben. Prüfe, ob du nur gerade Zahlen mit zahl % 2 === 0 herausfilterst."
+        }
+      ]
+    }
+  ]
+}

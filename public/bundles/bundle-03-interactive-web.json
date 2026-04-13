@@ -1,0 +1,67 @@
+{
+  "id": "bundle-03-interactive-web",
+  "title": "Interaktive Web-Applikationen",
+  "description": "Kombiniere HTML, CSS und JavaScript, um echte, interaktive Web-Anwendungen zu bauen.",
+  "badgeName": "Web-Developer Level 1",
+  "tasks": [
+    {
+      "id": "interactive-01",
+      "title": "Auf Klicks reagieren",
+      "instruction": "JavaScript kann auf Benutzeraktionen wie Mausklicks reagieren. Das nennt man Event-Handling.\n\n**Deine Aufgabe:**\n1. Erstelle im HTML einen `<button>` mit der ID `klick-mich`.\n2. Füge im JavaScript einen Event-Listener hinzu, der bei einem Klick `console.log('Button geklickt!');` ausgibt.\n\n**Tipp:** Verwende `document.getElementById('klick-mich')` und `addEventListener('click', ...)`.",
+      "initialCode": {
+        "html": "<div>Hier kommt der Button hin</div>",
+        "css": "",
+        "js": "// Füge deinen Event-Listener hier ein\n"
+      },
+      "enabledEditors": ["html", "js"],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "#klick-mich",
+          "feedbackFailure": "Wir können keinen Button mit der ID 'klick-mich' finden. Hast du das HTML-Tag korrekt geschrieben?"
+        }
+      ]
+    },
+    {
+      "id": "interactive-02",
+      "title": "Text dynamisch ändern",
+      "instruction": "Mit JavaScript kannst du nicht nur auf Klicks reagieren, sondern auch den Inhalt von HTML-Elementen verändern.\n\n**Deine Aufgabe:**\n1. Im HTML ist bereits ein Paragraph mit der ID `nachricht` und ein Button mit der ID `aendern` vorhanden.\n2. Füge im JavaScript einen Event-Listener zum Button hinzu.\n3. Beim Klick soll der Text des Paragraphs zu `Hallo JavaScript!` geändert werden.\n\n**Tipp:** Verwende `element.textContent = '...'`, um den Text zu ändern.",
+      "initialCode": {
+        "html": "<p id=\"nachricht\">Hallo Welt!</p>\n<button id=\"aendern\">Text ändern</button>",
+        "css": "",
+        "js": "// Füge hier den Event-Listener ein\n"
+      },
+      "enabledEditors": ["html", "js"],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "#aendern",
+          "feedbackFailure": "Wir können den Button mit der ID 'aendern' nicht finden."
+        },
+        {
+          "type": "dom",
+          "selector": "#nachricht",
+          "feedbackFailure": "Wir können den Paragraph mit der ID 'nachricht' nicht finden."
+        }
+      ]
+    },
+    {
+      "id": "interactive-03",
+      "title": "Color Flipper",
+      "instruction": "In dieser Abschlussaufgabe baust du eine kleine, voll funktionsfähige App: Einen Color Flipper!\n\n**Deine Aufgabe:**\n1. Erstelle im HTML einen Button mit der ID `farbe-aendern`.\n2. Schreibe im JavaScript eine Funktion, die beim Klick auf den Button eine zufällige Hex-Farbe erzeugt und sie als Hintergrundfarbe des `<body>` setzt.\n\n**Tipp für die Zufallsfarbe:** Eine Hex-Farbe besteht aus einem `#` gefolgt von 6 Ziffern/Buchstaben. Du kannst sie mit `Math.random()` und `Math.floor()` zusammenbauen.",
+      "initialCode": {
+        "html": "<button id=\"farbe-aendern\">Farbe wechseln</button>",
+        "css": "body {\n  margin: 0;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-family: sans-serif;\n}",
+        "js": "const button = document.getElementById('farbe-aendern');\n\n// Füge hier deinen Event-Listener und die Zufallsfarbe ein\n"
+      },
+      "enabledEditors": ["html", "css", "js"],
+      "validationTests": [
+        {
+          "type": "dom",
+          "selector": "#farbe-aendern",
+          "feedbackFailure": "Wir können den Button mit der ID 'farbe-aendern' nicht finden. Hast du das HTML-Tag korrekt geschrieben?"
+        }
+      ]
+    }
+  ]
+}

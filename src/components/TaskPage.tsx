@@ -38,7 +38,8 @@ export function TaskPage() {
     setConsoleLogs([]);
     setValidationResult(null);
 
-    loadBundle('/bundles/bundle-01-html-basics.json')
+    const bundleUrl = `/bundles/${bundleId}.json`;
+    loadBundle(bundleUrl)
       .then((data) => {
         setBundle(data);
         const found = data.tasks.find((t) => t.id === taskId);
