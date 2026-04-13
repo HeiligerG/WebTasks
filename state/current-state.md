@@ -11,6 +11,10 @@
 | **Projektname**           | Modulare E-Learning-Plattform für Programmier-Schnupperlehren |
 | **Basisdokument**         | `Koncept.md`                                                  |
 | **Grobplanung**           | `state/phases/00_phase-planning.md`                           |
+| **Phase 10 Plan**         | `state/phases/10_phase-polish-curriculum.md`                  |
+| **Phase 10C Bundle 1**    | `state/phases/10c_phase-curriculum-bundle1.md`                |
+| **Phase 10C Bundle 2**    | `state/phases/10c_phase-curriculum-bundle2.md`                |
+| **Phase 10C Bundle 3**    | `state/phases/10c_phase-curriculum-bundle3.md`                |
 | **Gesamtphasen**          | 9                                                             |
 | **Letzte Aktualisierung** | 2026-04-13                                                    |
 
@@ -73,9 +77,9 @@
 
 **Aktueller Stand in Phase 10:**
 
-- [ ] Sub-Phase A: Dark Mode mit systemweitem Toggle
-- [ ] Sub-Phase B: UI/UX Polish (Callouts, Icons, Layout-Vereinfachung)
-- [ ] Sub-Phase C: Curriculum Scale auf 60 Tasks (20 pro Bundle)
+- [x] Sub-Phase A: Dark Mode mit systemweitem Toggle (abgeschlossen, Merge: `20ab1ab`)
+- [x] Sub-Phase B: UI/UX Polish (Callouts, Icons, Layout-Vereinfachung) (abgeschlossen, Merge: `467fbf9`)
+- [ ] Sub-Phase C: Curriculum Scale auf 60 Tasks (20 pro Bundle) – detaillierte Planung erstellt
 - [ ] Finale Dokumentation aktualisieren
 
 **Blocker / Risiken:**
