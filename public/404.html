@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>WebTasks</title>
+  <script>
+    (function() {
+      var base = '/WebTasks';
+      var pathname = window.location.pathname;
+      var redirectPath = pathname.substring(base.length);
+      if (!redirectPath.startsWith('/')) redirectPath = '/' + redirectPath;
+      sessionStorage.setItem('webtasks-redirect', redirectPath + window.location.search + window.location.hash);
+      window.location.replace(base + '/');
+    })();
+  </script>
+</head>
+<body>
+  <p>Weiterleitung...</p>
+</body>
+</html>
