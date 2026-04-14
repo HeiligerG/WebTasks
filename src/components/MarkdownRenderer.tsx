@@ -26,7 +26,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 
   if (text.startsWith('Tipp:')) {
     return (
-      <div className="not-prose my-3 rounded-lg border border-yellow-200 bg-yellow-50 p-3 text-sm text-yellow-800 dark:border-yellow-900 dark:bg-yellow-950 dark:text-yellow-200">
+      <div className="not-prose my-3 break-all rounded-lg border border-yellow-200 bg-yellow-50 p-3 text-sm text-yellow-800 dark:border-yellow-900 dark:bg-yellow-950 dark:text-yellow-200">
         <div className="flex items-start gap-2">
           <Lightbulb className="mt-0.5 h-4 w-4 shrink-0" />
           <div>{children}</div>
@@ -37,7 +37,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 
   if (text.startsWith('Anforderungen:')) {
     return (
-      <div className="not-prose my-3 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-800 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-200">
+      <div className="not-prose my-3 break-all rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-800 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-200">
         <div className="flex items-start gap-2">
           <ClipboardList className="mt-0.5 h-4 w-4 shrink-0" />
           <div>{children}</div>
@@ -48,7 +48,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 
   if (text.startsWith('Wichtig:')) {
     return (
-      <div className="not-prose my-3 rounded-lg border border-orange-200 bg-orange-50 p-3 text-sm text-orange-800 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200">
+      <div className="not-prose my-3 break-all rounded-lg border border-orange-200 bg-orange-50 p-3 text-sm text-orange-800 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200">
         <div className="flex items-start gap-2">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
           <div>{children}</div>
@@ -57,7 +57,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
     );
   }
 
-  return <p className="leading-relaxed text-gray-700 dark:text-gray-300">{children}</p>;
+  return <p className="break-words leading-relaxed text-gray-700 dark:text-gray-300">{children}</p>;
 }
 
 export function MarkdownRenderer({ children, className }: MarkdownRendererProps) {
@@ -70,7 +70,7 @@ export function MarkdownRenderer({ children, className }: MarkdownRendererProps)
         components={{
           p: CalloutParagraph,
           code: ({ children }) => (
-            <code className="break-words rounded bg-gray-100 px-1 py-0.5 font-mono text-sm text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+            <code className="break-all rounded bg-gray-100 px-1 py-0.5 font-mono text-sm text-gray-900 dark:bg-gray-800 dark:text-gray-100">
               {children}
             </code>
           ),
@@ -78,6 +78,11 @@ export function MarkdownRenderer({ children, className }: MarkdownRendererProps)
             <pre className="max-w-full overflow-x-auto rounded-lg bg-gray-900 p-4 text-sm text-gray-100 dark:bg-gray-950">
               {children}
             </pre>
+          ),
+          a: ({ children, href }) => (
+            <a href={href} className="break-all text-blue-600 no-underline hover:underline dark:text-blue-400">
+              {children}
+            </a>
           ),
         }}
       >
