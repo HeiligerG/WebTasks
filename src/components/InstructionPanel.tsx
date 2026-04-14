@@ -33,7 +33,7 @@ export function InstructionPanel({
   return (
     <div className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
       <h1 className="text-lg font-bold text-gray-800 dark:text-gray-100 md:text-xl">{title}</h1>
-      <div className="mt-3 flex-1 overflow-y-auto">
+      <div className="mt-3 flex-1 overflow-y-auto overflow-x-hidden">
         <MarkdownRenderer>{instruction}</MarkdownRenderer>
       </div>
 

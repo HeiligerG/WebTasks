@@ -63,12 +63,17 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 export function MarkdownRenderer({ children, className }: MarkdownRendererProps) {
   return (
     <div
-      className={`prose prose-sm max-w-none prose-headings:font-semibold prose-headings:text-gray-800 prose-p:text-gray-700 prose-code:rounded prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-pre:rounded-lg prose-pre:bg-gray-900 prose-pre:p-4 prose-pre:text-gray-100 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-ul:text-gray-700 prose-ol:text-gray-700 dark:prose-headings:text-gray-100 dark:prose-p:text-gray-300 dark:prose-code:bg-gray-800 dark:prose-code:text-gray-100 dark:prose-pre:bg-gray-950 dark:prose-a:text-blue-400 dark:prose-ul:text-gray-300 dark:prose-ol:text-gray-300 dark:prose-strong:text-gray-100 ${className ?? ''}`}
+      className={`prose prose-sm max-w-none break-words prose-headings:font-semibold prose-headings:text-gray-800 prose-p:text-gray-700 prose-code:rounded prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:font-mono prose-code:text-sm prose-pre:rounded-lg prose-pre:bg-gray-900 prose-pre:p-4 prose-pre:text-gray-100 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-ul:text-gray-700 prose-ol:text-gray-700 dark:prose-headings:text-gray-100 dark:prose-p:text-gray-300 dark:prose-code:bg-gray-800 dark:prose-code:text-gray-100 dark:prose-pre:bg-gray-950 dark:prose-a:text-blue-400 dark:prose-ul:text-gray-300 dark:prose-ol:text-gray-300 dark:prose-strong:text-gray-100 ${className ?? ''}`}
     >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
           p: CalloutParagraph,
+          code: ({ children }) => (
+            <code className="break-words rounded bg-gray-100 px-1 py-0.5 font-mono text-sm text-gray-900 dark:bg-gray-800 dark:text-gray-100">
+              {children}
+            </code>
+          ),
         }}
       >
         {children}
