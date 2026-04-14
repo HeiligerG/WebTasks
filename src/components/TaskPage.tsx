@@ -201,7 +201,7 @@ export function TaskPage() {
           {task && bundle && (
             <div className="flex flex-col gap-4 lg:h-[calc(100vh-8rem)] lg:flex-row">
               {/* Left: Instruction */}
-              <div className="flex flex-col lg:w-[30%]">
+              <div className="flex min-w-0 flex-col lg:w-[30%]">
                 <InstructionPanel
                   title={task.title}
                   instruction={task.instruction}

@@ -74,6 +74,11 @@ export function MarkdownRenderer({ children, className }: MarkdownRendererProps)
               {children}
             </code>
           ),
+          pre: ({ children }) => (
+            <pre className="max-w-full overflow-x-auto rounded-lg bg-gray-900 p-4 text-sm text-gray-100 dark:bg-gray-950">
+              {children}
+            </pre>
+          ),
         }}
       >
         {children}
