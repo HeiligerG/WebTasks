@@ -26,7 +26,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 
   if (text.startsWith('Tipp:')) {
     return (
-      <div className="my-3 rounded-lg border border-yellow-200 bg-yellow-50 p-3 text-sm text-yellow-800 dark:border-yellow-900 dark:bg-yellow-950 dark:text-yellow-200">
+      <div className="not-prose my-3 rounded-lg border border-yellow-200 bg-yellow-50 p-3 text-sm text-yellow-800 dark:border-yellow-900 dark:bg-yellow-950 dark:text-yellow-200">
         <div className="flex items-start gap-2">
           <Lightbulb className="mt-0.5 h-4 w-4 shrink-0" />
           <div>{children}</div>
@@ -37,7 +37,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 
   if (text.startsWith('Anforderungen:')) {
     return (
-      <div className="my-3 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-800 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-200">
+      <div className="not-prose my-3 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-800 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-200">
         <div className="flex items-start gap-2">
           <ClipboardList className="mt-0.5 h-4 w-4 shrink-0" />
           <div>{children}</div>
@@ -48,7 +48,7 @@ function CalloutParagraph({ children }: { children?: ReactNode }) {
 
   if (text.startsWith('Wichtig:')) {
     return (
-      <div className="my-3 rounded-lg border border-orange-200 bg-orange-50 p-3 text-sm text-orange-800 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200">
+      <div className="not-prose my-3 rounded-lg border border-orange-200 bg-orange-50 p-3 text-sm text-orange-800 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200">
         <div className="flex items-start gap-2">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
           <div>{children}</div>
