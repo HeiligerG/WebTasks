@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 html,
+/* Verhindert das Scrollen mit der Maus oder dem Touchpad */
 body {
   overflow-x: hidden;
   overflow-y: hidden;
@@ -17,6 +18,15 @@ body {
 
   /* Für Firefox */
   scrollbar-width: none;
+}
+
+* {
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+*::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari, Opera */
 }
 
 body {
