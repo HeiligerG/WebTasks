@@ -6,6 +6,17 @@ html,
 body {
   overflow-x: hidden;
   overflow-y: hidden;
+
+  /* Für Chrome, Safari und Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Für Internet Explorer und Edge */
+  -ms-overflow-style: none;
+
+  /* Für Firefox */
+  scrollbar-width: none;
 }
 
 body {
