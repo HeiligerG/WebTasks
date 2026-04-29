@@ -46,7 +46,7 @@
             "width",
             "alt"
           ],
-          "feedbackFailure": "Das Bild-Tag muss die Attribute src, width und alt enthalten. Prüfe: src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\", width=\"150\" und alt mit einem beschreibenden Text.",
+          "feedbackFailure": "Das Bild-Tag benötigt alle Attribute:\n• src mit der richtigen URL\n• width für die Breite\n• alt für den Beschreibungstext",
           "feedbackSuccess": "Perfekt! Das Bild wurde mit allen erforderlichen Attributen eingebunden."
         }
       ]
@@ -82,7 +82,7 @@
     {
       "id": "html-basics-04",
       "title": "Links erstellen",
-      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.\n\n**Anforderungen:**\n1. Erstelle einen Link, der zu `https://example.com` führt.\n2. Der angezeigte Text des Links soll `Mehr erfahren` sein.\n\n**Tipp:**\nEin Link sieht so aus: `<a href=\"https://example.com\">Linktext</a>`",
+      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.\n\n**Anforderungen:**\n1. Erstelle einen Link, der zu `https://example.com` führt.\n2. Der angezeigte Text des Links soll `Mehr erfahren` sein.\n\n**Tipp:**\nEin Link sieht so aus: `<a href=\"\">Linktext</a>`",
       "initialCode": {
         "html": "<p>Hier geht es weiter...</p>",
         "css": "",
