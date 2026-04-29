@@ -327,6 +327,16 @@
           "type": "dom",
           "selector": ".btn",
           "feedbackFailure": "Wir können den Button mit der Klasse 'btn' nicht finden."
+        },
+        {
+          "type": "css",
+          "requiredText": ".btn:hover",
+          "feedbackFailure": "Der Hover-Selektor '.btn:hover' fehlt im CSS."
+        },
+        {
+          "type": "css",
+          "requiredText": "blue",
+          "feedbackFailure": "Die Farbe 'blue' fehlt im Hover-Selektor. Verwende 'background-color: blue' oder 'background: blue'."
         }
       ]
     },
