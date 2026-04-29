@@ -515,9 +515,14 @@
       ],
       "validationTests": [
         {
-          "type": "dom",
-          "selector": "li:nth-child(even)",
-          "feedbackFailure": "Wir können keine geraden Listeneinträge finden. Hast du `:nth-child(even)` korrekt geschrieben?"
+          "type": "css",
+          "requiredText": "li:nth-child(even)",
+          "feedbackFailure": "Der Selektor 'li:nth-child(even)' fehlt im CSS."
+        },
+        {
+          "type": "css",
+          "requiredText": "background-color: lightgray",
+          "feedbackFailure": "'background-color: lightgray' fehlt im CSS. Stelle sicher, dass du die geraden Listenelemente grau färbst."
         }
       ]
     },
@@ -536,11 +541,26 @@
       ],
       "validationTests": [
         {
+          "type": "css",
+          "requiredText": ":root",
+          "feedbackFailure": "Der `:root`-Selektor fehlt im CSS. Definiere dort die CSS-Variable."
+        },
+        {
+          "type": "css",
+          "requiredText": "--primary: blue",
+          "feedbackFailure": "Die CSS-Variable `--primary: blue` fehlt im `:root`-Block."
+        },
+        {
+          "type": "css",
+          "requiredText": "background-color: var(--primary)",
+          "feedbackFailure": "Der Button verwendet noch nicht `background-color: var(--primary)`."
+        },
+        {
           "type": "dom",
           "selector": ".primary-btn",
           "property": "backgroundColor",
-          "expectedValue": "blue",
-          "feedbackFailure": "Der Button hat nicht die Hintergrundfarbe blue. Verwende `background-color: var(--primary);` mit `:root { --primary: blue; }`."
+          "expectedValue": "rgb(0, 0, 255)",
+          "feedbackFailure": "Der Button hat nicht die Hintergrundfarbe blue. Prüfe, ob die CSS-Variable korrekt definiert und angewendet ist."
         }
       ]
     },
