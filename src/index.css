@@ -3,30 +3,33 @@
 @tailwind utilities;
 
 html,
-/* Verhindert das Scrollen mit der Maus oder dem Touchpad */
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overscroll-behavior: none;
+}
 
-  /* Für Chrome, Safari und Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
+/* CodeMirror muss eine definierte Höhe haben, um selbst zu scrollen */
+.cm-editor {
+  height: 100%;
+}
 
-  /* Für Internet Explorer und Edge */
-  -ms-overflow-style: none;
-
-  /* Für Firefox */
+.cm-scroller {
+  overflow: auto;
   scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-* {
-    -ms-overflow-style: none;  /* IE/Edge */
-    scrollbar-width: none;     /* Firefox */
+.cm-scroller::-webkit-scrollbar {
+  display: none;
 }
 
-*::-webkit-scrollbar {
-    display: none;             /* Chrome, Safari, Opera */
+/* Scrollbars im InstructionPanel verstecken */
+.instruction-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.instruction-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 body {

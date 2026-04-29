@@ -42,7 +42,9 @@ export function SimulatedConsole({ logs, onClear }: SimulatedConsoleProps) {
         )}
       </div>
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 font-mono text-sm">
-        {logs.length === 0 && <p className="italic text-gray-400 dark:text-gray-600">Noch keine Ausgaben...</p>}
+        {logs.length === 0 && (
+          <p className="italic text-gray-400 dark:text-gray-600">Noch keine Ausgaben...</p>
+        )}
         {logs.map((log) => (
           <div key={log.id} className={`break-words ${LEVEL_COLORS[log.level]}`}>
             <span className="mr-2 text-gray-400 dark:text-gray-600">

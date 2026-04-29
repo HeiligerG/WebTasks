@@ -12,7 +12,7 @@ HTML-Tasks (DOM-Tests) bestehen die Validierung weiterhin nicht. Der Nutzer tipp
 4. Browser-Konsole zeigt:
 
 ```
-SecurityError: Failed to read a named property 'document' from 'Window': 
+SecurityError: Failed to read a named property 'document' from 'Window':
 Blocked a frame with origin "https://heiligerg.github.io" from accessing a cross-origin frame.
 ```
 
@@ -49,14 +49,18 @@ export async function validateDomTest(
           window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
           return;
         }
-        ${test.property !== undefined && test.expectedValue !== undefined ? `
+        ${
+          test.property !== undefined && test.expectedValue !== undefined
+            ? `
         var computed = window.getComputedStyle(el);
         var actual = computed.getPropertyValue(${JSON.stringify(toKebabCase(test.property))}) || '';
         if (actual !== ${JSON.stringify(test.expectedValue)}) {
           window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
           return;
         }
-        ` : ''}
+        `
+            : ''
+        }
         window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: true, feedback: ${JSON.stringify(test.feedbackSuccess ?? 'Test bestanden.')} }, '*');
       } catch (e) {
         window.parent.postMessage({ type: 'VALIDATION_ERROR', error: e.message }, '*');
@@ -81,7 +85,7 @@ export async function validateDomTest(
       return {
         testIndex: -1,
         passed: msg.passed ?? false,
-        feedback: msg.feedback ?? (test.feedbackSuccess ?? 'Test bestanden.'),
+        feedback: msg.feedback ?? test.feedbackSuccess ?? 'Test bestanden.',
       };
     }
 
@@ -130,11 +134,11 @@ Keine Änderung nötig.
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `validateDomTest` komplett auf postMessage-basierte Prüfung innerhalb des Iframes umstellen | `src/lib/validationEngine.ts` |
-| 2 | Build, Lint, TypeScript prüfen | — |
-| 3 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                                                        | Datei(en)                     |
+| :-- | :------------------------------------------------------------------------------------------ | :---------------------------- |
+| 1   | `validateDomTest` komplett auf postMessage-basierte Prüfung innerhalb des Iframes umstellen | `src/lib/validationEngine.ts` |
+| 2   | Build, Lint, TypeScript prüfen                                                              | —                             |
+| 3   | `state/current-state.md` aktualisieren                                                      | `state/current-state.md`      |
 
 ## Git-Workflow
 

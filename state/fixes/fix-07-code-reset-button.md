@@ -5,7 +5,7 @@
 Ein Nutzer berichtet, dass in der HTML-Aufgabe "Bilder einbinden" (Bundle 1, Task 2) unvollständiger oder veralteter Code im Editor steht:
 
 ```html
-<img src="data:image/svg+xml;base64,..." alt="Beispielbild" 
+<img src="data:image/svg+xml;base64,..." alt="Beispielbild"
 ```
 
 Das abschließende `>` fehlt, und der Task wird fälschlicherweise bereits als "gelöst" angezeigt.
@@ -21,6 +21,7 @@ if (codeSnippets[taskId]?.[lang] === undefined) {
 ```
 
 **Das Verhalten:** Sobald ein Nutzer einmal Code für einen Task eingegeben hat, wird dieser Wert persistiert. Wenn später:
+
 - das Bundle aktualisiert wird (z. B. Fix 06: neuer `initialCode` mit Base64-Bild),
 - oder der Nutzer unvollständigen Code eingetippt und die Seite neu geladen hat,
 
@@ -76,12 +77,12 @@ Dies ist ein reiner Client-UI-Fix. Die JSON-Bundles bleiben unverändert.
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `resetCode`-Action zu `appStore.ts` hinzufügen | `src/stores/appStore.ts` |
-| 2 | Reset-Button in `EditorPanel` integrieren | `src/features/editor/EditorPanel.tsx` |
-| 3 | Build, Lint, TypeScript prüfen | — |
-| 4 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                           | Datei(en)                             |
+| :-- | :--------------------------------------------- | :------------------------------------ |
+| 1   | `resetCode`-Action zu `appStore.ts` hinzufügen | `src/stores/appStore.ts`              |
+| 2   | Reset-Button in `EditorPanel` integrieren      | `src/features/editor/EditorPanel.tsx` |
+| 3   | Build, Lint, TypeScript prüfen                 | —                                     |
+| 4   | `state/current-state.md` aktualisieren         | `state/current-state.md`              |
 
 ## Git-Workflow
 

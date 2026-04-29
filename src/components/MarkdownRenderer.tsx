@@ -80,7 +80,10 @@ export function MarkdownRenderer({ children, className }: MarkdownRendererProps)
             </pre>
           ),
           a: ({ children, href }) => (
-            <a href={href} className="break-all text-blue-600 no-underline hover:underline dark:text-blue-400">
+            <a
+              href={href}
+              className="break-all text-blue-600 no-underline hover:underline dark:text-blue-400"
+            >
               {children}
             </a>
           ),

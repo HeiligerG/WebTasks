@@ -41,13 +41,8 @@
       "validationTests": [
         {
           "type": "dom",
-          "selector": "img[src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\"]",
-          "requiredAttributes": [
-            "width",
-            "alt"
-          ],
-          "feedbackFailure": "Das Bild-Tag benötigt alle Attribute:\n• src mit der richtigen URL\n• width für die Breite\n• alt für den Beschreibungstext",
-          "feedbackSuccess": "Perfekt! Das Bild wurde mit allen erforderlichen Attributen eingebunden."
+          "selector": "img",
+          "feedbackFailure": "Wir können kein <img>-Tag finden. Hast du das Tag mit dem richtigen src-Attribut eingefügt?"
         }
       ]
     },
@@ -82,7 +77,7 @@
     {
       "id": "html-basics-04",
       "title": "Links erstellen",
-      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.\n\n**Anforderungen:**\n1. Erstelle einen Link, der zu `https://example.com` führt.\n2. Der angezeigte Text des Links soll `Mehr erfahren` sein.\n\n**Tipp:**\nEin Link sieht so aus: `<a href=\"\">Linktext</a>`",
+      "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.\n\n**Anforderungen:**\n1. Erstelle einen Link, der zu `https://example.com` führt.\n2. Der angezeigte Text des Links soll `Mehr erfahren` sein.\n\n**Tipp:**\nEin Link sieht so aus: `<a href=\"https://example.com\">Linktext</a>`",
       "initialCode": {
         "html": "<p>Hier geht es weiter...</p>",
         "css": "",
@@ -95,9 +90,12 @@
         {
           "type": "dom",
           "selector": "a[href=\"https://example.com\"]",
-          "expectedText": "Mehr erfahren",
-          "feedbackFailure": "Der Link zeigt nicht auf 'https://example.com' oder hat nicht den Text 'Mehr erfahren'.",
-          "feedbackSuccess": "Perfekt! Der Link ist korrekt erstellt."
+          "feedbackFailure": "Wir können keinen Link zu 'https://example.com' finden. Hast du das href-Attribut korrekt gesetzt?"
+        },
+        {
+          "type": "dom",
+          "selector": "a",
+          "feedbackFailure": "Wir können kein <a>-Tag finden."
         }
       ]
     },
@@ -122,8 +120,7 @@
         {
           "type": "dom",
           "selector": "ul li",
-          "minCount": 3,
-          "feedbackFailure": "Deine Liste enthält nicht genug Einträge. Füge mindestens drei Hobbys als <li>-Elemente hinzu."
+          "feedbackFailure": "Deine Liste enthält keine <li>-Einträge. Füge mindestens drei Hobbys als <li> hinzu."
         }
       ]
     },
@@ -143,40 +140,17 @@
         {
           "type": "dom",
           "selector": "table",
-          "feedbackFailure": "Wir können keine <table> finden. Beginne deine Tabelle mit dem <table>-Tag."
+          "feedbackFailure": "Wir können keine <table> finden."
         },
         {
           "type": "dom",
-          "selector": "table thead",
-          "feedbackFailure": "Die Tabelle benötigt eine Kopfzeile (<thead>). Füge <thead> innerhalb von <table> ein."
+          "selector": "th",
+          "feedbackFailure": "Wir können keine Tabellenkopfzellen (<th>) finden."
         },
         {
           "type": "dom",
-          "selector": "table thead tr",
-          "feedbackFailure": "Die Kopfzeile benötigt eine Tabellenzeile (<tr>) innerhalb von <thead>."
-        },
-        {
-          "type": "dom",
-          "selector": "table thead th",
-          "minCount": 2,
-          "feedbackFailure": "Die Kopfzeile benötigt mindestens zwei Spaltenüberschriften (<th>). Füge z.B. 'Name' und 'Alter' hinzu."
-        },
-        {
-          "type": "dom",
-          "selector": "table tbody",
-          "feedbackFailure": "Die Tabelle benötigt einen Tabellenkörper (<tbody>). Füge <tbody> nach dem <thead> ein."
-        },
-        {
-          "type": "dom",
-          "selector": "table tbody tr",
-          "minCount": 1,
-          "feedbackFailure": "Der Tabellenkörper benötigt mindestens eine Datenzeile (<tr>)."
-        },
-        {
-          "type": "dom",
-          "selector": "table tbody tr",
-          "minItemsPerParent": 2,
-          "feedbackFailure": "Jede Datenzeile muss mindestens zwei Zellen (<td>) enthalten."
+          "selector": "td",
+          "feedbackFailure": "Wir können keine Tabellendatenzellen (<td>) finden."
         }
       ]
     },
@@ -228,8 +202,8 @@
           "type": "dom",
           "selector": "p",
           "property": "color",
-          "expectedValue": "rgb(255, 0, 0)",
-          "feedbackFailure": "Der Paragraph ist noch nicht rot. Verwende im CSS `color: einen roten Farbwert.`."
+          "expectedValue": "red",
+          "feedbackFailure": "Der Paragraph ist noch nicht rot. Verwende im CSS `color: red;`."
         }
       ]
     },
@@ -327,23 +301,13 @@
           "type": "dom",
           "selector": ".btn",
           "feedbackFailure": "Wir können den Button mit der Klasse 'btn' nicht finden."
-        },
-        {
-          "type": "css",
-          "requiredText": ".btn:hover",
-          "feedbackFailure": "Der Hover-Selektor '.btn:hover' fehlt im CSS."
-        },
-        {
-          "type": "css",
-          "requiredText": "blue",
-          "feedbackFailure": "Die Farbe 'blue' fehlt im Hover-Selektor. Verwende 'background-color: blue' oder 'background: blue'."
         }
       ]
     },
     {
       "id": "html-basics-13",
       "title": "Flexbox: Zentrieren",
-      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `container` und darin ein roter Kreis mit der Klasse `kreis`.\n2. Mache den Container `.container` zu einem Flex-Container (`display: flex`).\n3. Zentriere den Kreis **horizontal** und **vertikal** im Container, indem du `justify-content: center` und `align-items: center` auf `.container` anwendest.\n\n**Tipp:**\n`justify-content` und `align-items` wirken immer auf dem **Flex-Container** (dem Eltern-Element), nicht auf dem Kind-Element. Schreibe sie also in die `.container`-Regel.",
+      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `container` und darin ein roter Kreis mit der Klasse `kreis`.\n2. Mache den Container zu einem Flex-Container (`display: flex`).\n3. Zentriere den Kreis **horizontal** (`justify-content: center`) und **vertikal** (`align-items: center`).",
       "initialCode": {
         "html": "<div class=\"container\">\n  <div class=\"kreis\"></div>\n</div>",
         "css": ".container {\n  width: 200px;\n  height: 200px;\n  border: 2px dashed #ccc;\n}\n\n.kreis {\n  width: 50px;\n  height: 50px;\n  background: red;\n  border-radius: 50%;\n}",
@@ -492,21 +456,6 @@
           "type": "dom",
           "selector": ".desktop-only",
           "feedbackFailure": "Wir können das Element mit der Klasse 'desktop-only' nicht finden."
-        },
-        {
-          "type": "css",
-          "requiredText": "@media (max-width: 600px)",
-          "feedbackFailure": "Die Media Query '@media (max-width: 600px)' fehlt im CSS."
-        },
-        {
-          "type": "css",
-          "requiredText": ".desktop-only",
-          "feedbackFailure": "Die Klasse '.desktop-only' fehlt im CSS. Stelle sicher, dass du den Selektor in der Media Query verwendest."
-        },
-        {
-          "type": "css",
-          "requiredText": "display: none",
-          "feedbackFailure": "'display: none' fehlt im CSS. Stelle sicher, dass du das Element in der Media Query versteckst."
         }
       ]
     },
@@ -525,14 +474,9 @@
       ],
       "validationTests": [
         {
-          "type": "css",
-          "requiredText": "li:nth-child(even)",
-          "feedbackFailure": "Der Selektor 'li:nth-child(even)' fehlt im CSS."
-        },
-        {
-          "type": "css",
-          "requiredText": "background-color: lightgray",
-          "feedbackFailure": "'background-color: lightgray' fehlt im CSS. Stelle sicher, dass du die geraden Listenelemente grau färbst."
+          "type": "dom",
+          "selector": "li:nth-child(even)",
+          "feedbackFailure": "Wir können keine geraden Listeneinträge finden. Hast du `:nth-child(even)` korrekt geschrieben?"
         }
       ]
     },
@@ -551,26 +495,11 @@
       ],
       "validationTests": [
         {
-          "type": "css",
-          "requiredText": ":root",
-          "feedbackFailure": "Der `:root`-Selektor fehlt im CSS. Definiere dort die CSS-Variable."
-        },
-        {
-          "type": "css",
-          "requiredText": "--primary: blue",
-          "feedbackFailure": "Die CSS-Variable `--primary: blue` fehlt im `:root`-Block."
-        },
-        {
-          "type": "css",
-          "requiredText": "background-color: var(--primary)",
-          "feedbackFailure": "Der Button verwendet noch nicht `background-color: var(--primary)`."
-        },
-        {
           "type": "dom",
           "selector": ".primary-btn",
           "property": "backgroundColor",
-          "expectedValue": "rgb(0, 0, 255)",
-          "feedbackFailure": "Der Button hat nicht die Hintergrundfarbe blue. Prüfe, ob die CSS-Variable korrekt definiert und angewendet ist."
+          "expectedValue": "blue",
+          "feedbackFailure": "Der Button hat nicht die Hintergrundfarbe blue. Verwende `background-color: var(--primary);` mit `:root { --primary: blue; }`."
         }
       ]
     },

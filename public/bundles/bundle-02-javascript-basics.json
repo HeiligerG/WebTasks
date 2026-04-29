@@ -13,9 +13,7 @@
         "css": "",
         "js": "// Schreibe deinen Code hier\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "console",
@@ -33,9 +31,7 @@
         "css": "",
         "js": "// Berechne hier 12 * 8\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "console",
@@ -53,25 +49,19 @@
         "css": "",
         "js": "function istVolljaehrig(alter) {\n  // Schreibe deine Bedingung hier\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "istVolljaehrig",
-          "args": [
-            20
-          ],
+          "args": [20],
           "expectedResult": "volljährig",
           "feedbackFailure": "Für das Alter 20 sollte die Funktion 'volljährig' zurückgeben. Prüfe deine if-Bedingung."
         },
         {
           "type": "function",
           "functionName": "istVolljaehrig",
-          "args": [
-            15
-          ],
+          "args": [15],
           "expectedResult": "minderjährig",
           "feedbackFailure": "Für das Alter 15 sollte die Funktion 'minderjährig' zurückgeben. Prüfe deine else-Zweig."
         }
@@ -86,28 +76,13 @@
         "css": "",
         "js": "function findeGerade(zahlen) {\n  // Schreibe deine Schleife hier\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "findeGerade",
-          "args": [
-            [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6
-            ]
-          ],
-          "expectedResult": [
-            2,
-            4,
-            6
-          ],
+          "args": [[1, 2, 3, 4, 5, 6]],
+          "expectedResult": [2, 4, 6],
           "feedbackFailure": "Die Funktion sollte [2, 4, 6] zurückgeben. Prüfe, ob du nur gerade Zahlen mit zahl % 2 === 0 herausfilterst."
         }
       ]
@@ -121,9 +96,7 @@
         "css": "",
         "js": "// Gib die Ergebnisse der Vergleiche hier aus\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "console",
@@ -146,37 +119,26 @@
         "css": "",
         "js": "function hatZugang(alt, eingeloggt) {\n  // Schreibe deine Bedingung hier\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "hatZugang",
-          "args": [
-            20,
-            true
-          ],
+          "args": [20, true],
           "expectedResult": true,
           "feedbackFailure": "Für (20, true) sollte true zurückgegeben werden. Beide Bedingungen müssen mit && verknüpft sein."
         },
         {
           "type": "function",
           "functionName": "hatZugang",
-          "args": [
-            16,
-            true
-          ],
+          "args": [16, true],
           "expectedResult": false,
           "feedbackFailure": "Für (16, true) sollte false zurückgegeben werden, da das Alter unter 18 ist."
         },
         {
           "type": "function",
           "functionName": "hatZugang",
-          "args": [
-            25,
-            false
-          ],
+          "args": [25, false],
           "expectedResult": false,
           "feedbackFailure": "Für (25, false) sollte false zurückgegeben werden, da der Nutzer nicht eingeloggt ist."
         }
@@ -191,34 +153,26 @@
         "css": "",
         "js": "function wochentag(num) {\n  // Verwende ein switch-Statement\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "wochentag",
-          "args": [
-            1
-          ],
+          "args": [1],
           "expectedResult": "Montag",
           "feedbackFailure": "Für 1 sollte 'Montag' zurückgegeben werden."
         },
         {
           "type": "function",
           "functionName": "wochentag",
-          "args": [
-            7
-          ],
+          "args": [7],
           "expectedResult": "Sonntag",
           "feedbackFailure": "Für 7 sollte 'Sonntag' zurückgegeben werden."
         },
         {
           "type": "function",
           "functionName": "wochentag",
-          "args": [
-            99
-          ],
+          "args": [99],
           "expectedResult": "Unbekannt",
           "feedbackFailure": "Für unbekannte Zahlen sollte 'Unbekannt' zurückgegeben werden (default-Case)."
         }
@@ -233,9 +187,7 @@
         "css": "",
         "js": "// Schreibe deine for-Schleife hier\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "console",
@@ -258,9 +210,7 @@
         "css": "",
         "js": "// Schreibe deine while-Schleife hier\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "console",
@@ -283,35 +233,19 @@
         "css": "",
         "js": "function findeGroesste(zahlen) {\n  // Schreibe deine Lösung hier\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "findeGroesste",
-          "args": [
-            [
-              3,
-              8,
-              2,
-              10,
-              5
-            ]
-          ],
+          "args": [[3, 8, 2, 10, 5]],
           "expectedResult": 10,
           "feedbackFailure": "Die Funktion sollte 10 zurückgeben. Gehe das Array durch und merke dir die bisher größte Zahl."
         },
         {
           "type": "function",
           "functionName": "findeGroesste",
-          "args": [
-            [
-              -5,
-              -1,
-              -10
-            ]
-          ],
+          "args": [[-5, -1, -10]],
           "expectedResult": -1,
           "feedbackFailure": "Die Funktion sollte -1 zurückgeben. Denke daran: negative Zahlen können auch die größten sein."
         }
@@ -326,25 +260,13 @@
         "css": "",
         "js": "function verdopple(zahlen) {\n  // Verwende .map()\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "verdopple",
-          "args": [
-            [
-              1,
-              2,
-              3
-            ]
-          ],
-          "expectedResult": [
-            2,
-            4,
-            6
-          ],
+          "args": [[1, 2, 3]],
+          "expectedResult": [2, 4, 6],
           "feedbackFailure": "Die Funktion sollte [2, 4, 6] zurückgeben. Verwende `return zahlen.map(zahl => zahl * 2);`."
         }
       ]
@@ -358,9 +280,7 @@
         "css": "",
         "js": "// Erstelle das Objekt und gib den Titel aus\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "console",
@@ -378,9 +298,7 @@
         "css": "",
         "js": "function gibAutor(buch) {\n  // Gib den Autor zurück\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
@@ -405,16 +323,12 @@
         "css": "",
         "js": "function begruesse(name) {\n  // Gib die Begrüßung zurück\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "begruesse",
-          "args": [
-            "Max"
-          ],
+          "args": ["Max"],
           "expectedResult": "Hallo Max!",
           "feedbackFailure": "Die Funktion sollte 'Hallo Max!' zurückgeben. Verwende String-Verkettung oder Template-Literale."
         }
@@ -429,27 +343,19 @@
         "css": "",
         "js": "function berechneFlaeche(breite, hoehe) {\n  // Berechne die Fläche\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "berechneFlaeche",
-          "args": [
-            5,
-            3
-          ],
+          "args": [5, 3],
           "expectedResult": 15,
           "feedbackFailure": "Die Fläche von 5 x 3 sollte 15 sein."
         },
         {
           "type": "function",
           "functionName": "berechneFlaeche",
-          "args": [
-            10,
-            10
-          ],
+          "args": [10, 10],
           "expectedResult": 100,
           "feedbackFailure": "Die Fläche von 10 x 10 sollte 100 sein."
         }
@@ -464,10 +370,7 @@
         "css": "",
         "js": "// Wähle das Element und ändere die Farbe\n"
       },
-      "enabledEditors": [
-        "html",
-        "js"
-      ],
+      "enabledEditors": ["html", "js"],
       "validationTests": [
         {
           "type": "dom",
@@ -487,10 +390,7 @@
         "css": "",
         "js": "// Füge den Event-Listener hier ein\n"
       },
-      "enabledEditors": [
-        "html",
-        "js"
-      ],
+      "enabledEditors": ["html", "js"],
       "validationTests": [
         {
           "type": "dom",
@@ -513,10 +413,7 @@
         "css": "",
         "js": "// Lies den Wert aus und zeige den Gruß an\n"
       },
-      "enabledEditors": [
-        "html",
-        "js"
-      ],
+      "enabledEditors": ["html", "js"],
       "validationTests": [
         {
           "type": "dom",
@@ -544,9 +441,7 @@
         "css": "",
         "js": "function wuerfle() {\n  // Gib eine Zahl zwischen 1 und 6 zurück\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
@@ -566,51 +461,33 @@
         "css": "",
         "js": "function rechne(a, b, operator) {\n  // Implementiere die Rechenoperation\n}\n"
       },
-      "enabledEditors": [
-        "js"
-      ],
+      "enabledEditors": ["js"],
       "validationTests": [
         {
           "type": "function",
           "functionName": "rechne",
-          "args": [
-            5,
-            3,
-            "+"
-          ],
+          "args": [5, 3, "+"],
           "expectedResult": 8,
           "feedbackFailure": "5 + 3 sollte 8 ergeben."
         },
         {
           "type": "function",
           "functionName": "rechne",
-          "args": [
-            10,
-            4,
-            "-"
-          ],
+          "args": [10, 4, "-"],
           "expectedResult": 6,
           "feedbackFailure": "10 - 4 sollte 6 ergeben."
         },
         {
           "type": "function",
           "functionName": "rechne",
-          "args": [
-            4,
-            5,
-            "*"
-          ],
+          "args": [4, 5, "*"],
           "expectedResult": 20,
           "feedbackFailure": "4 * 5 sollte 20 ergeben."
         },
         {
           "type": "function",
           "functionName": "rechne",
-          "args": [
-            8,
-            2,
-            "/"
-          ],
+          "args": [8, 2, "/"],
           "expectedResult": 4,
           "feedbackFailure": "8 / 2 sollte 4 ergeben."
         }

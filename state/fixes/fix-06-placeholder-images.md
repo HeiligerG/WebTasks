@@ -42,8 +42,8 @@ Alle externen `via.placeholder.com`-URLs in `public/bundles/bundle-01-html-basic
 
 ### Konkrete Änderungen in `bundle-01-html-basics.json`
 
-| Task | Aktueller Wert | Neuer Wert |
-|:---|:---|:---|
+| Task                          | Aktueller Wert                          | Neuer Wert                                                        |
+| :---------------------------- | :-------------------------------------- | :---------------------------------------------------------------- |
 | **Task 2** (`html-basics-02`) | `src="https://via.placeholder.com/150"` | Base64-SVG-Data-URI (150×150, graues Rechteck mit Text "150x150") |
 | **Task 3** (`html-basics-03`) | `src="https://via.placeholder.com/100"` | Base64-SVG-Data-URI (100×100, graues Rechteck mit Text "100x100") |
 
@@ -52,6 +52,7 @@ Alle externen `via.placeholder.com`-URLs in `public/bundles/bundle-01-html-basic
 Wir erstellen zwei einfache SVG-Platzhalter und kodieren sie als Base64:
 
 **150×150 SVG:**
+
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
   <rect width="150" height="150" fill="#cccccc"/>
@@ -60,6 +61,7 @@ Wir erstellen zwei einfache SVG-Platzhalter und kodieren sie als Base64:
 ```
 
 **100×100 SVG:**
+
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
   <rect width="100" height="100" fill="#cccccc"/>
@@ -79,14 +81,14 @@ Diese werden mit `btoa()` (oder einem Shell-Befehl) in Base64 umgewandelt und al
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | Base64-Data-URI für 150×150 SVG generieren | — |
-| 2 | Base64-Data-URI für 100×100 SVG generieren | — |
-| 3 | `bundle-01-html-basics.json`: Task 2 `instruction` und `initialCode.html` anpassen | `public/bundles/bundle-01-html-basics.json` |
-| 4 | `bundle-01-html-basics.json`: Task 3 `initialCode.html` anpassen | `public/bundles/bundle-01-html-basics.json` |
-| 5 | JSON validieren (Syntax-Check) | — |
-| 6 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                                               | Datei(en)                                   |
+| :-- | :--------------------------------------------------------------------------------- | :------------------------------------------ |
+| 1   | Base64-Data-URI für 150×150 SVG generieren                                         | —                                           |
+| 2   | Base64-Data-URI für 100×100 SVG generieren                                         | —                                           |
+| 3   | `bundle-01-html-basics.json`: Task 2 `instruction` und `initialCode.html` anpassen | `public/bundles/bundle-01-html-basics.json` |
+| 4   | `bundle-01-html-basics.json`: Task 3 `initialCode.html` anpassen                   | `public/bundles/bundle-01-html-basics.json` |
+| 5   | JSON validieren (Syntax-Check)                                                     | —                                           |
+| 6   | `state/current-state.md` aktualisieren                                             | `state/current-state.md`                    |
 
 ## Git-Workflow
 

@@ -11,10 +11,19 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('codemirror') || id.includes('@uiw/react-codemirror') || id.includes('@codemirror')) {
+            if (
+              id.includes('codemirror') ||
+              id.includes('@uiw/react-codemirror') ||
+              id.includes('@codemirror')
+            ) {
               return 'vendor-codemirror';
             }
-            if (id.includes('react-markdown') || id.includes('remark') || id.includes('rehype') || id.includes('markdown')) {
+            if (
+              id.includes('react-markdown') ||
+              id.includes('remark') ||
+              id.includes('rehype') ||
+              id.includes('markdown')
+            ) {
               return 'vendor-markdown';
             }
             if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {

@@ -1,6 +1,6 @@
 import { assembleDocument } from './codeAssembler';
 import { protectLoops } from './loopProtect';
-import type { Task, DomTest, ConsoleTest, FunctionTest } from '../types/content';
+import type { Task, DomTest, ConsoleTest, FunctionTest, CssTest } from '../types/content';
 
 export type TestResult = {
   testIndex: number;
@@ -33,15 +33,106 @@ export async function validateDomTest(
       `
       : '';
 
-  const validationScript = `
-    (function() {
-      try {
-        var el = document.querySelector(${JSON.stringify(test.selector)});
-        if (!el) {
+  const textCheck =
+    test.expectedText !== undefined
+      ? `
+      var text = el.textContent ? el.textContent.trim() : '';
+      if (text !== ${JSON.stringify(test.expectedText)}) {
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+        return;
+      }
+    `
+      : '';
+
+  const containsCheck =
+    test.expectedTextContains !== undefined
+      ? `
+      var text = el.textContent ? el.textContent : '';
+      if (!text.includes(${JSON.stringify(test.expectedTextContains)})) {
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+        return;
+       }
+     `
+       : '';
+
+  const attributesCheck = test.requiredAttributes !== undefined && test.requiredAttributes.length > 0
+    ? `
+      ${test.requiredAttributes.map(attr => `
+        if (!el.hasAttribute(${JSON.stringify(attr)})) {
           window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
           return;
         }
-        ${propertyCheck}
+      `).join('')}
+    `
+    : '';
+
+  const minCountCheck = test.minCount !== undefined
+    ? `
+      // Note: elements variable is already defined in the main validation script
+      if (elements.length < ${test.minCount}) {
+        window.parent.postMessage({ type: "VALIDATION_RESULT", passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, "*");
+        return;
+      }
+    `
+    : '';
+
+  const minItemsPerParentCheck = test.minItemsPerParent !== undefined
+    ? `
+      var allRows = document.querySelectorAll(${JSON.stringify(test.selector.replace(/ td$/, ''))});
+      var hasEnoughCells = true;
+      for (var i = 0; i < allRows.length; i++) {
+        var row = allRows[i];
+        var cells = row.querySelectorAll('td');
+        if (cells.length < ${test.minItemsPerParent}) {
+          hasEnoughCells = false;
+          break;
+        }
+      }
+      if (!hasEnoughCells) {
+        window.parent.postMessage({ type: "VALIDATION_RESULT", passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, "*");
+        return;
+      }
+    `
+    : '';
+
+  const emptyCheck =
+    test.shouldBeEmpty !== undefined
+      ? `
+      var hasContent = el.children.length > 0 || (el.textContent ? el.textContent.trim() !== '' : false);
+      if ((test.shouldBeEmpty && hasContent) || (!test.shouldBeEmpty && !hasContent)) {
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+        return;
+      }
+    `
+      : '';
+
+  const validationScript = `
+    (function() {
+      try {
+        ${test.minCount !== undefined ? `
+          // For minCount tests, we use querySelectorAll to count elements
+          var elements = document.querySelectorAll(${JSON.stringify(test.selector)});
+          if (elements.length === 0) {
+            window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+            return;
+          }
+          ${minCountCheck}
+          ${minItemsPerParentCheck}
+          // For minCount tests, we don't have a single 'el' variable
+        ` : `
+          // Regular single-element tests
+          var el = document.querySelector(${JSON.stringify(test.selector)});
+          if (!el) {
+            window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+            return;
+          }
+          ${propertyCheck}
+          ${textCheck}
+          ${containsCheck}
+          ${attributesCheck}
+          ${minItemsPerParentCheck}
+          ${emptyCheck}
+        `}
         window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: true, feedback: ${JSON.stringify(test.feedbackSuccess ?? 'Test bestanden.')} }, '*');
       } catch (e) {
         window.parent.postMessage({ type: 'VALIDATION_ERROR', error: e.message }, '*');
@@ -66,7 +157,7 @@ export async function validateDomTest(
       return {
         testIndex: -1,
         passed: msg.passed ?? false,
-        feedback: msg.feedback ?? (test.feedbackSuccess ?? 'Test bestanden.'),
+        feedback: msg.feedback ?? test.feedbackSuccess ?? 'Test bestanden.',
       };
     }
 
@@ -262,6 +353,18 @@ export async function validateFunctionTest(
   };
 }
 
+export async function validateCssTest(
+  test: CssTest,
+  code: { html: string; css: string; js: string }
+): Promise<TestResult> {
+  const passed = code.css.includes(test.requiredText);
+  return {
+    testIndex: -1,
+    passed,
+    feedback: passed ? (test.feedbackSuccess ?? 'Test bestanden.') : test.feedbackFailure,
+  };
+}
+
 export async function validateTask(
   task: Task,
   code: { html: string; css: string; js: string }
@@ -281,6 +384,9 @@ export async function validateTask(
         break;
       case 'function':
         result = await validateFunctionTest(test, code);
+        break;
+      case 'css':
+        result = await validateCssTest(test, code);
         break;
       default:
         result = {

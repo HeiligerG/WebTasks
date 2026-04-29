@@ -13,11 +13,13 @@ Nach Fix 06 enthält die HTML-Aufgabe "Bilder einbinden" (Bundle 1, Task 2) im E
 In Fix 06 wurden die externen `via.placeholder.com`-URLs durch Base64-Data-URIs ersetzt. Dabei wurde fälschlicherweise nicht nur die Beispiel-URL in der `instruction`, sondern auch der `initialCode` auf das fertige `<img>`-Tag umgestellt.
 
 Ursprünglicher `initialCode` (vor Fix 06):
+
 ```html
 <div>Bild kommt hier hin</div>
 ```
 
 Falscher `initialCode` (nach Fix 06):
+
 ```html
 <img src="data:image/svg+xml;base64,..." alt="Beispielbild" />
 ```
@@ -43,7 +45,7 @@ In `public/bundles/bundle-01-html-basics.json` wird der `initialCode` von Task 2
 Die `instruction` sollte den Base64-Data-URI als **empfohlenen Wert** behalten, damit der Nutzer ihn kopieren und als `src` einfügen kann. Der Text wird leicht angepasst:
 
 > "Ersetze den Platzhalter-Text durch ein Bild. Verwende dafür folgenden Base64-Platzhalter als `src`:
-> 
+>
 > `data:image/svg+xml;base64,PHN2Zy...`"
 
 Die Validierung prüft nur auf das Vorhandensein eines `<img>`-Tags (`selector: "img"`). Es ist also unerheblich, welche `src` der Nutzer verwendet, solange das Tag korrekt eingefügt wird.
@@ -55,12 +57,12 @@ Die Validierung prüft nur auf das Vorhandensein eines `<img>`-Tags (`selector: 
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `initialCode` von Task 2 in `bundle-01-html-basics.json` auf Platzhalter-Text zurücksetzen | `public/bundles/bundle-01-html-basics.json` |
-| 2 | `instruction` von Task 2 leicht anpassen (Base64-String als empfohlenen Wert behalten) | `public/bundles/bundle-01-html-basics.json` |
-| 3 | JSON validieren (Syntax-Check) | — |
-| 4 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                                                       | Datei(en)                                   |
+| :-- | :----------------------------------------------------------------------------------------- | :------------------------------------------ |
+| 1   | `initialCode` von Task 2 in `bundle-01-html-basics.json` auf Platzhalter-Text zurücksetzen | `public/bundles/bundle-01-html-basics.json` |
+| 2   | `instruction` von Task 2 leicht anpassen (Base64-String als empfohlenen Wert behalten)     | `public/bundles/bundle-01-html-basics.json` |
+| 3   | JSON validieren (Syntax-Check)                                                             | —                                           |
+| 4   | `state/current-state.md` aktualisieren                                                     | `state/current-state.md`                    |
 
 ## Git-Workflow
 

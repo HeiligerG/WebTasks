@@ -11,6 +11,7 @@ GET https://heiligerg.github.io/bundles/bundle-03-interactive-web.json [HTTP/2 4
 ```
 
 Zusätzlich bleibt der Favicon-Request ein 404:
+
 ```
 GET https://heiligerg.github.io/WebTasks/favicon.svg [HTTP/2 404]
 ```
@@ -25,6 +26,7 @@ GET https://heiligerg.github.io/WebTasks/favicon.svg [HTTP/2 404]
 ## Root Cause Analyse
 
 ### Bundle-URLs
+
 Die Anwendung wird als **GitHub Pages Project Page** unter dem Subpfad `/WebTasks/` gehostet. In `vite.config.ts` ist `base: '/WebTasks/'` korrekt konfiguriert, wodurch alle JS/CSS-Assets unter `/WebTasks/assets/...` geladen werden.
 
 Die Bundle-JSON-Dateien liegen jedoch im `public/bundles/`-Ordner. Vite kopiert den `public/`-Ordner beim Build relativ zur konfigurierten `base` URL in das `dist/`-Verzeichnis. Das bedeutet, die Bundles sind nach dem Deploy unter `https://heiligerg.github.io/WebTasks/bundles/...` erreichbar.
@@ -33,9 +35,9 @@ Im Code werden die Bundles jedoch mit **absoluten Pfaden** von der Domain-Root a
 
 - `src/components/HomePage.tsx:18-20`
   ```ts
-  '/bundles/bundle-01-html-basics.json'
-  '/bundles/bundle-02-javascript-basics.json'
-  '/bundles/bundle-03-interactive-web.json'
+  '/bundles/bundle-01-html-basics.json';
+  '/bundles/bundle-02-javascript-basics.json';
+  '/bundles/bundle-03-interactive-web.json';
   ```
 - `src/components/TaskPage.tsx:41`
   ```ts
@@ -43,12 +45,13 @@ Im Code werden die Bundles jedoch mit **absoluten Pfaden** von der Domain-Root a
   ```
 - `src/components/CertificatePage.tsx:13`
   ```ts
-  loadAllBundles(['/bundles/bundle-01-html-basics.json'])
+  loadAllBundles(['/bundles/bundle-01-html-basics.json']);
   ```
 
 Diese führen zu Requests gegen `https://heiligerg.github.io/bundles/...`, was ein 404 liefert, da die Dateien tatsächlich unter `/WebTasks/bundles/...` liegen.
 
 ### Favicon
+
 In `index.html` wurde der Favicon-Pfad in Fix 01 auf `/WebTasks/favicon.svg` geändert. Das 404 deutet darauf hin, dass die Datei `public/favicon.svg` nicht im Repository vorhanden ist und somit auch nicht in den Build kopiert wurde. Dieser Fehler ist unabhängig vom Base-Path-Problem, wird aber in diesem Fix mitadressiert.
 
 ## Geplante Lösung
@@ -67,11 +70,11 @@ export function getBundleUrl(bundleId: string): string {
 
 ### 2. Alle Aufrufstellen anpassen
 
-| Datei | Aktueller Code | Neuer Code |
-|:---|:---|:---|
-| `HomePage.tsx` | `loadAllBundles(['/bundles/bundle-01-html-basics.json', ...])` | `loadAllBundles([getBundleUrl('bundle-01-html-basics'), ...])` |
-| `TaskPage.tsx` | `` `bundles/${bundleId}.json` `` | `getBundleUrl(bundleId)` |
-| `CertificatePage.tsx` | `loadAllBundles(['/bundles/bundle-01-html-basics.json'])` | `loadAllBundles([getBundleUrl('bundle-01-html-basics')])` |
+| Datei                 | Aktueller Code                                                 | Neuer Code                                                     |
+| :-------------------- | :------------------------------------------------------------- | :------------------------------------------------------------- |
+| `HomePage.tsx`        | `loadAllBundles(['/bundles/bundle-01-html-basics.json', ...])` | `loadAllBundles([getBundleUrl('bundle-01-html-basics'), ...])` |
+| `TaskPage.tsx`        | `` `bundles/${bundleId}.json` ``                               | `getBundleUrl(bundleId)`                                       |
+| `CertificatePage.tsx` | `loadAllBundles(['/bundles/bundle-01-html-basics.json'])`      | `loadAllBundles([getBundleUrl('bundle-01-html-basics')])`      |
 
 ### 3. Favicon bereinigen
 
@@ -87,15 +90,15 @@ export function getBundleUrl(bundleId: string): string {
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `getBundleUrl()` in `contentLoader.ts` hinzufügen | `src/lib/contentLoader.ts` |
-| 2 | `HomePage.tsx` auf `getBundleUrl()` umstellen | `src/components/HomePage.tsx` |
-| 3 | `TaskPage.tsx` auf `getBundleUrl()` umstellen | `src/components/TaskPage.tsx` |
-| 4 | `CertificatePage.tsx` auf `getBundleUrl()` umstellen | `src/components/CertificatePage.tsx` |
-| 5 | Favicon-Problem beheben (SVG erstellen oder Link entfernen) | `public/favicon.svg` oder `index.html` |
-| 6 | Build, Lint, TypeScript prüfen | — |
-| 7 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                        | Datei(en)                              |
+| :-- | :---------------------------------------------------------- | :------------------------------------- |
+| 1   | `getBundleUrl()` in `contentLoader.ts` hinzufügen           | `src/lib/contentLoader.ts`             |
+| 2   | `HomePage.tsx` auf `getBundleUrl()` umstellen               | `src/components/HomePage.tsx`          |
+| 3   | `TaskPage.tsx` auf `getBundleUrl()` umstellen               | `src/components/TaskPage.tsx`          |
+| 4   | `CertificatePage.tsx` auf `getBundleUrl()` umstellen        | `src/components/CertificatePage.tsx`   |
+| 5   | Favicon-Problem beheben (SVG erstellen oder Link entfernen) | `public/favicon.svg` oder `index.html` |
+| 6   | Build, Lint, TypeScript prüfen                              | —                                      |
+| 7   | `state/current-state.md` aktualisieren                      | `state/current-state.md`               |
 
 ## Git-Workflow
 

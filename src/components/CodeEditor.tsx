@@ -41,10 +41,17 @@ function getBaseExtensions() {
   ];
 }
 
-export function CodeEditor({ value, onChange, language, className, theme = 'dark' }: CodeEditorProps) {
+export function CodeEditor({
+  value,
+  onChange,
+  language,
+  className,
+  theme = 'dark',
+}: CodeEditorProps) {
   return (
     <CodeMirror
       value={value}
+      height="100%"
       onChange={onChange}
       theme={theme === 'dark' ? oneDark : githubLight}
       extensions={[...getBaseExtensions(), getLanguageExtension(language)]}

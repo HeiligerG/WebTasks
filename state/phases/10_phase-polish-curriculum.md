@@ -15,6 +15,7 @@ Diese Phase poliert die WebTasks-Plattform visuell und inhaltlich auf ein profes
 **Status:** ✅ Abgeschlossen
 
 **Implementierte Änderungen:**
+
 - `tailwind.config.js`: `darkMode: 'class'` aktiviert
 - `src/stores/appStore.ts`: `theme: 'light' | 'dark'` mit Persistenz und `toggleTheme()`
 - `src/components/ThemeProvider.tsx`: Synchronisiert Theme mit `<html class="...">`
@@ -31,10 +32,11 @@ Diese Phase poliert die WebTasks-Plattform visuell und inhaltlich auf ein profes
 **Status:** ✅ Abgeschlossen
 
 **Implementierte Änderungen:**
+
 - `src/components/MarkdownRenderer.tsx`: Callout-Erkennung für `**Tipp:**`, `**Anforderungen:**`, `**Wichtig:**` mit farbigen Boxen und Icons
 - `src/components/InstructionPanel.tsx`: Redesign mit `CheckCircle2`, `XCircle`, `Loader2`; kompakteres Feedback
 - `src/components/HomePage.tsx`: Kompakterer Hero-Bereich
-- `src/components/TaskPage.tsx**: "Zurück zur Übersicht"-Link im Header
+- `src/components/TaskPage.tsx\*\*: "Zurück zur Übersicht"-Link im Header
 - `src/features/editor/EditorPanel.tsx`: `RotateCcw`-Icon für Reset
 - `src/components/BundleCard.tsx`: `ArrowRight`-Icon statt Text-Pfeil
 
@@ -49,6 +51,7 @@ Diese Phase poliert die WebTasks-Plattform visuell und inhaltlich auf ein profes
 **Status:** ✅ Abgeschlossen
 
 **Implementierte Änderungen:**
+
 - `public/bundles/bundle-01-html-basics.json`: Erweitert auf 20 Tasks (Tasks 04–20 hinzugefügt)
 - `public/bundles/bundle-02-javascript-basics.json`: Erweitert auf 20 Tasks (Tasks 05–20 hinzugefügt)
 - `public/bundles/bundle-03-interactive-web.json`: Erweitert auf 20 Tasks (Tasks 04–20 hinzugefügt)
@@ -60,8 +63,8 @@ Diese Phase poliert die WebTasks-Plattform visuell und inhaltlich auf ein profes
 
 Die vollständige, task-level Planung für alle 51 neuen Tasks befindet sich in:
 
-| Bundle | Datei | Umfang |
-|:---|:---|:---|
+| Bundle                              | Datei                                          | Umfang                      |
+| :---------------------------------- | :--------------------------------------------- | :-------------------------- |
 | **Bundle 1: HTML & CSS Grundlagen** | `state/phases/10c_phase-curriculum-bundle1.md` | Tasks 04–20 (17 neue Tasks) |
 | **Bundle 2: JavaScript Grundlagen** | `state/phases/10c_phase-curriculum-bundle2.md` | Tasks 05–20 (16 neue Tasks) |
-| **Bundle 3: Interaktive Web-Apps** | `state/phases/10c_phase-curriculum-bundle3.md` | Tasks 04–20 (17 neue Tasks) |
+| **Bundle 3: Interaktive Web-Apps**  | `state/phases/10c_phase-curriculum-bundle3.md` | Tasks 04–20 (17 neue Tasks) |

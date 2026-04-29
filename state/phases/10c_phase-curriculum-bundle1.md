@@ -8,25 +8,25 @@
 
 ## Übersicht der neuen Tasks
 
-| # | ID | Titel | Typ | Schwierigkeit |
-|:-:|:---|:---|:---|:---|
-| 4 | html-basics-04 | Links erstellen | DOM | ⭐ |
-| 5 | html-basics-05 | Listen strukturieren | DOM | ⭐⭐ |
-| 6 | html-basics-06 | Eine Tabelle bauen | DOM | ⭐⭐ |
-| 7 | html-basics-07 | Ein Formular erstellen | DOM | ⭐⭐⭐ |
-| 8 | html-basics-08 | Farben mit CSS ändern | DOM | ⭐⭐ |
-| 9 | html-basics-09 | Text ausrichten | DOM | ⭐⭐ |
-| 10 | html-basics-10 | Abstände verstehen | DOM | ⭐⭐⭐ |
-| 11 | html-basics-11 | Schriftarten ändern | DOM | ⭐⭐ |
-| 12 | html-basics-12 | Hover-Effekte | DOM | ⭐⭐⭐ |
-| 13 | html-basics-13 | Flexbox: Zentrieren | DOM | ⭐⭐⭐ |
-| 14 | html-basics-14 | Flexbox: Navigation | DOM | ⭐⭐⭐ |
-| 15 | html-basics-15 | CSS Grid Basics | DOM | ⭐⭐⭐⭐ |
-| 16 | html-basics-16 | Grid: Galerie-Layout | DOM | ⭐⭐⭐⭐ |
-| 17 | html-basics-17 | Responsives Design | DOM | ⭐⭐⭐⭐ |
-| 18 | html-basics-18 | Pseudo-Klassen | DOM | ⭐⭐⭐⭐ |
-| 19 | html-basics-19 | CSS-Variablen | DOM | ⭐⭐⭐⭐ |
-| 20 | html-basics-20 | Landing-Page Projekt | DOM | ⭐⭐⭐⭐⭐ |
+|  #  | ID             | Titel                  | Typ | Schwierigkeit |
+| :-: | :------------- | :--------------------- | :-- | :------------ |
+|  4  | html-basics-04 | Links erstellen        | DOM | ⭐            |
+|  5  | html-basics-05 | Listen strukturieren   | DOM | ⭐⭐          |
+|  6  | html-basics-06 | Eine Tabelle bauen     | DOM | ⭐⭐          |
+|  7  | html-basics-07 | Ein Formular erstellen | DOM | ⭐⭐⭐        |
+|  8  | html-basics-08 | Farben mit CSS ändern  | DOM | ⭐⭐          |
+|  9  | html-basics-09 | Text ausrichten        | DOM | ⭐⭐          |
+| 10  | html-basics-10 | Abstände verstehen     | DOM | ⭐⭐⭐        |
+| 11  | html-basics-11 | Schriftarten ändern    | DOM | ⭐⭐          |
+| 12  | html-basics-12 | Hover-Effekte          | DOM | ⭐⭐⭐        |
+| 13  | html-basics-13 | Flexbox: Zentrieren    | DOM | ⭐⭐⭐        |
+| 14  | html-basics-14 | Flexbox: Navigation    | DOM | ⭐⭐⭐        |
+| 15  | html-basics-15 | CSS Grid Basics        | DOM | ⭐⭐⭐⭐      |
+| 16  | html-basics-16 | Grid: Galerie-Layout   | DOM | ⭐⭐⭐⭐      |
+| 17  | html-basics-17 | Responsives Design     | DOM | ⭐⭐⭐⭐      |
+| 18  | html-basics-18 | Pseudo-Klassen         | DOM | ⭐⭐⭐⭐      |
+| 19  | html-basics-19 | CSS-Variablen          | DOM | ⭐⭐⭐⭐      |
+| 20  | html-basics-20 | Landing-Page Projekt   | DOM | ⭐⭐⭐⭐⭐    |
 
 ---
 
@@ -41,12 +41,14 @@
 HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.
 
 **Anforderungen:**
+
 1. Erstelle einen Link, der zu `https://example.com` führt.
 2. Der angezeigte Text des Links soll `Mehr erfahren` sein.
 
 **Tipp:** Ein Link sieht so aus: `<a href="https://example.com">Linktext</a>`
 
 **InitialCode:**
+
 ```json
 {
   "html": "<p>Hier geht es weiter...</p>",
@@ -58,6 +60,7 @@ HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir
 **EnabledEditors:** `["html"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -86,12 +89,14 @@ HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir
 Listen sind überall im Web: Menüs, To-Do-Listen, Inhaltsverzeichnisse. HTML bietet `<ul>` für ungeordnete und `<ol>` für geordnete Listen.
 
 **Anforderungen:**
+
 1. Erstelle eine **ungeordnete Liste** (`<ul>`).
 2. Füge mindestens **drei** Listeneinträge (`<li>`) mit deinen Hobbys hinzu.
 
 **Tipp:** Vergiss nicht, jeden Eintrag in ein `<li>`-Tag zu packen.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<p>Meine Hobbys:</p>",
@@ -103,6 +108,7 @@ Listen sind überall im Web: Menüs, To-Do-Listen, Inhaltsverzeichnisse. HTML bi
 **EnabledEditors:** `["html"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -131,6 +137,7 @@ Listen sind überall im Web: Menüs, To-Do-Listen, Inhaltsverzeichnisse. HTML bi
 Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder Preislisten.
 
 **Anforderungen:**
+
 1. Erstelle eine Tabelle mit einer Kopfzeile (`<thead>`) und einem Körper (`<tbody>`).
 2. Die Kopfzeile soll die Spalten `Name` und `Alter` enthalten (verwende `<th>`).
 3. Der Körper soll mindestens **zwei Datenzeilen** enthalten (verwende `<td>`).
@@ -138,6 +145,7 @@ Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder P
 **Tipp:** Eine Tabelle beginnt immer mit `<table>`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div>Tabellenplatz</div>",
@@ -149,6 +157,7 @@ Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder P
 **EnabledEditors:** `["html"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -156,7 +165,7 @@ Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder P
     "selector": "table",
     "feedbackFailure": "Wir können keine <table> finden."
   },
-    {
+  {
     "type": "dom",
     "selector": "th",
     "feedbackFailure": "Wir können keine Tabellenkopfzellen (<th>) finden."
@@ -182,6 +191,7 @@ Tabellen helfen, Daten übersichtlich darzustellen – zum Beispiel Noten oder P
 Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es Nutzern, Daten einzugeben.
 
 **Anforderungen:**
+
 1. Erstelle ein `<form>`-Element.
 2. Füge ein Text-Eingabefeld (`<input type="text">`) mit dem Namen `username` hinzu.
 3. Füge einen Absende-Button (`<button type="submit">`) mit dem Text `Absenden` hinzu.
@@ -189,6 +199,7 @@ Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es N
 **Tipp:** Das `type="text"`-Attribut sorgt dafür, dass das Feld als Textfeld gerendert wird.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div>Anmeldeformular</div>",
@@ -200,6 +211,7 @@ Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es N
 **EnabledEditors:** `["html"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -233,12 +245,14 @@ Formulare sind das Herzstück jeder interaktiven Webseite. Sie ermöglichen es N
 CSS macht das Web bunt. Mit der `color`-Eigenschaft änderst du die Textfarbe.
 
 **Anforderungen:**
+
 1. Im HTML befindet sich bereits ein Paragraph mit dem Text `Ich bin bunt`.
 2. Ändere im CSS-Tab die Textfarbe dieses Paragraphs zu `red`.
 
 **Tipp:** Ein Paragraph-Selektor sieht so aus: `p { color: red; }`
 
 **InitialCode:**
+
 ```json
 {
   "html": "<p>Ich bin bunt</p>",
@@ -250,6 +264,7 @@ CSS macht das Web bunt. Mit der `color`-Eigenschaft änderst du die Textfarbe.
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -275,10 +290,12 @@ CSS macht das Web bunt. Mit der `color`-Eigenschaft änderst du die Textfarbe.
 Mit CSS kannst du nicht nur Farben, sondern auch die Ausrichtung von Text steuern.
 
 **Anforderungen:**
+
 1. Im HTML ist bereits eine `<h2>`-Überschrift mit dem Text `Willkommen`.
 2. Zentriere diese Überschrift mit `text-align: center`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<h2>Willkommen</h2>",
@@ -290,6 +307,7 @@ Mit CSS kannst du nicht nur Farben, sondern auch die Ausrichtung von Text steuer
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -315,11 +333,13 @@ Mit CSS kannst du nicht nur Farben, sondern auch die Ausrichtung von Text steuer
 Das CSS-Box-Modell ist eines der wichtigsten Konzepte im Webdesign. `padding` ist der Innenabstand, `margin` der Außenabstand.
 
 **Anforderungen:**
+
 1. Im HTML ist bereits ein `<div>` mit der Klasse `box`.
 2. Gib dem `.box` im CSS einen Innenabstand (`padding`) von `20px`.
 3. Gib dem `.box` im CSS einen Außenabstand (`margin`) von `10px`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div class=\"box\">Box</div>",
@@ -331,6 +351,7 @@ Das CSS-Box-Modell ist eines der wichtigsten Konzepte im Webdesign. `padding` is
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -363,9 +384,11 @@ Das CSS-Box-Modell ist eines der wichtigsten Konzepte im Webdesign. `padding` is
 Die richtige Schriftart verleiht einer Webseite Charakter.
 
 **Anforderungen:**
+
 1. Ändere die Schriftart des `<p>`-Elements im CSS zu `Arial`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<p>Design ist wichtig</p>",
@@ -377,6 +400,7 @@ Die richtige Schriftart verleiht einer Webseite Charakter.
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -402,12 +426,14 @@ Die richtige Schriftart verleiht einer Webseite Charakter.
 Interaktive Webseiten reagieren auf die Maus des Nutzers. Mit der `:hover`-Pseudoklasse änderst du das Aussehen eines Elements, wenn man mit der Maus darüber fährt.
 
 **Anforderungen:**
+
 1. Im HTML ist bereits ein `<button>` mit der Klasse `btn` vorhanden.
 2. Schreibe im CSS eine Regel für `.btn:hover`, die die Hintergrundfarbe (`background-color`) auf `blue` ändert.
 
 **Tipp:** Ein Hover-Selektor sieht so aus: `.btn:hover { ... }`
 
 **InitialCode:**
+
 ```json
 {
   "html": "<button class=\"btn\">Klick mich</button>",
@@ -419,6 +445,7 @@ Interaktive Webseiten reagieren auf die Maus des Nutzers. Mit der `:hover`-Pseud
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -444,11 +471,13 @@ Interaktive Webseiten reagieren auf die Maus des Nutzers. Mit der `:hover`-Pseud
 Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.
 
 **Anforderungen:**
+
 1. Im HTML ist ein Container mit der Klasse `container` und darin ein roter Kreis mit der Klasse `kreis`.
 2. Mache den Container zu einem Flex-Container (`display: flex`).
 3. Zentriere den Kreis **horizontal** (`justify-content: center`) und **vertikal** (`align-items: center`).
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div class=\"container\">\n  <div class=\"kreis\"></div>\n</div>",
@@ -460,6 +489,7 @@ Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigst
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -499,11 +529,13 @@ Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigst
 Navigationsleisten sind ein klassischer Anwendungsfall für Flexbox.
 
 **Anforderungen:**
+
 1. Im HTML ist ein `<nav>`-Element mit drei `<a>`-Links.
 2. Mache das `<nav>` zu einem Flex-Container.
 3. Setze den Abstand (`gap`) zwischen den Links auf `20px`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<nav>\n  <a href=\"#\">Home</a>\n  <a href=\"#\">Über</a>\n  <a href=\"#\">Kontakt</a>\n</nav>",
@@ -515,6 +547,7 @@ Navigationsleisten sind ein klassischer Anwendungsfall für Flexbox.
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -547,11 +580,13 @@ Navigationsleisten sind ein klassischer Anwendungsfall für Flexbox.
 Grid ist das mächtigste Layout-System in CSS. Es ermöglicht dir, Elemente in Zeilen und Spalten anzuordnen.
 
 **Anforderungen:**
+
 1. Im HTML ist ein Container mit der Klasse `grid` und vier farbige Kästchen mit der Klasse `item`.
 2. Mache den Container zu einem Grid-Container (`display: grid`).
 3. Definiere zwei Spalten (`grid-template-columns: 1fr 1fr`) und zwei Zeilen (`grid-template-rows: 100px 100px`).
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div class=\"grid\">\n  <div class=\"item\" style=\"background:red\">1</div>\n  <div class=\"item\" style=\"background:blue\">2</div>\n  <div class=\"item\" style=\"background:green\">3</div>\n  <div class=\"item\" style=\"background:orange\">4</div>\n</div>",
@@ -563,6 +598,7 @@ Grid ist das mächtigste Layout-System in CSS. Es ermöglicht dir, Elemente in Z
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -595,11 +631,13 @@ Grid ist das mächtigste Layout-System in CSS. Es ermöglicht dir, Elemente in Z
 Ein echtes Bildergalerie-Layout mit CSS Grid.
 
 **Anforderungen:**
+
 1. Im HTML ist ein Container mit der Klasse `galerie` und sechs Bild-Platzhaltern.
 2. Mache die Galerie zu einem Grid mit drei gleich großen Spalten (`grid-template-columns: repeat(3, 1fr)`).
 3. Setze den Lückenabstand (`gap`) auf `10px`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div class=\"galerie\">\n  <div class=\"bild\">Bild 1</div>\n  <div class=\"bild\">Bild 2</div>\n  <div class=\"bild\">Bild 3</div>\n  <div class=\"bild\">Bild 4</div>\n  <div class=\"bild\">Bild 5</div>\n  <div class=\"bild\">Bild 6</div>\n</div>",
@@ -611,6 +649,7 @@ Ein echtes Bildergalerie-Layout mit CSS Grid.
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -650,10 +689,12 @@ Ein echtes Bildergalerie-Layout mit CSS Grid.
 Webseiten müssen auf allen Geräten gut aussehen – vom Handy bis zum Desktop. Mit Media Queries passt du das Layout an die Bildschirmbreite an.
 
 **Anforderungen:**
+
 1. Im HTML ist ein `<div>` mit der Klasse `desktop-only`.
 2. Verstecke dieses Element auf Bildschirmen, die schmaler als `600px` sind. Verwende dafür `@media (max-width: 600px) { ... }` und setze `display: none`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div class=\"desktop-only\">Nur auf großen Bildschirmen sichtbar</div>",
@@ -665,6 +706,7 @@ Webseiten müssen auf allen Geräten gut aussehen – vom Handy bis zum Desktop.
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -690,10 +732,12 @@ Webseiten müssen auf allen Geräten gut aussehen – vom Handy bis zum Desktop.
 Pseudo-Klassen erlauben es dir, bestimmte Elemente basierend auf ihrer Position zu stylen, ohne jede einzelne Element manuell anzusprechen.
 
 **Anforderungen:**
+
 1. Im HTML ist eine ungeordnete Liste (`<ul>`) mit fünf Einträgen.
 2. Färbe jedes **zweite** Listenelement (`<li>`) mit `:nth-child(even)` grau (`background-color: lightgray`).
 
 **InitialCode:**
+
 ```json
 {
   "html": "<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n  <li>Item 3</li>\n  <li>Item 4</li>\n  <li>Item 5</li>\n</ul>",
@@ -705,6 +749,7 @@ Pseudo-Klassen erlauben es dir, bestimmte Elemente basierend auf ihrer Position 
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -728,6 +773,7 @@ Pseudo-Klassen erlauben es dir, bestimmte Elemente basierend auf ihrer Position 
 CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst eine Farbe einmal und nutzt sie an vielen Stellen.
 
 **Anforderungen:**
+
 1. Definiere auf der `:root`-Ebene eine CSS-Variable `--primary` mit dem Wert `blue`.
 2. Im HTML ist ein `<button>` mit der Klasse `primary-btn`.
 3. Wende die Variable als Hintergrundfarbe (`background-color: var(--primary)`) auf den Button an.
@@ -735,6 +781,7 @@ CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst ei
 **Tipp:** `:root { --primary: blue; }`
 
 **InitialCode:**
+
 ```json
 {
   "html": "<button class=\"primary-btn\">Primary</button>",
@@ -746,6 +793,7 @@ CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst ei
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -771,6 +819,7 @@ CSS-Variablen (Custom Properties) machen deinen Code wartbarer. Du definierst ei
 Herzlichen Glückwunsch! Du hast alle Grundlagen gemeistert. In diesem Abschlussprojekt baust du eine kleine Landing-Page, die alles Kombiniert, was du gelernt hast.
 
 **Anforderungen:**
+
 1. Erstelle einen `<header>` mit einer Überschrift `<h1>`.
 2. Erstelle einen Bereich mit der Klasse `hero` und darin einem Paragraph `<p>`.
 3. Erstelle einen Bereich mit der Klasse `features` und mindestens zwei Feature-Boxen (z. B. `<div class="feature">`).
@@ -779,6 +828,7 @@ Herzlichen Glückwunsch! Du hast alle Grundlagen gemeistert. In diesem Abschluss
 **Tipp:** Verwende semantische HTML-Tags wie `<header>` und `<footer>`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -790,6 +840,7 @@ Herzlichen Glückwunsch! Du hast alle Grundlagen gemeistert. In diesem Abschluss
 **EnabledEditors:** `["html", "css"]`
 
 **ValidationTests:**
+
 ```json
 [
   {

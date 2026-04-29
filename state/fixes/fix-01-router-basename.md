@@ -71,13 +71,13 @@ Dies funktioniert weiterhin, sollte aber getestet werden, nachdem `basename` ges
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `BrowserRouter` um `basename="/WebTasks"` erweitern | `src/main.tsx` |
-| 2 | Favicon-Link in `index.html` auf `/WebTasks/favicon.svg` ändern | `index.html` |
-| 3 | Build lokal ausführen und prüfen, ob keine neuen Warnungen entstehen | — |
-| 4 | Lint und TypeScript-Check ausführen | — |
-| 5 | `state/current-state.md` aktualisieren (Fix-Status dokumentieren) | `state/current-state.md` |
+| #   | Task                                                                 | Datei(en)                |
+| :-- | :------------------------------------------------------------------- | :----------------------- |
+| 1   | `BrowserRouter` um `basename="/WebTasks"` erweitern                  | `src/main.tsx`           |
+| 2   | Favicon-Link in `index.html` auf `/WebTasks/favicon.svg` ändern      | `index.html`             |
+| 3   | Build lokal ausführen und prüfen, ob keine neuen Warnungen entstehen | —                        |
+| 4   | Lint und TypeScript-Check ausführen                                  | —                        |
+| 5   | `state/current-state.md` aktualisieren (Fix-Status dokumentieren)    | `state/current-state.md` |
 
 ## Git-Workflow
 

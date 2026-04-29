@@ -165,7 +165,7 @@ export function TaskPage() {
   }, [bundle, task]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-950">
+    <div className="flex h-screen flex-col overflow-hidden overscroll-none bg-gray-50 dark:bg-gray-950">
       <header className="border-b border-gray-200 bg-white px-4 py-3 shadow-sm dark:border-gray-700 dark:bg-gray-900 md:px-6 print:hidden">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link to="/" className="text-lg font-bold text-blue-600 hover:text-blue-700">
@@ -180,7 +180,8 @@ export function TaskPage() {
             </Link>
             {bundle && task && (
               <nav className="hidden text-sm text-gray-600 dark:text-gray-300 md:block">
-                {bundle.title} <span className="mx-2 text-gray-400 dark:text-gray-500">/</span> {task.title}
+                {bundle.title} <span className="mx-2 text-gray-400 dark:text-gray-500">/</span>{' '}
+                {task.title}
               </nav>
             )}
             <ThemeToggle />
@@ -235,8 +236,8 @@ export function TaskPage() {
               </div>
 
               {/* Middle: Editor */}
-              <div className="flex flex-col lg:w-[40%]">
-                <div className="flex-1 rounded-lg border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+              <div className="flex min-h-[300px] flex-1 flex-col lg:h-auto lg:w-[40%]">
+                <div className="h-full min-h-[300px] rounded-lg border border-gray-200 bg-white p-3 shadow-sm dark:border-gray-700 dark:bg-gray-900">
                   <EditorPanel
                     taskId={task.id}
                     enabledEditors={task.enabledEditors}

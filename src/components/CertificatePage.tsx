@@ -58,21 +58,29 @@ export function CertificatePage() {
           <div className="mt-8 grid grid-cols-1 gap-4 text-left sm:grid-cols-3">
             <div className="rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800">
               <p className="text-sm text-gray-500 dark:text-gray-400">Gelöste Aufgaben</p>
-              <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">{completedTasks.length}</p>
+              <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                {completedTasks.length}
+              </p>
             </div>
             <div className="rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800">
               <p className="text-sm text-gray-500 dark:text-gray-400">Abgeschlossene Module</p>
-              <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">{completedBundles.length}</p>
+              <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                {completedBundles.length}
+              </p>
             </div>
             <div className="rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800">
               <p className="text-sm text-gray-500 dark:text-gray-400">Erhaltene Abzeichen</p>
-              <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">{unlockedBadges.length}</p>
+              <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                {unlockedBadges.length}
+              </p>
             </div>
           </div>
 
           {unlockedBadges.length > 0 && (
             <div className="mt-8">
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Erhaltene Abzeichen</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                Erhaltene Abzeichen
+              </p>
               <div className="mt-3 flex flex-wrap justify-center gap-3">
                 {unlockedBadges.map((badge) => (
                   <span
@@ -88,7 +96,9 @@ export function CertificatePage() {
 
           {completedBundles.length > 0 && (
             <div className="mt-8 text-left">
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Abgeschlossene Module</p>
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                Abgeschlossene Module
+              </p>
               <ul className="mt-2 space-y-1 text-gray-700 dark:text-gray-300">
                 {completedBundles.map((bundle) => (
                   <li key={bundle.id}>✅ {bundle.title}</li>
