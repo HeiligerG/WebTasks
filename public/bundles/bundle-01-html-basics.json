@@ -152,6 +152,11 @@
         },
         {
           "type": "dom",
+          "selector": "table thead tr",
+          "feedbackFailure": "Die Kopfzeile benötigt eine Tabellenzeile (<tr>) innerhalb von <thead>."
+        },
+        {
+          "type": "dom",
           "selector": "table thead th",
           "minCount": 2,
           "feedbackFailure": "Die Kopfzeile benötigt mindestens zwei Spaltenüberschriften (<th>). Füge z.B. 'Name' und 'Alter' hinzu."
@@ -164,14 +169,14 @@
         {
           "type": "dom",
           "selector": "table tbody tr",
-          "minCount": 2,
-          "feedbackFailure": "Der Tabellenkörper benötigt mindestens zwei Datenzeilen (<tr>)."
+          "minCount": 1,
+          "feedbackFailure": "Der Tabellenkörper benötigt mindestens eine Datenzeile (<tr>)."
         },
         {
           "type": "dom",
-          "selector": "table tbody td",
-          "minCount": 4,
-          "feedbackFailure": "Die Datenzeilen enthalten nicht genug Zellen. Jede Zeile braucht mindestens zwei <td>-Elemente (für Name und Alter)."
+          "selector": "table tbody tr",
+          "minItemsPerParent": 2,
+          "feedbackFailure": "Jede Datenzeile muss mindestens zwei Zellen (<td>) enthalten."
         }
       ]
     },
@@ -223,8 +228,8 @@
           "type": "dom",
           "selector": "p",
           "property": "color",
-          "expectedValue": "red",
-          "feedbackFailure": "Der Paragraph ist noch nicht rot. Verwende im CSS `color: red;`."
+          "expectedValue": "rgb(255, 0, 0)",
+          "feedbackFailure": "Der Paragraph ist noch nicht rot. Verwende im CSS `color: einen roten Farbwert.`."
         }
       ]
     },

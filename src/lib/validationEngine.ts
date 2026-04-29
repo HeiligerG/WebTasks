@@ -68,8 +68,27 @@ export async function validateDomTest(
 
   const minCountCheck = test.minCount !== undefined
     ? `
-      var elements = document.querySelectorAll(${JSON.stringify(test.selector)});
+      // Note: elements variable is already defined in the main validation script
       if (elements.length < ${test.minCount}) {
+        window.parent.postMessage({ type: "VALIDATION_RESULT", passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, "*");
+        return;
+      }
+    `
+    : '';
+
+  const minItemsPerParentCheck = test.minItemsPerParent !== undefined
+    ? `
+      var allRows = document.querySelectorAll(${JSON.stringify(test.selector.replace(/ td$/, ''))});
+      var hasEnoughCells = true;
+      for (var i = 0; i < allRows.length; i++) {
+        var row = allRows[i];
+        var cells = row.querySelectorAll('td');
+        if (cells.length < ${test.minItemsPerParent}) {
+          hasEnoughCells = false;
+          break;
+        }
+      }
+      if (!hasEnoughCells) {
         window.parent.postMessage({ type: "VALIDATION_RESULT", passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, "*");
         return;
       }
@@ -90,17 +109,30 @@ export async function validateDomTest(
   const validationScript = `
     (function() {
       try {
-        var el = document.querySelector(${JSON.stringify(test.selector)});
-        if (!el) {
-          window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
-          return;
-        }
-        ${propertyCheck}
-        ${textCheck}
-        ${containsCheck}
-        ${attributesCheck}
-        ${minCountCheck}
-        ${emptyCheck}
+        ${test.minCount !== undefined ? `
+          // For minCount tests, we use querySelectorAll to count elements
+          var elements = document.querySelectorAll(${JSON.stringify(test.selector)});
+          if (elements.length === 0) {
+            window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+            return;
+          }
+          ${minCountCheck}
+          ${minItemsPerParentCheck}
+          // For minCount tests, we don't have a single 'el' variable
+        ` : `
+          // Regular single-element tests
+          var el = document.querySelector(${JSON.stringify(test.selector)});
+          if (!el) {
+            window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+            return;
+          }
+          ${propertyCheck}
+          ${textCheck}
+          ${containsCheck}
+          ${attributesCheck}
+          ${minItemsPerParentCheck}
+          ${emptyCheck}
+        `}
         window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: true, feedback: ${JSON.stringify(test.feedbackSuccess ?? 'Test bestanden.')} }, '*');
       } catch (e) {
         window.parent.postMessage({ type: 'VALIDATION_ERROR', error: e.message }, '*');

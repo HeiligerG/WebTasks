@@ -11,6 +11,7 @@ export const DomTestSchema = z.object({
   expectedValue: z.string().optional(),
   requiredAttributes: z.array(z.string()).optional(),
   minCount: z.number().min(1).optional(),
+  minItemsPerParent: z.number().min(1).optional(),
   expectedText: z.string().optional(),
   expectedTextContains: z.string().optional(),
   shouldBeEmpty: z.boolean().optional(),
