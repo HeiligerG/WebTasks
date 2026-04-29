@@ -3,10 +3,33 @@
 @tailwind utilities;
 
 html,
-/* Verhindert das Scrollen der Hauptseite */
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overscroll-behavior: none;
+}
+
+/* CodeMirror muss eine definierte Höhe haben, um selbst zu scrollen */
+.cm-editor {
+  height: 100%;
+}
+
+.cm-scroller {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cm-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbars im InstructionPanel verstecken */
+.instruction-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.instruction-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 body {

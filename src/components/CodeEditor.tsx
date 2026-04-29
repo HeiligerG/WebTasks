@@ -51,6 +51,7 @@ export function CodeEditor({
   return (
     <CodeMirror
       value={value}
+      height="100%"
       onChange={onChange}
       theme={theme === 'dark' ? oneDark : githubLight}
       extensions={[...getBaseExtensions(), getLanguageExtension(language)]}
