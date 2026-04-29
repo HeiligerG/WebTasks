@@ -122,7 +122,8 @@
         {
           "type": "dom",
           "selector": "ul li",
-          "feedbackFailure": "Deine Liste enthält keine <li>-Einträge. Füge mindestens drei Hobbys als <li> hinzu."
+          "minCount": 3,
+          "feedbackFailure": "Deine Liste enthält nicht genug Einträge. Füge mindestens drei Hobbys als <li>-Elemente hinzu."
         }
       ]
     },
@@ -142,17 +143,35 @@
         {
           "type": "dom",
           "selector": "table",
-          "feedbackFailure": "Wir können keine <table> finden."
+          "feedbackFailure": "Wir können keine <table> finden. Beginne deine Tabelle mit dem <table>-Tag."
         },
         {
           "type": "dom",
-          "selector": "table tr",
-          "feedbackFailure": "Die Tabelle enthält keine Zeilen (<tr>). Füge mindestens zwei Zeilen hinzu!"
+          "selector": "table thead",
+          "feedbackFailure": "Die Tabelle benötigt eine Kopfzeile (<thead>). Füge <thead> innerhalb von <table> ein."
         },
         {
           "type": "dom",
-          "selector": "table th, table td",
-          "feedbackFailure": "Die Tabellenzeilen enthalten keine Zellen (<th> oder <td>)."
+          "selector": "table thead th",
+          "minCount": 2,
+          "feedbackFailure": "Die Kopfzeile benötigt mindestens zwei Spaltenüberschriften (<th>). Füge z.B. 'Name' und 'Alter' hinzu."
+        },
+        {
+          "type": "dom",
+          "selector": "table tbody",
+          "feedbackFailure": "Die Tabelle benötigt einen Tabellenkörper (<tbody>). Füge <tbody> nach dem <thead> ein."
+        },
+        {
+          "type": "dom",
+          "selector": "table tbody tr",
+          "minCount": 2,
+          "feedbackFailure": "Der Tabellenkörper benötigt mindestens zwei Datenzeilen (<tr>)."
+        },
+        {
+          "type": "dom",
+          "selector": "table tbody td",
+          "minCount": 4,
+          "feedbackFailure": "Die Datenzeilen enthalten nicht genug Zellen. Jede Zeile braucht mindestens zwei <td>-Elemente (für Name und Alter)."
         }
       ]
     },

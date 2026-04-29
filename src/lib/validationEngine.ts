@@ -66,6 +66,16 @@ export async function validateDomTest(
     `
     : '';
 
+  const minCountCheck = test.minCount !== undefined
+    ? `
+      var elements = document.querySelectorAll(${JSON.stringify(test.selector)});
+      if (elements.length < ${test.minCount}) {
+        window.parent.postMessage({ type: "VALIDATION_RESULT", passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, "*");
+        return;
+      }
+    `
+    : '';
+
   const emptyCheck =
     test.shouldBeEmpty !== undefined
       ? `
@@ -89,6 +99,7 @@ export async function validateDomTest(
         ${textCheck}
         ${containsCheck}
         ${attributesCheck}
+        ${minCountCheck}
         ${emptyCheck}
         window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: true, feedback: ${JSON.stringify(test.feedbackSuccess ?? 'Test bestanden.')} }, '*');
       } catch (e) {
