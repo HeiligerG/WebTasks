@@ -11,9 +11,11 @@ Der Nutzer meldet drei Inhaltsprobleme im Bundle "HTML & CSS Grundlagen":
 ## Root Cause Analyse
 
 ### Task 1
+
 Der `initialCode` in `bundle-01-html-basics.json` ist korrekt als `<p>Hallo Welt</p>` hinterlegt. Wenn der Nutzer einen abweichenden (halb-fertigen) Code im Editor sieht, stammt dieser aus seinem `localStorage` (persistierter Zustand aus früheren Sitzungen). Da der `initialCode` seit Projektbeginn mehrfach unverändert `<p>Hallo Welt</p>` war, kann es vorkommen, dass veraltete/gemischte Werte im Browser-Store stehen bleiben.
 
 ### Task 2 & Task 3
+
 In Fix 06 wurden externe `via.placeholder.com`-URLs durch **inline Base64-SVG-Data-URIs** ersetzt. Diese funktionieren technisch, sind aber extrem lang und verschlechtern die Lesbarkeit des Codes im Editor erheblich. Der Nutzer hat nun eine eigene `placeholder.svg` in `public/placeholder.svg` bereitgestellt, die als saubere Alternative dienen soll.
 
 ## Geplante Lösung
@@ -41,7 +43,7 @@ Das eliminiert jegliche Verwechslung mit möglichen alten `localStorage`-Werten.
 ### 3. Task 2: instruction und initialCode bereinigen
 
 - **`instruction`:** Der lange Base64-String wird entfernt. Stattdessen wird der Nutzer aufgefordert, das bereitgestellte Bild zu verwenden:
-  
+
   > "Verwende dafür folgende Bild-URL als `src`:\n\n`https://heiligerg.github.io/WebTasks/placeholder.svg`"
 
 - **`initialCode`:** Bleibt `<div>Bild kommt hier hin</div>` (bereits in Fix 08 korrigiert).
@@ -60,13 +62,13 @@ Der Base64-String im `initialCode` wird durch die absolute URL ersetzt:
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | Task 1 `initialCode.html` anpassen | `public/bundles/bundle-01-html-basics.json` |
-| 2 | Task 2 `instruction` bereinigen (Base64 → absolute URL) | `public/bundles/bundle-01-html-basics.json` |
-| 3 | Task 3 `initialCode.html` bereinigen (Base64 → absolute URL) | `public/bundles/bundle-01-html-basics.json` |
-| 4 | JSON validieren (Syntax-Check) | — |
-| 5 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                         | Datei(en)                                   |
+| :-- | :----------------------------------------------------------- | :------------------------------------------ |
+| 1   | Task 1 `initialCode.html` anpassen                           | `public/bundles/bundle-01-html-basics.json` |
+| 2   | Task 2 `instruction` bereinigen (Base64 → absolute URL)      | `public/bundles/bundle-01-html-basics.json` |
+| 3   | Task 3 `initialCode.html` bereinigen (Base64 → absolute URL) | `public/bundles/bundle-01-html-basics.json` |
+| 4   | JSON validieren (Syntax-Check)                               | —                                           |
+| 5   | `state/current-state.md` aktualisieren                       | `state/current-state.md`                    |
 
 ## Git-Workflow
 

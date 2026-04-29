@@ -49,7 +49,9 @@ export function EditorPanel({ taskId, enabledEditors, initialCode }: EditorPanel
 
   return (
     <div className="flex h-full flex-col rounded-lg border border-gray-300 bg-white shadow dark:border-gray-700 dark:bg-gray-900">
-      <div className={`flex items-center border-b border-gray-300 dark:border-gray-700 ${showTabs ? 'justify-between' : 'justify-end'}`}>
+      <div
+        className={`flex items-center border-b border-gray-300 dark:border-gray-700 ${showTabs ? 'justify-between' : 'justify-end'}`}
+      >
         {showTabs && (
           <div className="flex">
             {enabledEditors.map((editor) => (

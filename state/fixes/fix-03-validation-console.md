@@ -32,7 +32,7 @@ await new Promise((resolve) => setTimeout(resolve, 200)); // Sammle 200ms
 window.removeEventListener('message', collectHandler);
 ```
 
-**Der Bug:** Der `postMessage`-Event-Listener wird erst **nach** 300ms registriert. JavaScript-Code mit einem `console.log()` am Ende des Scripts wird jedoch typischerweise **sofort** nach dem Laden ausgeführt – oft noch *vor* Ablauf der 300ms. Die `CONSOLE`-Message geht somit verloren, weil zum Zeitpunkt der Ausführung noch niemand zuhört.
+**Der Bug:** Der `postMessage`-Event-Listener wird erst **nach** 300ms registriert. JavaScript-Code mit einem `console.log()` am Ende des Scripts wird jedoch typischerweise **sofort** nach dem Laden ausgeführt – oft noch _vor_ Ablauf der 300ms. Die `CONSOLE`-Message geht somit verloren, weil zum Zeitpunkt der Ausführung noch niemand zuhört.
 
 Dasselbe Problem betrifft potenziell auch `validateFunctionTest()`: Wenn die Funktion sofort nach dem Script-Load aufgerufen wird (was bei Inline-Scripts der Fall ist), könnte die `VALIDATION_RESULT`-Message ebenfalls verpasst werden, falls das Iframe schneller lädt als 1000ms – allerdings wartet `waitForValidationMessage` sofort nach dem Erstellen des Iframes, sodass dieses Problem dort nicht auftritt.
 
@@ -103,14 +103,14 @@ export async function validateDomTest(...): Promise<TestResult> {
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `validateConsoleTest`: Listener-Registrierung auf Zeitpunkt *vor* der Wartezeit verschieben | `src/lib/validationEngine.ts` |
-| 2 | `validateDomTest` auf `async` umstellen und 100ms Wartezeit einbauen | `src/lib/validationEngine.ts` |
-| 3 | Aufruf von `validateDomTest` in `validateTask` mit `await` versehen | `src/lib/validationEngine.ts` |
-| 4 | Konsole bei `debouncedCode`-Änderung leeren | `src/components/TaskPage.tsx` |
-| 5 | Build, Lint, TypeScript prüfen | — |
-| 6 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                                                        | Datei(en)                     |
+| :-- | :------------------------------------------------------------------------------------------ | :---------------------------- |
+| 1   | `validateConsoleTest`: Listener-Registrierung auf Zeitpunkt _vor_ der Wartezeit verschieben | `src/lib/validationEngine.ts` |
+| 2   | `validateDomTest` auf `async` umstellen und 100ms Wartezeit einbauen                        | `src/lib/validationEngine.ts` |
+| 3   | Aufruf von `validateDomTest` in `validateTask` mit `await` versehen                         | `src/lib/validationEngine.ts` |
+| 4   | Konsole bei `debouncedCode`-Änderung leeren                                                 | `src/components/TaskPage.tsx` |
+| 5   | Build, Lint, TypeScript prüfen                                                              | —                             |
+| 6   | `state/current-state.md` aktualisieren                                                      | `state/current-state.md`      |
 
 ## Git-Workflow
 

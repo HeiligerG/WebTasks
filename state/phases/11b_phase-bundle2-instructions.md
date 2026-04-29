@@ -9,6 +9,7 @@ Die automatisch generierten Tasks enthalten nur den einleitenden Fließtext als 
 ## Qualitätskriterien für überarbeitete Instructions
 
 Jede `instruction` sollte folgende Elemente enthalten:
+
 1. **Einleitung:** 1-2 Sätze zum didaktischen Kontext (Warum lerne ich das?)
 2. **Anforderungen:** Nummerierte Liste mit exakten Schritten (Was muss ich tun?)
 3. **Tipp (optional):** Ein konkreter Hinweis oder Code-Schnipsel, der bei Hängern hilft
@@ -28,6 +29,7 @@ Jede `instruction` sollte folgende Elemente enthalten:
 Programme müssen oft Werte miteinander vergleichen. In JavaScript gibt es dafür Operatoren wie `>`, `<`, `===` und `!==`.
 
 **Anforderungen:**
+
 1. Gib das Ergebnis von `10 > 5` mit `console.log()` aus.
 2. Gib das Ergebnis von `7 === "7"` mit `console.log()` aus.
 
@@ -59,11 +61,12 @@ Wenn du viele Bedingungen für denselben Wert prüfen musst, ist `switch` übers
 
 **Anforderungen:**
 Schreibe eine Funktion `wochentag(num)`, die für:
+
 - `1` → `"Montag"`
 - `2` → `"Dienstag"`
 - `3` → `"Mittwoch"`
 - `7` → `"Sonntag"`
-zurückgibt. Für unbekannte Zahlen gib `"Unbekannt"` zurück.
+  zurückgibt. Für unbekannte Zahlen gib `"Unbekannt"` zurück.
 ```
 
 ---
@@ -94,10 +97,13 @@ Eine `while`-Schleife läuft so lange, wie eine Bedingung wahr ist.
 **Anforderungen:**
 Schreibe eine `while`-Schleife, die von 3 bis 1 herunterzählt und folgendes in der Konsole ausgibt:
 ```
+
 Noch 3...
 Noch 2...
 Noch 1...
+
 ```
+
 ```
 
 ---
@@ -140,6 +146,7 @@ Schreibe eine Funktion `verdopple(zahlen)`, die jedes Element eines Zahlen-Array
 Objekte speichern zusammengehörige Daten in Schlüssel-Wert-Paaren.
 
 **Anforderungen:**
+
 1. Erstelle ein Objekt `buch` mit den Eigenschaften `titel` (Wert: `"Harry Potter"`) und `autor` (Wert: `"J.K. Rowling"`).
 2. Gib den Titel mit `console.log(buch.titel)` aus.
 ```
@@ -195,6 +202,7 @@ Schreibe eine Funktion `berechneFlaeche(breite, hoehe)`, die die Fläche eines R
 JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man DOM-Manipulation.
 
 **Anforderungen:**
+
 1. Im HTML ist ein `<div>` mit der ID `box` vorhanden.
 2. Wähle dieses Element im JavaScript mit `document.getElementById('box')` aus.
 3. Ändere die Hintergrundfarbe des Elements auf `red`.
@@ -210,6 +218,7 @@ JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man
 Event-Listener machen Webseiten interaktiv. Sie "hören" auf Aktionen des Nutzers.
 
 **Anforderungen:**
+
 1. Im HTML ist ein `<button>` mit der ID `mein-button`.
 2. Füge im JavaScript einen `click`-Event-Listener zu diesem Button hinzu.
 3. Beim Klick soll ein `<p>`-Element mit der ID `ausgabe` den Text `Geklickt!` erhalten.
@@ -225,6 +234,7 @@ Event-Listener machen Webseiten interaktiv. Sie "hören" auf Aktionen des Nutzer
 Formulare sind nutzlos, wenn wir ihre Werte nicht auslesen können.
 
 **Anforderungen:**
+
 1. Im HTML gibt es ein `<input type="text" id="name">` und ein `<p id="gruss">`.
 2. Füge einen Button mit der ID `gruessen` hinzu.
 3. Beim Klick auf den Button soll der Wert aus dem Input-Feld gelesen und in das Paragraph-Element geschrieben werden: `Hallo [Name]!`
@@ -259,6 +269,7 @@ Das Finale von Bundle 2! Du baust eine Funktion, die wie ein simpler Taschenrech
 Schreibe eine Funktion `rechne(a, b, operator)`, die zwei Zahlen und einen Operator (`+`, `-`, `*`, `/`) erhält und das Ergebnis zurückgibt.
 
 **Beispiele:**
+
 - `rechne(5, 3, "+")` → `8`
 - `rechne(10, 2, "/")` → `5`
 ```

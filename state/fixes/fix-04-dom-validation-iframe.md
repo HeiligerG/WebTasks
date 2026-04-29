@@ -43,14 +43,16 @@ DOM-Tests sind somit die einzigen Test-Typen, die nicht auf dem aktuellen Editor
 `validateDomTest` soll genau wie `validateConsoleTest` und `validateFunctionTest` ein neues, temporäres Iframe aus dem übergebenen Code bauen und darauf warten, dass es vollständig geladen ist.
 
 **Neue Signatur:**
+
 ```ts
 export async function validateDomTest(
   test: DomTest,
   code: { html: string; css: string; js: string }
-): Promise<TestResult>
+): Promise<TestResult>;
 ```
 
 **Implementierung:**
+
 ```ts
 const srcDoc = assembleDocument({
   html: code.html,
@@ -101,12 +103,12 @@ Da `handleValidate` bereits `currentCode` an `validateTask` übergibt, muss `Tas
 
 ## Implementierungs-Tasks
 
-| # | Task | Datei(en) |
-|:-|:---|:---|
-| 1 | `validateDomTest` umstellen: eigenes Iframe aus `code` erstellen, auf `load` warten, DOM prüfen, Iframe aufräumen | `src/lib/validationEngine.ts` |
-| 2 | `validateTask` anpassen: `await validateDomTest(test, code)` statt `await validateDomTest(test, iframe)` | `src/lib/validationEngine.ts` |
-| 3 | Build, Lint, TypeScript prüfen | — |
-| 4 | `state/current-state.md` aktualisieren | `state/current-state.md` |
+| #   | Task                                                                                                              | Datei(en)                     |
+| :-- | :---------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| 1   | `validateDomTest` umstellen: eigenes Iframe aus `code` erstellen, auf `load` warten, DOM prüfen, Iframe aufräumen | `src/lib/validationEngine.ts` |
+| 2   | `validateTask` anpassen: `await validateDomTest(test, code)` statt `await validateDomTest(test, iframe)`          | `src/lib/validationEngine.ts` |
+| 3   | Build, Lint, TypeScript prüfen                                                                                    | —                             |
+| 4   | `state/current-state.md` aktualisieren                                                                            | `state/current-state.md`      |
 
 ## Git-Workflow
 

@@ -8,24 +8,24 @@
 
 ## Übersicht der neuen Tasks
 
-| # | ID | Titel | Typ | Schwierigkeit |
-|:-:|:---|:---|:---|:---|
-| 5 | js-basics-05 | Vergleichsoperatoren | Console | ⭐ |
-| 6 | js-basics-06 | Logische Operatoren | Function | ⭐⭐ |
-| 7 | js-basics-07 | switch-Statement | Function | ⭐⭐⭐ |
-| 8 | js-basics-08 | for-Schleife | Console | ⭐⭐⭐ |
-| 9 | js-basics-09 | while-Schleife | Console | ⭐⭐⭐ |
-| 10 | js-basics-10 | Arrays: Element finden | Function | ⭐⭐⭐ |
-| 11 | js-basics-11 | Array-Methoden (map) | Function | ⭐⭐⭐⭐ |
-| 12 | js-basics-12 | Objekte erstellen | Console | ⭐⭐⭐ |
-| 13 | js-basics-13 | Objekteigenschaften lesen | Function | ⭐⭐⭐ |
-| 14 | js-basics-14 | Eigene Funktionen | Function | ⭐⭐⭐ |
-| 15 | js-basics-15 | Parameter und Rückgabe | Function | ⭐⭐⭐⭐ |
-| 16 | js-basics-16 | DOM-Element finden | DOM | ⭐⭐⭐ |
-| 17 | js-basics-17 | Auf Klicks reagieren | DOM | ⭐⭐⭐⭐ |
-| 18 | js-basics-18 | Eingabewerte lesen | Function+DOM | ⭐⭐⭐⭐ |
-| 19 | js-basics-19 | Zufallszahlen | Function | ⭐⭐⭐⭐ |
-| 20 | js-basics-20 | Taschenrechner-Projekt | Function | ⭐⭐⭐⭐⭐ |
+|  #  | ID           | Titel                     | Typ          | Schwierigkeit |
+| :-: | :----------- | :------------------------ | :----------- | :------------ |
+|  5  | js-basics-05 | Vergleichsoperatoren      | Console      | ⭐            |
+|  6  | js-basics-06 | Logische Operatoren       | Function     | ⭐⭐          |
+|  7  | js-basics-07 | switch-Statement          | Function     | ⭐⭐⭐        |
+|  8  | js-basics-08 | for-Schleife              | Console      | ⭐⭐⭐        |
+|  9  | js-basics-09 | while-Schleife            | Console      | ⭐⭐⭐        |
+| 10  | js-basics-10 | Arrays: Element finden    | Function     | ⭐⭐⭐        |
+| 11  | js-basics-11 | Array-Methoden (map)      | Function     | ⭐⭐⭐⭐      |
+| 12  | js-basics-12 | Objekte erstellen         | Console      | ⭐⭐⭐        |
+| 13  | js-basics-13 | Objekteigenschaften lesen | Function     | ⭐⭐⭐        |
+| 14  | js-basics-14 | Eigene Funktionen         | Function     | ⭐⭐⭐        |
+| 15  | js-basics-15 | Parameter und Rückgabe    | Function     | ⭐⭐⭐⭐      |
+| 16  | js-basics-16 | DOM-Element finden        | DOM          | ⭐⭐⭐        |
+| 17  | js-basics-17 | Auf Klicks reagieren      | DOM          | ⭐⭐⭐⭐      |
+| 18  | js-basics-18 | Eingabewerte lesen        | Function+DOM | ⭐⭐⭐⭐      |
+| 19  | js-basics-19 | Zufallszahlen             | Function     | ⭐⭐⭐⭐      |
+| 20  | js-basics-20 | Taschenrechner-Projekt    | Function     | ⭐⭐⭐⭐⭐    |
 
 ---
 
@@ -40,12 +40,14 @@
 Programme müssen oft Werte miteinander vergleichen. In JavaScript gibt es dafür Operatoren wie `>`, `<`, `===` und `!==`.
 
 **Anforderungen:**
+
 1. Gib das Ergebnis von `10 > 5` mit `console.log()` aus.
 2. Gib das Ergebnis von `7 === "7"` mit `console.log()` aus.
 
 **Tipp:** `===` prüft auf Gleichheit UND denselben Typ. `"7"` ist ein String, `7` ist eine Zahl.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -57,6 +59,7 @@ Programme müssen oft Werte miteinander vergleichen. In JavaScript gibt es dafü
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -88,6 +91,7 @@ Manchmal müssen mehrere Bedingungen gleichzeitig erfüllt sein. Dafür nutzen w
 Schreibe eine Funktion `hatZugang(alt, eingeloggt)`, die `true` zurückgibt, wenn `alt >= 18` **UND** `eingeloggt === true` ist. Ansonsten soll sie `false` zurückgeben.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -99,6 +103,7 @@ Schreibe eine Funktion `hatZugang(alt, eingeloggt)`, die `true` zurückgibt, wen
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -139,13 +144,15 @@ Wenn du viele Bedingungen für denselben Wert prüfen musst, ist `switch` übers
 
 **Anforderungen:**
 Schreibe eine Funktion `wochentag(num)`, die für:
+
 - `1` → `"Montag"`
 - `2` → `"Dienstag"`
 - `3` → `"Mittwoch"`
 - `7` → `"Sonntag"`
-zurückgibt. Für unbekannte Zahlen gib `"Unbekannt"` zurück.
+  zurückgibt. Für unbekannte Zahlen gib `"Unbekannt"` zurück.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -157,6 +164,7 @@ zurückgibt. Für unbekannte Zahlen gib `"Unbekannt"` zurück.
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -201,6 +209,7 @@ Gib die Zahlen von 1 bis 5 (jede in einer neuen Zeile) mit einer `for`-Schleife 
 **Tipp:** `for (let i = 1; i <= 5; i++) { ... }`
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -212,6 +221,7 @@ Gib die Zahlen von 1 bis 5 (jede in einer neuen Zeile) mit einer `for`-Schleife 
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -241,6 +251,7 @@ Eine `while`-Schleife läuft so lange, wie eine Bedingung wahr ist.
 
 **Anforderungen:**
 Schreibe eine `while`-Schleife, die von 3 bis 1 herunterzählt und folgendes in der Konsole ausgibt:
+
 ```
 Noch 3...
 Noch 2...
@@ -248,6 +259,7 @@ Noch 1...
 ```
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -259,6 +271,7 @@ Noch 1...
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -292,6 +305,7 @@ Schreibe eine Funktion `findeGroesste(zahlen)`, die ein Array von Zahlen erhält
 **Beispiel:** `findeGroesste([3, 8, 2, 10, 5])` soll `10` zurückgeben.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -303,6 +317,7 @@ Schreibe eine Funktion `findeGroesste(zahlen)`, die ein Array von Zahlen erhält
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -340,6 +355,7 @@ Schreibe eine Funktion `verdopple(zahlen)`, die jedes Element eines Zahlen-Array
 **Beispiel:** `verdopple([1, 2, 3])` → `[2, 4, 6]`
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -351,6 +367,7 @@ Schreibe eine Funktion `verdopple(zahlen)`, die jedes Element eines Zahlen-Array
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -376,10 +393,12 @@ Schreibe eine Funktion `verdopple(zahlen)`, die jedes Element eines Zahlen-Array
 Objekte speichern zusammengehörige Daten in Schlüssel-Wert-Paaren.
 
 **Anforderungen:**
+
 1. Erstelle ein Objekt `buch` mit den Eigenschaften `titel` (Wert: `"Harry Potter"`) und `autor` (Wert: `"J.K. Rowling"`).
 2. Gib den Titel mit `console.log(buch.titel)` aus.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -391,6 +410,7 @@ Objekte speichern zusammengehörige Daten in Schlüssel-Wert-Paaren.
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -417,6 +437,7 @@ Funktionen können Objekte als Parameter erhalten und deren Eigenschaften ausles
 Schreibe eine Funktion `gibAutor(buch)`, die ein Objekt mit der Eigenschaft `autor` erhält und diesen Autor als String zurückgibt.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -428,12 +449,13 @@ Schreibe eine Funktion `gibAutor(buch)`, die ein Objekt mit der Eigenschaft `aut
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
     "type": "function",
     "functionName": "gibAutor",
-    "args": [{"titel": "1984", "autor": "George Orwell"}],
+    "args": [{ "titel": "1984", "autor": "George Orwell" }],
     "expectedResult": "George Orwell",
     "feedbackFailure": "Die Funktion sollte 'George Orwell' zurückgeben. Greife mit `buch.autor` auf die Eigenschaft zu."
   }
@@ -458,6 +480,7 @@ Schreibe eine Funktion `begruesse(name)`, die einen Namen erhält und `"Hallo [N
 **Beispiel:** `begruesse("Max")` → `"Hallo Max!"`
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -469,6 +492,7 @@ Schreibe eine Funktion `begruesse(name)`, die einen Namen erhält und `"Hallo [N
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -497,6 +521,7 @@ Funktionen können mehrere Parameter entgegennehmen und mit `return` ein Ergebni
 Schreibe eine Funktion `berechneFlaeche(breite, hoehe)`, die die Fläche eines Rechtecks berechnet und zurückgibt.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -508,6 +533,7 @@ Schreibe eine Funktion `berechneFlaeche(breite, hoehe)`, die die Fläche eines R
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -540,11 +566,13 @@ Schreibe eine Funktion `berechneFlaeche(breite, hoehe)`, die die Fläche eines R
 JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man DOM-Manipulation.
 
 **Anforderungen:**
+
 1. Im HTML ist ein `<div>` mit der ID `box` vorhanden.
 2. Wähle dieses Element im JavaScript mit `document.getElementById('box')` aus.
 3. Ändere die Hintergrundfarbe des Elements auf `red`.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<div id=\"box\" style=\"width:100px;height:100px;background:#eee\">Box</div>",
@@ -556,6 +584,7 @@ JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man
 **EnabledEditors:** `["html", "js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -581,11 +610,13 @@ JavaScript kann HTML-Elemente auf der Seite finden und verändern. Das nennt man
 Event-Listener machen Webseiten interaktiv. Sie "hören" auf Aktionen des Nutzers.
 
 **Anforderungen:**
+
 1. Im HTML ist ein `<button>` mit der ID `mein-button`.
 2. Füge im JavaScript einen `click`-Event-Listener zu diesem Button hinzu.
 3. Beim Klick soll ein `<p>`-Element mit der ID `ausgabe` den Text `Geklickt!` erhalten.
 
 **InitialCode:**
+
 ```json
 {
   "html": "<button id=\"mein-button\">Klick mich</button>\n<p id=\"ausgabe\">Noch nicht geklickt</p>",
@@ -597,6 +628,7 @@ Event-Listener machen Webseiten interaktiv. Sie "hören" auf Aktionen des Nutzer
 **EnabledEditors:** `["html", "js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -625,11 +657,13 @@ Event-Listener machen Webseiten interaktiv. Sie "hören" auf Aktionen des Nutzer
 Formulare sind nutzlos, wenn wir ihre Werte nicht auslesen können.
 
 **Anforderungen:**
+
 1. Im HTML gibt es ein `<input type="text" id="name">` und ein `<p id="gruss">`.
 2. Füge einen Button mit der ID `gruessen` hinzu.
 3. Beim Klick auf den Button soll der Wert aus dem Input-Feld gelesen und in das Paragraph-Element geschrieben werden: `Hallo [Name]!`
 
 **InitialCode:**
+
 ```json
 {
   "html": "<input type=\"text\" id=\"name\" placeholder=\"Dein Name\">\n<button id=\"gruessen\">Grüßen</button>\n<p id=\"gruss\"></p>",
@@ -641,6 +675,7 @@ Formulare sind nutzlos, wenn wir ihre Werte nicht auslesen können.
 **EnabledEditors:** `["html", "js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -679,6 +714,7 @@ Schreibe eine Funktion `wuerfle()`, die eine ganze Zahl zwischen 1 und 6 (inklus
 **Tipp:** `Math.random()` gibt eine Zahl zwischen 0 und 1 zurück. `Math.floor()` rundet ab.
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -690,6 +726,7 @@ Schreibe eine Funktion `wuerfle()`, die eine ganze Zahl zwischen 1 und 6 (inklus
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {
@@ -720,10 +757,12 @@ Das Finale von Bundle 2! Du baust eine Funktion, die wie ein simpler Taschenrech
 Schreibe eine Funktion `rechne(a, b, operator)`, die zwei Zahlen und einen Operator (`+`, `-`, `*`, `/`) erhält und das Ergebnis zurückgibt.
 
 **Beispiele:**
+
 - `rechne(5, 3, "+")` → `8`
 - `rechne(10, 2, "/")` → `5`
 
 **InitialCode:**
+
 ```json
 {
   "html": "",
@@ -735,6 +774,7 @@ Schreibe eine Funktion `rechne(a, b, operator)`, die zwei Zahlen und einen Opera
 **EnabledEditors:** `["js"]`
 
 **ValidationTests:**
+
 ```json
 [
   {

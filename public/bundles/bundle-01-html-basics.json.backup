@@ -41,13 +41,8 @@
       "validationTests": [
         {
           "type": "dom",
-          "selector": "img[src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\"]",
-          "requiredAttributes": [
-            "width",
-            "alt"
-          ],
-          "feedbackFailure": "Das Bild-Tag muss die Attribute src, width und alt enthalten. Prüfe: src=\"https://heiligerg.github.io/WebTasks/placeholder.svg\", width=\"150\" und alt mit einem beschreibenden Text.",
-          "feedbackSuccess": "Perfekt! Das Bild wurde mit allen erforderlichen Attributen eingebunden."
+          "selector": "img",
+          "feedbackFailure": "Wir können kein <img>-Tag finden. Hast du das Tag mit dem richtigen src-Attribut eingefügt?"
         }
       ]
     },
@@ -95,9 +90,12 @@
         {
           "type": "dom",
           "selector": "a[href=\"https://example.com\"]",
-          "expectedText": "Mehr erfahren",
-          "feedbackFailure": "Der Link zeigt nicht auf 'https://example.com' oder hat nicht den Text 'Mehr erfahren'.",
-          "feedbackSuccess": "Perfekt! Der Link ist korrekt erstellt."
+          "feedbackFailure": "Wir können keinen Link zu 'https://example.com' finden. Hast du das href-Attribut korrekt gesetzt?"
+        },
+        {
+          "type": "dom",
+          "selector": "a",
+          "feedbackFailure": "Wir können kein <a>-Tag finden."
         }
       ]
     },
@@ -146,13 +144,13 @@
         },
         {
           "type": "dom",
-          "selector": "table tr",
-          "feedbackFailure": "Die Tabelle enthält keine Zeilen (<tr>). Füge mindestens zwei Zeilen hinzu!"
+          "selector": "th",
+          "feedbackFailure": "Wir können keine Tabellenkopfzellen (<th>) finden."
         },
         {
           "type": "dom",
-          "selector": "table th, table td",
-          "feedbackFailure": "Die Tabellenzeilen enthalten keine Zellen (<th> oder <td>)."
+          "selector": "td",
+          "feedbackFailure": "Wir können keine Tabellendatenzellen (<td>) finden."
         }
       ]
     },

@@ -9,6 +9,10 @@ export const DomTestSchema = z.object({
   selector: z.string().min(1),
   property: z.string().optional(),
   expectedValue: z.string().optional(),
+  requiredAttributes: z.array(z.string()).optional(),
+  expectedText: z.string().optional(),
+  expectedTextContains: z.string().optional(),
+  shouldBeEmpty: z.boolean().optional(),
   feedbackSuccess: z.string().optional(),
   feedbackFailure: z.string().min(1),
 });

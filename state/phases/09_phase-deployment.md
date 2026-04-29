@@ -1,6 +1,7 @@
 # Phase 9 Plan: QA, Optimierung & Deployment
 
 ## Ziel
+
 Die WebTasks-Plattform wird produktionsreif gemacht und auf **GitHub Pages** deployed. Dazu führen wir eine abschließende Qualitätssicherung (QA) durch, beheben Performance-Warnungen und richten eine automatische Deployment-Pipeline ein.
 
 ---
@@ -8,12 +9,14 @@ Die WebTasks-Plattform wird produktionsreif gemacht und auf **GitHub Pages** dep
 ## 1. Hosting-Entscheidung: GitHub Pages
 
 ### 1.1 Warum GitHub Pages?
+
 - **Kostenlos & integriert:** Kein separater Hosting-Anbieter nötig; das Repository enthält Code und Deployment-Infrastruktur.
 - **Statische SPA:** WebTasks ist eine reine Client-Side-Anwendung (React + Vite). Es gibt kein Backend, keine API-Routes und keine serverseitige Logik – ideal für statisches Hosting.
 - **HTTPS out-of-the-box:** GitHub Pages liefert automatisch SSL-Zertifikate.
 - **CI/CD über GitHub Actions:** Ermöglicht automatisches Deployment bei jedem Push auf `master`.
 
 ### 1.2 Technische Anforderungen an GitHub Pages
+
 - **Project Page vs. User Page:** Da das Repository `WebTasks` heißt und unter einem normalen Account/Organisation liegt, wird es eine **Project Page** (`https://<user>.github.io/WebTasks/`). Das erfordert die Konfiguration der `base` URL in Vite.
 - **SPA-Routing:** Direkte Links zu Routes (z. B. `/task/bundle-01/task-01`) führen auf GitHub Pages zu einem 404-Fehler, weil der Server die Route nicht kennt. Dies wird durch den bewährten `404.html`-Redirect-Trick gelöst.
 
@@ -35,18 +38,21 @@ Bevor deployt wird, müssen folgende Qualitätsgatter erfolgreich passiert werde
 ## 3. Optimierungsmaßnahmen
 
 ### 3.1 Build-Warnung: JS-Chunk > 500 kB
+
 - **Problem:** Die Produktions-Build warnt, dass ein JavaScript-Chunk die 500-kB-Grenze überschreitet (verursacht durch CodeMirror und react-markdown).
 - **Lösung:**
   1. **Manuelles Chunk-Splitting** in `vite.config.ts` einrichten, um große Bibliotheken in separate Chunks auszulagern (z. B. `vendor-codemirror`, `vendor-markdown`).
   2. **`chunkSizeWarningLimit`** auf `800` erhöhen, damit der Build sauber durchläuft, ohne dass legitime Vendor-Bibliotheken als Fehler dargestellt werden.
 
 ### 3.2 SPA-Routing auf GitHub Pages
+
 - **Problem:** React Router verwendet Browser-History. Ein direkter Aufruf von `/task/bundle-02/task-01` führt auf GitHub Pages zu 404.
 - **Lösung:**
   - Eine `404.html` im `public/`-Ordner erstellen, die die aktuelle URL in einen Query-Parameter umwandelt und auf `index.html` redirectet.
   - In `main.tsx` (oder einem dedizierten `restoreSpaRouting`-Utility) die URL nach dem Load wiederherstellen.
 
 ### 3.3 SEO & Meta-Daten
+
 - `index.html` um `<meta name="description">` und OpenGraph-Tags (`og:title`, `og:description`) erweitern.
 - `robots.txt` in `public/` hinzufügen (`User-agent: *\nAllow: /`).
 
@@ -55,6 +61,7 @@ Bevor deployt wird, müssen folgende Qualitätsgatter erfolgreich passiert werde
 ## 4. Deployment-Pipeline (GitHub Actions)
 
 ### 4.1 Workflow-Datei
+
 - **Pfad:** `.github/workflows/deploy.yml`
 - **Trigger:** `push` auf `master`
 - **Jobs:**
@@ -69,6 +76,7 @@ Bevor deployt wird, müssen folgende Qualitätsgatter erfolgreich passiert werde
      - Deployment auf GitHub Pages via `actions/deploy-pages`
 
 ### 4.2 Repository-Einstellungen
+
 - In den GitHub-Repository-Einstellungen unter **Pages** die Source auf **GitHub Actions** umstellen.
 
 ---
@@ -109,9 +117,9 @@ Wie in allen vorherigen Phasen wird strikt der Feature-Branch-Workflow eingehalt
 
 ## 7. Risiken & Fallbacks
 
-| Risiko | Mitigation |
-|:---|:---|
-| GitHub Pages `base` URL falsch gesetzt | Vor dem ersten Deploy lokal mit `npm run preview` und simulierter `base` testen. |
-| SPA-Routing funktioniert nicht nach Deploy | `404.html`-Trick gründlich in lokalem Build testen; Fallback auf Hash-Router dokumentieren. |
-| GitHub Actions schlägt fehl | Build-Logs analysieren; ggf. Berechtigungen (`permissions: contents: read, pages: write, id-token: write`) prüfen. |
-| Chunk-Splitting bricht dynamisches Import-Verhalten | Nach Build `dist/assets/` prüfen; alle Bundles müssen weiterhin via `fetch()` ladbar sein. |
+| Risiko                                              | Mitigation                                                                                                         |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| GitHub Pages `base` URL falsch gesetzt              | Vor dem ersten Deploy lokal mit `npm run preview` und simulierter `base` testen.                                   |
+| SPA-Routing funktioniert nicht nach Deploy          | `404.html`-Trick gründlich in lokalem Build testen; Fallback auf Hash-Router dokumentieren.                        |
+| GitHub Actions schlägt fehl                         | Build-Logs analysieren; ggf. Berechtigungen (`permissions: contents: read, pages: write, id-token: write`) prüfen. |
+| Chunk-Splitting bricht dynamisches Import-Verhalten | Nach Build `dist/assets/` prüfen; alle Bundles müssen weiterhin via `fetch()` ladbar sein.                         |

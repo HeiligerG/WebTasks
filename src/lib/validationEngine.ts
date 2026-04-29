@@ -33,6 +33,50 @@ export async function validateDomTest(
       `
       : '';
 
+  const textCheck =
+    test.expectedText !== undefined
+      ? `
+      var text = el.textContent ? el.textContent.trim() : '';
+      if (text !== ${JSON.stringify(test.expectedText)}) {
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+        return;
+      }
+    `
+      : '';
+
+  const containsCheck =
+    test.expectedTextContains !== undefined
+      ? `
+      var text = el.textContent ? el.textContent : '';
+      if (!text.includes(${JSON.stringify(test.expectedTextContains)})) {
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+        return;
+       }
+     `
+       : '';
+
+  const attributesCheck = test.requiredAttributes !== undefined && test.requiredAttributes.length > 0
+    ? `
+      ${test.requiredAttributes.map(attr => `
+        if (!el.hasAttribute(${JSON.stringify(attr)})) {
+          window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+          return;
+        }
+      `).join('')}
+    `
+    : '';
+
+  const emptyCheck =
+    test.shouldBeEmpty !== undefined
+      ? `
+      var hasContent = el.children.length > 0 || (el.textContent ? el.textContent.trim() !== '' : false);
+      if ((test.shouldBeEmpty && hasContent) || (!test.shouldBeEmpty && !hasContent)) {
+        window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: false, feedback: ${JSON.stringify(test.feedbackFailure)} }, '*');
+        return;
+      }
+    `
+      : '';
+
   const validationScript = `
     (function() {
       try {
@@ -42,6 +86,10 @@ export async function validateDomTest(
           return;
         }
         ${propertyCheck}
+        ${textCheck}
+        ${containsCheck}
+        ${attributesCheck}
+        ${emptyCheck}
         window.parent.postMessage({ type: 'VALIDATION_RESULT', passed: true, feedback: ${JSON.stringify(test.feedbackSuccess ?? 'Test bestanden.')} }, '*');
       } catch (e) {
         window.parent.postMessage({ type: 'VALIDATION_ERROR', error: e.message }, '*');
@@ -66,7 +114,7 @@ export async function validateDomTest(
       return {
         testIndex: -1,
         passed: msg.passed ?? false,
-        feedback: msg.feedback ?? (test.feedbackSuccess ?? 'Test bestanden.'),
+        feedback: msg.feedback ?? test.feedbackSuccess ?? 'Test bestanden.',
       };
     }
 

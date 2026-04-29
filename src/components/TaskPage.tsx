@@ -180,7 +180,8 @@ export function TaskPage() {
             </Link>
             {bundle && task && (
               <nav className="hidden text-sm text-gray-600 dark:text-gray-300 md:block">
-                {bundle.title} <span className="mx-2 text-gray-400 dark:text-gray-500">/</span> {task.title}
+                {bundle.title} <span className="mx-2 text-gray-400 dark:text-gray-500">/</span>{' '}
+                {task.title}
               </nav>
             )}
             <ThemeToggle />

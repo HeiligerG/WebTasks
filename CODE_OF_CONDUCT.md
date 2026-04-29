@@ -33,6 +33,7 @@ refactor/kurze-beschreibung  # Code-Refactorings
 ```
 
 **Beispiel:**
+
 ```bash
 git checkout -b fix/dark-mode-list-color
 ```
@@ -44,6 +45,7 @@ git checkout -b fix/dark-mode-list-color
 - Vermeide riesige Commits, die mehrere unterschiedliche Themen mischen.
 
 **Gutes Beispiel:**
+
 ```
 fix(ui): ensure list items are readable in dark mode
 ```

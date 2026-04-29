@@ -15,15 +15,18 @@ Während der Implementierung von Phase 10C wurden die Task-Instruktionen aus den
 **Konkretes Beispiel (Task `html-basics-04`):**
 
 **Aktuell im JSON:**
+
 ```json
 "instruction": "HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`."
 ```
 
 **Geplante, vollständige Instruction:**
+
 ```markdown
 HTML ermöglicht es uns, von einer Seite zur anderen zu springen. Das machen wir mit dem Anker-Tag `<a>`.
 
 **Anforderungen:**
+
 1. Erstelle einen Link, der zu `https://example.com` führt.
 2. Der angezeigte Text des Links soll `Mehr erfahren` sein.
 
@@ -35,11 +38,11 @@ Ein Link sieht so aus: `<a href="https://example.com">Linktext</a>`
 
 ## Sub-Phasen
 
-| Sub-Phase | Bundle | Scope | Detaillierter Plan |
-|:---|:---|:---|:---|
-| **11a** | Bundle 1 | 20 HTML/CSS Tasks | `state/phases/11a_phase-bundle1-instructions.md` |
-| **11b** | Bundle 2 | 20 JavaScript Tasks | `state/phases/11b_phase-bundle2-instructions.md` |
-| **11c** | Bundle 3 | 20 Interactive Web Tasks | `state/phases/11c_phase-bundle3-instructions.md` |
+| Sub-Phase | Bundle   | Scope                    | Detaillierter Plan                               |
+| :-------- | :------- | :----------------------- | :----------------------------------------------- |
+| **11a**   | Bundle 1 | 20 HTML/CSS Tasks        | `state/phases/11a_phase-bundle1-instructions.md` |
+| **11b**   | Bundle 2 | 20 JavaScript Tasks      | `state/phases/11b_phase-bundle2-instructions.md` |
+| **11c**   | Bundle 3 | 20 Interactive Web Tasks | `state/phases/11c_phase-bundle3-instructions.md` |
 
 ---
 
@@ -87,8 +90,8 @@ Jede überarbeitete `instruction` muss folgende Struktur haben:
 
 ## Risiken
 
-| Risiko | Mitigation |
-|:---|:---|
-| JSON-Syntaxfehler durch lange Multi-Line-Strings | Nach jeder Sub-Phase `jq empty bundle.json` ausführen. |
-| Markdown-Callouts werden nicht erkannt | Auf korrekte Syntax achten: `**Tipp:**` (kein Leerzeichen vor dem Doppelpunkt). |
-| Plan und JSON werden inkonsistent | Die Planungsdokumente dienen als Single Source of Truth. |
+| Risiko                                           | Mitigation                                                                      |
+| :----------------------------------------------- | :------------------------------------------------------------------------------ |
+| JSON-Syntaxfehler durch lange Multi-Line-Strings | Nach jeder Sub-Phase `jq empty bundle.json` ausführen.                          |
+| Markdown-Callouts werden nicht erkannt           | Auf korrekte Syntax achten: `**Tipp:**` (kein Leerzeichen vor dem Doppelpunkt). |
+| Plan und JSON werden inkonsistent                | Die Planungsdokumente dienen als Single Source of Truth.                        |

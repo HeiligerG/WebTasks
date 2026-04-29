@@ -56,7 +56,9 @@ export function HomePage() {
 
         <section className="mt-8">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Deine Lernmodule</h2>
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+              Deine Lernmodule
+            </h2>
             <Link to="/certificate" className="text-sm font-medium text-blue-600 hover:underline">
               Zum Zertifikat →
             </Link>
