@@ -333,7 +333,7 @@
     {
       "id": "html-basics-13",
       "title": "Flexbox: Zentrieren",
-      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `container` und darin ein roter Kreis mit der Klasse `kreis`.\n2. Mache den Container zu einem Flex-Container (`display: flex`).\n3. Zentriere den Kreis **horizontal** (`justify-content: center`) und **vertikal** (`align-items: center`).",
+      "instruction": "Flexbox ist das moderne Werkzeug, um Elemente zu arrangieren. Eine der häufigsten Aufgaben ist das Zentrieren von Inhalten.\n\n**Anforderungen:**\n1. Im HTML ist ein Container mit der Klasse `container` und darin ein roter Kreis mit der Klasse `kreis`.\n2. Mache den Container `.container` zu einem Flex-Container (`display: flex`).\n3. Zentriere den Kreis **horizontal** und **vertikal** im Container, indem du `justify-content: center` und `align-items: center` auf `.container` anwendest.\n\n**Tipp:**\n`justify-content` und `align-items` wirken immer auf dem **Flex-Container** (dem Eltern-Element), nicht auf dem Kind-Element. Schreibe sie also in die `.container`-Regel.",
       "initialCode": {
         "html": "<div class=\"container\">\n  <div class=\"kreis\"></div>\n</div>",
         "css": ".container {\n  width: 200px;\n  height: 200px;\n  border: 2px dashed #ccc;\n}\n\n.kreis {\n  width: 50px;\n  height: 50px;\n  background: red;\n  border-radius: 50%;\n}",
@@ -482,6 +482,21 @@
           "type": "dom",
           "selector": ".desktop-only",
           "feedbackFailure": "Wir können das Element mit der Klasse 'desktop-only' nicht finden."
+        },
+        {
+          "type": "css",
+          "requiredText": "@media (max-width: 600px)",
+          "feedbackFailure": "Die Media Query '@media (max-width: 600px)' fehlt im CSS."
+        },
+        {
+          "type": "css",
+          "requiredText": ".desktop-only",
+          "feedbackFailure": "Die Klasse '.desktop-only' fehlt im CSS. Stelle sicher, dass du den Selektor in der Media Query verwendest."
+        },
+        {
+          "type": "css",
+          "requiredText": "display: none",
+          "feedbackFailure": "'display: none' fehlt im CSS. Stelle sicher, dass du das Element in der Media Query versteckst."
         }
       ]
     },

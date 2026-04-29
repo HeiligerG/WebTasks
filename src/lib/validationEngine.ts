@@ -1,6 +1,6 @@
 import { assembleDocument } from './codeAssembler';
 import { protectLoops } from './loopProtect';
-import type { Task, DomTest, ConsoleTest, FunctionTest } from '../types/content';
+import type { Task, DomTest, ConsoleTest, FunctionTest, CssTest } from '../types/content';
 
 export type TestResult = {
   testIndex: number;
@@ -353,6 +353,18 @@ export async function validateFunctionTest(
   };
 }
 
+export async function validateCssTest(
+  test: CssTest,
+  code: { html: string; css: string; js: string }
+): Promise<TestResult> {
+  const passed = code.css.includes(test.requiredText);
+  return {
+    testIndex: -1,
+    passed,
+    feedback: passed ? (test.feedbackSuccess ?? 'Test bestanden.') : test.feedbackFailure,
+  };
+}
+
 export async function validateTask(
   task: Task,
   code: { html: string; css: string; js: string }
@@ -372,6 +384,9 @@ export async function validateTask(
         break;
       case 'function':
         result = await validateFunctionTest(test, code);
+        break;
+      case 'css':
+        result = await validateCssTest(test, code);
         break;
       default:
         result = {

@@ -35,7 +35,19 @@ export const FunctionTestSchema = z.object({
   feedbackFailure: z.string().min(1),
 });
 
-export const ValidationTestSchema = z.union([DomTestSchema, ConsoleTestSchema, FunctionTestSchema]);
+export const CssTestSchema = z.object({
+  type: z.literal('css'),
+  requiredText: z.string().min(1),
+  feedbackSuccess: z.string().optional(),
+  feedbackFailure: z.string().min(1),
+});
+
+export const ValidationTestSchema = z.union([
+  DomTestSchema,
+  ConsoleTestSchema,
+  FunctionTestSchema,
+  CssTestSchema,
+]);
 
 // ============================================================================
 // Domain Model: Task
@@ -75,6 +87,7 @@ export const BundleListSchema = z.array(BundleSchema);
 export type DomTest = z.infer<typeof DomTestSchema>;
 export type ConsoleTest = z.infer<typeof ConsoleTestSchema>;
 export type FunctionTest = z.infer<typeof FunctionTestSchema>;
+export type CssTest = z.infer<typeof CssTestSchema>;
 export type ValidationTest = z.infer<typeof ValidationTestSchema>;
 
 export type Task = z.infer<typeof TaskSchema>;
