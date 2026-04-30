@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 import { loadBundle, getBundleUrl } from '../lib/contentLoader';
 import { assembleDocument } from '../lib/codeAssembler';
 import { protectLoops } from '../lib/loopProtect';
@@ -184,6 +185,38 @@ export function TaskPage() {
                 {task.title}
               </nav>
             )}
+            <div className="hidden items-center gap-2 lg:flex">
+              <a
+                href="https://www.w3schools.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 rounded-md bg-green-600 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-green-700"
+                title="W3Schools – HTML, CSS & JS Referenz"
+              >
+                W3S
+                <ExternalLink className="h-3 w-3" />
+              </a>
+              <a
+                href="https://developer.mozilla.org/de/docs/Web"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 rounded-md bg-gray-800 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-black dark:bg-gray-700 dark:hover:bg-gray-600"
+                title="MDN Web Docs – Technische Dokumentation"
+              >
+                MDN
+                <ExternalLink className="h-3 w-3" />
+              </a>
+              <a
+                href="https://devdocs.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 rounded-md bg-blue-600 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-blue-700"
+                title="DevDocs – Offline-fähige API-Dokumentation"
+              >
+                DevDocs
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
             <ThemeToggle />
           </div>
         </div>

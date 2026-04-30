@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 import { loadAllBundles, getBundleUrl } from '../lib/contentLoader';
 import { useAppStore } from '../stores/appStore';
 import { BundleCard } from './BundleCard';
@@ -35,7 +36,41 @@ export function HomePage() {
       <header className="border-b border-gray-200 bg-white px-4 py-4 shadow-sm dark:border-gray-700 dark:bg-gray-900 md:px-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <span className="text-xl font-bold text-blue-600">WebTasks</span>
-          <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-2 sm:flex">
+              <a
+                href="https://www.w3schools.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 rounded-md bg-green-600 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-green-700"
+                title="W3Schools – HTML, CSS & JS Referenz"
+              >
+                W3S
+                <ExternalLink className="h-3 w-3" />
+              </a>
+              <a
+                href="https://developer.mozilla.org/de/docs/Web"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 rounded-md bg-gray-800 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-black dark:bg-gray-700 dark:hover:bg-gray-600"
+                title="MDN Web Docs – Technische Dokumentation"
+              >
+                MDN
+                <ExternalLink className="h-3 w-3" />
+              </a>
+              <a
+                href="https://devdocs.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 rounded-md bg-blue-600 px-2.5 py-1 text-xs font-medium text-white transition-colors hover:bg-blue-700"
+                title="DevDocs – Offline-fähige API-Dokumentation"
+              >
+                DevDocs
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
